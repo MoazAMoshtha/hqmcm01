@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'aljazera';
+    src: local(Al-Jazeera-Arabic-Bold);
+}
+.aljazera{
+    font-family: "aljazera";
+
+}
+.bgimg{
+    background-image: url("http://localhost/HQMCM/assets/images/bg.jpg");
+    width: 100%;
+}
+.imagesSize{
+    width: 100%;
+    height: 500px;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: aljazera;
+}
+.text-blue2{
+    color: #25c4f2;
+}
+.bg-blue2{
+    background-color: #25c4f2;
+}
+.img200{
+    height: 150px;
+}
