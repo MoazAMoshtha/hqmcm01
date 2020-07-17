@@ -18,12 +18,26 @@
         </button>
         <div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav mr-auto aljazera">
-            <li>
+            <li class="nav-item dropdown">
                 @if (Route::has('logout'))
 
                     <div class="top-right links">
                         @auth
-                            <a href="{{ route('logout') }}" class="nav-link">تسجيل الخروج</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?php
+                        $user = DB::table('users')->where('id',)->first();
+                        echo $user->firstName;
+
+
+
+                        ?>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">الملف الشخصي</a>
+                        <a class="dropdown-item" href="#">الاعدادات</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ route('logout') }}" class="dropdown-item">تسجيل الخروج</a>
+                    </div>
 
                         @else
                         @endauth

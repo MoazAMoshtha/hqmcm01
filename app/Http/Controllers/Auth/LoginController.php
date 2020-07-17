@@ -42,4 +42,7 @@ class LoginController extends Controller
         Auth::logout();
         return redirect('/login');
     }
+    public function getid() {
+        return $_POST['id'];
+    }
 }
