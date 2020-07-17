@@ -8,7 +8,7 @@
                     <div class="card-header text-right">{{ __('سجل الأن') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{route('register')}}">
                             @csrf
                             <!--الاسم الأول-->
                             <div class="form-group row justify-content-lg-center">
@@ -16,15 +16,15 @@
 
                                 </div>
 
-                                <label for="name"
+                                <label for="firstName"
                                        class="col-lg-3 col-md-4 col-form-label text-right">{{ __('الاسم الأول') }}</label>
 
                                 <div class=" col-md-7">
-                                    <input id="name" type="text"
-                                           class="text-right form-control @error('name') is-invalid @enderror"
-                                           name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="firstName" type="text"
+                                           class="text-right form-control @error('firstName') is-invalid @enderror"
+                                           name="firstName" value="{{ old('firstName') }}" required autocomplete="firstName" autofocus>
 
-                                    @error('name')
+                                    @error('firstName')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -38,15 +38,15 @@
 
                                 </div>
 
-                                <label for="name"
+                                <label for="secondName"
                                        class="col-lg-3 col-md-4 col-form-label text-right">{{ __('الاسم الثاني') }}</label>
 
                                 <div class=" col-md-7">
-                                    <input id="name" type="text"
-                                           class="text-right form-control @error('name') is-invalid @enderror"
-                                           name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="secondName" type="text"
+                                           class="text-right form-control @error('secondName') is-invalid @enderror"
+                                           name="secondName" value="{{ old('secondName') }}" required autocomplete="secondName" autofocus>
 
-                                    @error('name')
+                                    @error('secondName')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -60,15 +60,15 @@
 
                                 </div>
 
-                                <label for="name"
+                                <label for="familyName"
                                        class="col-lg-3 col-md-4 col-form-label text-right">{{ __('اسم العائلة') }}</label>
 
                                 <div class=" col-md-7">
-                                    <input id="name" type="text"
-                                           class="text-right form-control @error('name') is-invalid @enderror"
-                                           name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="familyName" type="text"
+                                           class="text-right form-control @error('familyName') is-invalid @enderror"
+                                           name="familyName" value="{{ old('familyName') }}" required autocomplete="familyName" autofocus>
 
-                                    @error('name')
+                                    @error('familyName')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -140,15 +140,15 @@
 
                                 </div>
 
-                                <label for="name"
+                                <label for="phoneNumber"
                                        class="col-lg-3 col-md-4 col-form-label text-right">{{ __('رقم الجوال') }}</label>
 
                                 <div class="col-md-7">
                                     <input placeholder="059/056" id="phoneNumber" type="text"
                                            class="text-right form-control @error('phoneNumber') is-invalid @enderror"
-                                           name="phoneNumber" value="{{ old('phoneNumber') }}" required autocomplete="phoneNumber" pattern="[059]{1}[0-9]{7}" >
+                                           name="phoneNumber" value="{{ old('phoneNumber') }}" required autocomplete="phoneNumber">
 
-                                    @error('name')
+                                    @error('phoneNumber')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -166,14 +166,14 @@
                                        class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المنطقة') }}</label>
 
                                 <div class="col-md-7 float-left">
-                                    <select class="form-control text-right" id="area">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                    <select class="form-control text-right" id="area" name="area">
+                                        <option name="area">1</option>
+                                        <option name="area">2</option>
+                                        <option name="area">3</option>
+                                        <option name="area">4</option>
+                                        <option name="area">5</option>
                                     </select>
-                                    @error('mosque')
+                                    @error('area')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -191,12 +191,12 @@
                                        class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المسجد') }}</label>
 
                                 <div class="col-md-7 float-left">
-                                    <select class="form-control text-right" id="mosque">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                    <select class="form-control text-right" id="mosque" name="mosque">
+                                        <option name="mosque">1</option>
+                                        <option name="mosque">2</option>
+                                        <option name="mosque">3</option>
+                                        <option name="mosque">4</option>
+                                        <option name="mosque">5</option>
                                     </select>
                                     @error('mosque')
                                     <span class="invalid-feedback" role="alert">
@@ -212,12 +212,15 @@
 
                                 </div>
 
-                                <label for="name"
+                                <label for="id"
                                        class="col-lg-3 col-md-4 col-form-label text-right">{{ __('رقم المستخدم') }}</label>
 
                                 <div class=" col-md-7">
-                                    <input id="id" type="text" placeholder=" : خاص بتسجيل الدخول " disabled
-                                           class="text-right form-control @error('id') is-invalid @enderror"
+                                    <input id="id" type="text" placeholder="<?php
+                                    $last = DB::table('users')->latest()->first();
+                                    echo str_pad($last->id+1, 0, '0', 0);
+                                    ?> : خاص بتسجيل الدخول " disabled
+                                           class="text-right form-control"
                                            name="id" value="{{ old('id') }}"  autocomplete="id" autofocus>
 
                                     @error('id')
@@ -244,3 +247,4 @@
         </div>
     </div>
 @endsection
+<h3>hjghjghjghjghjghjghjghjghjghjghjghjghjghjg</h3>
