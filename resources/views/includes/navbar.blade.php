@@ -7,25 +7,55 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="http://localhost/HQMCM/assets/css/css.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/hqmcm01/assets/css/css.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="aljazera">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
         <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target" >
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav mr-auto aljazera">
+            <li>
+                @if (Route::has('logout'))
+
+                    <div class="top-right links">
+                        @auth
+                            <a href="{{ route('logout') }}" class="nav-link">تسجيل الخروج</a>
+
+                        @else
+                        @endauth
+                    </div>
+                @endif
+            </li>
             <li class="nav-item">
-                <a class="nav-link" href="../auth/register.blade.php">سجل الان</a>
+                @if (Route::has('register'))
+                    <div class="top-right links">
+                        @auth
+                        @else
+                            <a href="{{ route('register') }}" class="nav-link">سجل الان</a>
+                        @endauth
+
+                    </div>
+                @endif
+
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="../auth/login.blade.php"><span class="mr-2"> | </span> تسجيل الدخول</a>
+            <li>
+                @if (Route::has('login'))
+
+                    <div class="top-right links">
+                        @auth
+                        @else
+                            <a href="{{ route('login') }}" class="nav-link"> تسجيل الدخول</a>
+                        @endauth
+                    </div>
+                @endif
             </li>
+
         </ul>
-            <ul class="navbar-nav ml-auto aljazera">
+            <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="#">اتصل بنا</a>
             </li>
@@ -33,7 +63,10 @@
                 <a class="nav-link" href="#">من نحن</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">الرئيسية</a>
+
+
+                            <a href="" class="nav-link">الرئيسية</a>
+
             </li>
         </ul>
         </div>
