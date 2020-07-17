@@ -4,14 +4,13 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdminsTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @param $data
-     * @return void
-     */
+class CreateStudentsTable extends Migration
+{ /**
+ * Run the migrations.
+ *
+ * @param $data
+ * @return void
+ */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
