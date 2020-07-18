@@ -14,7 +14,7 @@ class CreateMosqueAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('mosque_admins', function (Blueprint $table) {
             $table->id();
             $table->string('firstName');
             $table->string('secondName');
@@ -38,6 +38,6 @@ class CreateMosqueAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('mosque_admins');
     }
 }

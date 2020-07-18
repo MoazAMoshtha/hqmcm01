@@ -217,8 +217,13 @@
 
                                 <div class=" col-md-7">
                                     <input id="id" type="text" placeholder="<?php
-                                    $last = DB::table('users')->latest()->first();
-                                    echo str_pad($last->id+1, 0, '0', 0);
+                                  $last = DB::table('users')->latest()->first()->id;
+                                    if ($last > 0){
+                                        echo $last+1;
+                                    }elseif ($last == 0){
+                                        echo '1';
+                                    }
+
                                     ?> : خاص بتسجيل الدخول " disabled
                                            class="text-right form-control"
                                            name="id" value="{{ old('id') }}"  autocomplete="id" autofocus>

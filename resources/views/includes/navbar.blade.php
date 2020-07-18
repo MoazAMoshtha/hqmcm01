@@ -77,7 +77,7 @@
             <li class="nav-item">
 
 
-                <a href="" class="nav-link">الرئيسية</a>
+                <a href="http://hqmcm01.test/" class="nav-link">الرئيسية</a>
 
             </li>
         </ul>
