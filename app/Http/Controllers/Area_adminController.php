@@ -1,18 +1,11 @@
 <?php
 
+
 namespace App\Http\Controllers;
-use Auth;
 
 
-class HomeController extends Controller
+class Area_adminController extends Controller
 {
-
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -24,8 +17,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
-            return view('/home');
+        return view('/area_admin');
     }
 }

@@ -22,9 +22,11 @@ Route::post('/', function () {
 
 
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/student', 'StudentController@index')->name('student');
+Route::get('/home','HomeController@index')->name('home');
+Route::post('/student','StudentController@index')->name('student');
 Route::get('/student', 'StudentController@index')->name('student');
+Route::post('/area_admin', 'Area_adminController@index')->name('area_admin');
+Route::get('/area_admin', 'Area_adminController@index')->name('area_admin');
 
 
 Auth::routes();

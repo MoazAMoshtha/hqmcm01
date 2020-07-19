@@ -4,7 +4,7 @@
 namespace App\Http\Controllers;
 
 
-class StudentController extends Controller
+class Mosque_adminController extends Controller
 {
     public function __construct()
     {
@@ -13,6 +13,6 @@ class StudentController extends Controller
 
     public function index()
     {
-        return view('/student');
+        return view('/mosque_admin');
     }
 }

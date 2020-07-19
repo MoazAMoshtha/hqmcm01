@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="http://localhost/hqmcm01/assets/css/css.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>ادارة مراكز التحفيظ</title>
 </head>
 <body class="aljazera">
 <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
@@ -74,11 +75,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">من نحن</a>
             </li>
+            <li>
+                @if (Auth::id() == '1')
+
+                    <div class="top-right links">
+                        @auth
+                            <a href="{{ route('home') }}" class="nav-link"> ادارة المنطقة</a>
+                        @else
+                        @endauth
+                    </div>
+                @endif
+            </li>
             <li class="nav-item">
-
-
                 <a href="http://hqmcm01.test/" class="nav-link">الرئيسية</a>
-
             </li>
         </ul>
     </div>

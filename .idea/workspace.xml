@@ -2,15 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6c9c5b9-17a3-4af0-b554-d0212ec98760" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/WelcomeControllers.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Area_adminController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Mosque_adminController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_07_19_000910_create_mosques_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_07_19_000929_create_areas_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/area_admin.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/mosque_admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_17_140329_create_admins_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_17_140329_create_admins_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_17_183619_create_students_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_17_183619_create_students_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_17_183708_create_tachers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_17_183708_create_tachers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_17_183828_create_area_admins_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_17_183828_create_area_admins_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_17_183911_create_mosque_admins_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_17_183911_create_mosque_admins_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_17_183708_create_tachers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_17_183708_create_teachers_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +168,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -168,6 +179,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers" />
       <recent name="C:\laragon\www\hqmcm01\resources\views" />
       <recent name="C:\laragon\www\hqmcm01" />
     </key>
@@ -200,7 +212,8 @@
       <workItem from="1594930898062" duration="11753000" />
       <workItem from="1594990757343" duration="3459000" />
       <workItem from="1594994250204" duration="15031000" />
-      <workItem from="1595111576945" duration="2226000" />
+      <workItem from="1595111576945" duration="8569000" />
+      <workItem from="1595160463868" duration="3939000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1595001925737</created>
@@ -230,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595011295516</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="new">
+      <created>1595113847156</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1595113847156</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,18 +270,20 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#Notifications/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595005190906" />
-    <state x="437" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1595113529236">
+    <state x="437" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1595114640115">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="437" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1595113529236" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1594995071774">
+    <state x="437" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1595114640115" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595163146844">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1594995071774" />
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1595011294783">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1595163146844" />
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1595113846335">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595011294783" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1595113846335" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1595003486202">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -291,15 +313,16 @@
     </state>
     <state x="438" y="178" key="NewPhpClassDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595010909898" />
     <state x="438" y="178" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1595113512382" />
-    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1595010342725">
+    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1595119317516">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595010342725" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1595113836821">
+    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1595119317516" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1595113849029">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595011298009" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1595113836821" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1595113849029" />
     <state x="487" y="88" width="981" height="508" key="dock-window-1" timestamp="1594999436883">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
