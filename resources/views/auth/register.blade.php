@@ -1,4 +1,3 @@
-@include('includes.navbar')
 @extends('layouts.app')
 @section('content')
     <div class="container">
@@ -9,8 +8,8 @@
 
                     <div class="card-body">
                         <form method="POST" action="{{route('register')}}">
-                            @csrf
-                            <!--الاسم الأول-->
+                        @csrf
+                        <!--الاسم الأول-->
                             <div class="form-group row justify-content-lg-center">
                                 <div class="col-lg-4">
 
@@ -217,13 +216,13 @@
 
                                 <div class=" col-md-7">
                                     <input id="id" type="text" placeholder="<?php
-                                       $rowCount = DB::table('users')->count();
-                                       if ($rowCount == 0){
-                                           echo 01;
-                                       }else{
-                                           $last = DB::table('users')->latest()->first()->id;
-                                           echo $last+1;
-                                       }
+                                    $rowCount = DB::table('users')->count();
+                                    if ($rowCount == 0){
+                                        echo 01;
+                                    }else{
+                                        $last = DB::table('users')->latest()->first()->id;
+                                        echo $last+1;
+                                    }
                                     ?> : خاص بتسجيل الدخول " disabled
                                            class="text-right form-control"
                                            name="id" value="{{ old('id') }}"  autocomplete="id" autofocus>

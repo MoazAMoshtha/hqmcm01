@@ -20,8 +20,11 @@ class CreateAdminsTable extends Migration
             $table->string('secondName');
             $table->string('familyName');
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('phoneNumber');
+            $table->string('area');
+            $table->string('mosque');
             $table->rememberToken();
             $table->timestamps();
         });

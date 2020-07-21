@@ -4,10 +4,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-right">{{ __('تسجيل الدخول') }}</div>
+                    <div class="card-header text-right">{{ __('تسجيل الدخول كمسؤول') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{route('login')}}">
+                        <form role="form" method="POST" action="{{ route('admin.login.submit') }}">
                         @csrf
                         <!--رقم المستخدم-->
                             <div class="form-group row justify-content-lg-center">

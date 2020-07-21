@@ -16,19 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('/', function () {
-    return view('welcome');
-});
-
-
-
-Route::get('/home','HomeController@index')->name('home');
-Route::post('/student','StudentController@index')->name('student');
-Route::get('/student', 'StudentController@index')->name('student');
-Route::post('/area_admin', 'Area_adminController@index')->name('area_admin');
-Route::get('/area_admin', 'Area_adminController@index')->name('area_admin');
-
 
 Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('admin')->group(function (){
+    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login.submit');
+    Route::get('/', 'AdminController@index')->name('admin.dashboard');
+});
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+

@@ -1,10 +1,10 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 
-class welcomeControllers extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -16,7 +16,6 @@ class welcomeControllers extends Controller
         $this->middleware('auth');
     }
 
-
     /**
      * Show the application dashboard.
      *
@@ -24,6 +23,6 @@ class welcomeControllers extends Controller
      */
     public function index()
     {
-        return view('/welcome1');
+        return view('admin');
     }
 }
