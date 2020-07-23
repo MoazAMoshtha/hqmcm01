@@ -39,11 +39,6 @@ return [
     */
 
     'guards' => [
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'admins',
-        ],
-
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -52,6 +47,10 @@ return [
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
+        ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
         ],
 
         'admin-api' => [

@@ -9,7 +9,9 @@
 
     </head>
     <body>
+    @include('includes.header-top')
     @include('includes.navbar')
+
     <!--اخر الأخبار-->
     <div class="container-fluid">
         <div class="row justify-content-start">
@@ -35,7 +37,7 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block  imagesSize" src="../../assets/images/1.svg"
+                            <img class="d-block  imagesSize" src="{{asset('assets/images/1.svg')}}"
                                  alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Third slide label</h5>
@@ -43,7 +45,7 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block imagesSize" src="assets/images/2.svg"
+                            <img class="d-block imagesSize" src="{{asset('assets/images/2.svg')}}"
                                  alt="Second slide">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>وزارة الأوقاف والشؤون الدينية</h5>
@@ -51,7 +53,7 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block imagesSize" src="assets/images/3.svg"
+                            <img class="d-block imagesSize" src="{{asset('assets/images/3.svg')}}"
                                  alt="Third slide">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Third slide label</h5>
@@ -142,7 +144,7 @@
                                 </div>
                                 <div class="row justify-content-around text-white text-right">
                                     <div class="col-md-4 col-sm-6 col-lg-4 mb-3">
-                                        <img src="assets/images/qra.jpg" class="rounded float-sm-left w-100 img200">
+                                        <img src="{{asset('assets/images/qra.jpg')}}" class="rounded float-sm-left w-100 img200">
                                     </div>
                                     <div class="col-md-6 col-sm-2 col-lg-6">
                                         <div>
@@ -166,7 +168,7 @@
                                 </div>
                                 <div class="row justify-content-around text-white text-right">
                                     <div class="col-md-4 col-sm-6 col-lg-4 mb-3">
-                                        <img src="assets/images/1.jpg" class="rounded float-sm-left w-100 img200">
+                                        <img src="{{asset('assets/images/1.jpg')}}" class="rounded float-sm-left w-100 img200">
                                     </div>
                                     <div class="col-md-6 col-sm-2 col-lg-6">
                                         <div >
@@ -184,22 +186,20 @@
 
                 </div>
             </div>
-
             <div class="col-1">
-
             </div>
         </div>
     </div>
 
-    <div class="container-fluid bg-blue2 h-100">
+    <div class="container-fluid bg-blue2 h-100 w-100">
         <div class="row justify-content-start">
             <div class="col-sm-1">
                 <div>
 
                 </div>
             </div>
-            <div class="col-sm-10">
-                <h4 class="aljazera pt-3 text-right text-white">ابداعات الطلاب </h4>
+            <div class="col-sm-10 h-100">
+                <h3 class="pt-3 text-right text-white">ابداعات الطلاب </h3>
                 <div class="bg-white h-15 pt-1 mb-2">
 
                 </div>

@@ -15,10 +15,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/manger', 'MangerController@index')->name('manger');
+Route::get('/stud_create', 'StudInsertController@index')->name('stud_create');
+Route::get('insertArea','AreaController@insertform');
+Route::post('createArea','AreaController@insert');
+Route::post('showAreas','AreaController@showAreas')->name('showAreas');
+
 
 Route::prefix('admin')->group(function (){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -27,4 +34,9 @@ Route::prefix('admin')->group(function (){
 });
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

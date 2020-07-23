@@ -1,18 +1,10 @@
-<!doctype html>
-<html lang="ar">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="http://localhost/hqmcm01/assets/css/css.css" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>ادارة مراكز التحفيظ</title>
-</head>
+@include('layouts.master')
+@section('content')
+<style>
+    .bg{
+        background-image: url("{{ asset('assets/images/bg.jpg') }}")
+    }
+</style>
 <body class="aljazera">
 <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
     <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
@@ -80,14 +72,15 @@
 
                     <div class="top-right links">
                         @auth
-                            <a href="{{ route('home') }}" class="nav-link"> ادارة المنطقة</a>
+                            <a href="{{ route('manger') }}" class="nav-link">الادارة</a>
                         @else
                         @endauth
                     </div>
                 @endif
             </li>
             <li class="nav-item">
-                <a href="http://hqmcm01.test/" class="nav-link">الرئيسية</a>
+
+                <a href="{{route('welcome')}}" class="nav-link  ">الرئيسية</a>
             </li>
         </ul>
     </div>

@@ -15,6 +15,10 @@ class CreateAreasTable extends Migration
     {
         Schema::create('areas', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('number_of_mosques')->nullable();
+            $table->integer('number_of_teachers')->nullable();
+            $table->integer('number_of_students')->nullable();
             $table->timestamps();
         });
     }
