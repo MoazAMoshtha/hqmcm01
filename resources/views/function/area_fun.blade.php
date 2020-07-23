@@ -11,8 +11,8 @@
                     <div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link " id="nav-hide-tab" data-toggle="tab" href="#nav-hide" role="tab"
                            aria-controls="nav-hide" aria-selected="true">ضم القائمة</a>
-                        <a class="nav-item nav-link " id="nav-delet-tab" data-toggle="tab" href="#nav-delet" role="tab"
-                           aria-controls="nav-delet" aria-selected="true">حذف منطقة</a>
+                        <a class="nav-item nav-link " id="nav-update-tab" data-toggle="tab" href="#nav-update" role="tab"
+                           aria-controls="nav-update" aria-selected="true">تعديل منطقة</a>
                         <a class="nav-item nav-link " id="nav-add-tab" data-toggle="tab" href="#nav-add" role="tab"
                            aria-controls="nav-add" aria-selected="false">اضافة منطقة</a>
                         <a class="nav-item nav-link active" id="nav-view-tab" data-toggle="tab" href="#nav-view"
@@ -22,8 +22,144 @@
                 <div class="tab-content text-right" id="nav-tabContent">
                     <!--ضم القائمة-->
                     <div class="tab-pane fade" id="nav-hide" role="tabpanel" aria-labelledby="nav-hide-tab"></div>
-                    <!--حذف منطقة-->
-                    <div class="tab-pane fade" id="nav-delet" role="tabpanel" aria-labelledby="nav-delet-tab"></div>
+
+                    <!--تعديل منطقة-->
+                    <div class="tab-pane fade" id="nav-update" role="tabpanel" aria-labelledby="nav-update-tab">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <form method="post" action="/edit/{{$areas[0]->id}}">
+                                        @csrf
+                                        <!--اسم المنطقة-->
+                                            <div class="form-group row justify-content-lg-center">
+                                                <div class="col-lg-4">
+
+                                                </div>
+                                                <label for="name" class="col-lg-3 col-md-4 col-form-label text-right">{{ __('اسم المنطقة') }}</label>
+
+                                                <div class=" col-md-7">
+                                                    <input id="name" type="text"
+                                                           class="text-right form-control @error('name') is-invalid @enderror"
+                                                           name="name" value="{{$areas[0]->name}}" required
+                                                           autocomplete="name" autofocus>
+
+                                                    @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <!--المحافظة-->
+                                            <div class="form-group row justify-content-lg-center ">
+                                                <div class="col-lg-4">
+
+                                                </div>
+                                                <label for="governorate"
+                                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المحافظة') }}</label>
+
+                                                <div class=" col-md-7">
+                                                    <input disabled id="governorate" type="text"
+                                                           class="text-right form-control @error('name') is-invalid @enderror"
+                                                           name="governorate" value="{{ old('name') }}" required
+                                                           autocomplete="governorate" autofocus>
+
+                                                    @error('governorate')
+                                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <!--عدد المساجد-->
+                                            <div class="form-group row justify-content-lg-center">
+                                                <div class="col-lg-4">
+
+                                                </div>
+
+                                                <label for="number_of_mosques"
+                                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('عدد المساجد') }}</label>
+
+                                                <div class=" col-md-7">
+                                                    <input id="number_of_mosques" type="text"
+                                                           class="text-right form-control @error('number_of_mosques') is-invalid @enderror"
+                                                           name="secondName" value="{{ $areas[0]->number_of_mosques }}"
+                                                           autocomplete="number_of_mosques" autofocus>
+
+                                                    @error('number_of_mosques')
+                                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <!--عدد المحفظين-->
+                                            <div class="form-group row justify-content-lg-center">
+                                                <div class="col-lg-4">
+
+                                                </div>
+
+                                                <label for="number_of_teachers"
+                                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('عدد المحفظين') }}</label>
+
+                                                <div class=" col-md-7">
+                                                    <input id="number_of_teachers" type="text"
+                                                           class="text-right form-control @error('number_of_teachers') is-invalid @enderror"
+                                                           name="number_of_teachers"
+                                                           value="{{ $areas[0]->number_of_teachers }}"
+                                                           autocomplete="number_of_teachers" autofocus>
+
+                                                    @error('number_of_teachers')
+                                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <!--عدد الطلاب-->
+                                            <div class="form-group row justify-content-lg-center">
+                                                <div class="col-lg-4">
+
+                                                </div>
+
+                                                <label for="number_of_students"
+                                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('عدد الطلاب') }}</label>
+
+                                                <div class=" col-md-7">
+                                                    <input id="number_of_students" type="text"
+                                                           class="text-right form-control @error('number_of_students') is-invalid @enderror"
+                                                           name="number_of_students"
+                                                           value="{{ $areas[0]->number_of_students }}"
+                                                           autocomplete="number_of_students" autofocus>
+
+                                                    @error('number_of_students')
+                                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <!--تسجيل-->
+                                            <div class="form-group row text-center justify-content-center">
+                                                <div class="col-lg-12">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        {{ __('حفظ') }}
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!--اضافة منطقة-->
                     <div class="tab-pane fade" id="nav-add" role="tabpanel" aria-labelledby="nav-add-tab">
                         <div class="container">
@@ -54,6 +190,27 @@
                                                 </div>
                                             </div>
 
+                                            <!--المحافظة-->
+                                            <div class="form-group row justify-content-lg-center ">
+                                                <div class="col-lg-4">
+
+                                                </div>
+                                                <label for="governorate"
+                                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المحافظة') }}</label>
+
+                                                <div class=" col-md-7">
+                                                    <input disabled id="governorate" type="text"
+                                                           class="text-right form-control @error('name') is-invalid @enderror"
+                                                           name="governorate" value="{{ old('name') }}" required
+                                                           autocomplete="governorate" autofocus>
+
+                                                    @error('governorate')
+                                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                             <!--عدد المساجد-->
                                             <div class="form-group row justify-content-lg-center">
                                                 <div class="col-lg-4">
@@ -140,6 +297,7 @@
                             </div>
                         </div>
                     </div>
+
                     <!--عرض المناطق-->
                     <div class="tab-pane fade show active" id="nav-view" role="tabpanel" aria-labelledby="nav-view-tab">
                         <div class="container h-100 w-100">
@@ -157,6 +315,7 @@
                             <table class="table">
                                 <thead>
                                 <tr>
+                                    <td>حذف | تعديل</td>
                                     <td scope="col">عدد الطلاب</td>
                                     <td scope="col">عدد المحفظين</td>
                                     <td scope="col">عدد المساجد</td>
@@ -165,20 +324,21 @@
                                 </tr>
                                 </thead>
                                 @if(Route::currentRouteName() == 'showAreas')
-                                        @foreach ($areas as $area)
+                                    @foreach ($areas as $area)
                                         <tbody>
-                                            <tr>
-                                                <td>{{ $area->number_of_students }}</td>
-                                                <td>{{ $area->number_of_teachers }}</td>
-                                                <td>{{ $area->number_of_mosques }}</td>
-                                                <td>{{ $area->name }}</td>
-                                                <td scope="row">{{ $area->id }}</td>
-                                            </tr>
-                                        </tbody>
-                                        @endforeach
-                                 @endif
-                            </table>
+                                        <tr>
+                                            <td><a href = 'delete/{{ $area->id }}'>حذف</a><a href = 'edit/{{ $area->id }}'>| تعديل</a></td>
+                                            <td>{{ $area->number_of_students }}</td>
+                                            <td>{{ $area->number_of_teachers }}</td>
+                                            <td>{{ $area->number_of_mosques }}</td>
+                                            <td>{{ $area->name }}</td>
+                                            <td scope="row">{{ str_pad( $area->id, 2, "0", STR_PAD_LEFT ) }}</td>
 
+                                        </tr>
+                                        </tbody>
+                                    @endforeach
+                                @endif
+                            </table>
                         </div>
                     </div>
 

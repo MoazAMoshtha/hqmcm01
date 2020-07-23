@@ -2,91 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6c9c5b9-17a3-4af0-b554-d0212ec98760" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Area.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AreaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MangerController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/StudInsertController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/css/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/js/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/function/area_admins_fun.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/function/area_fun.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/function/mosque_admins_fun.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/function/mosque_fun.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/function/students_fun.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/function/teachers_fun.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/teacher.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manger.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/operationStatus/area_add_status.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/hqmcm01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hqmcm01.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/Al-Jazeera-Arabic-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/Al-Jazeera-Arabic-Bold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/css.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/font/ArbFONTS-Al-Jazeera-Arabic-Bold-1.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/font/ArbFONTS-Al-Jazeera-Arabic-Bold-1.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/font/ArbFONTS-Al-Jazeera-Arabic-Light.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/font/ArbFONTS-Al-Jazeera-Arabic-Light.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/font/ArbFONTS-Al-Jazeera-Arabic-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/font/ArbFONTS-Al-Jazeera-Arabic-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/1.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/2.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/3.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/3.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/backgrand.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/backgrand.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/bg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/chicago.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/chicago.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/google_play.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/google_play.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/index.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/index.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/la.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/la.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/mobile_store.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/mobile_store.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/qra.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/qra.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_17_183828_create_area_admins_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_17_183828_create_area_admins_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_19_000929_create_areas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_19_000929_create_areas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/area_admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/area_admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/header-top.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/header-top.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mosque_admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/mosque_admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/student.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AreaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AreaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/function/area_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/area_fun.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/manger.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/manger.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/operationStatus/area_add_status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/operationStatus/area_add_status.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -288,7 +208,9 @@
       <workItem from="1595452287217" duration="5973000" />
       <workItem from="1595458327888" duration="5815000" />
       <workItem from="1595464514527" duration="2757000" />
-      <workItem from="1595503798787" duration="12732000" />
+      <workItem from="1595503798787" duration="15002000" />
+      <workItem from="1595519736336" duration="745000" />
+      <workItem from="1595520882550" duration="6195000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1595001925737</created>
@@ -332,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595464806494</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="7-23-2020">
+      <created>1595516853786</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1595516853786</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +270,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="new" />
-    <option name="LAST_COMMIT_MESSAGE" value="new" />
+    <MESSAGE value="7-23-2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="7-23-2020" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Composer" timestamp="1594860321470">
@@ -365,10 +295,10 @@
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595506592749" />
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1595163146844" />
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1595464805224">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1595516852357">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595464805224" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595516852357" />
     <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1595113846335" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1595347384961">
       <screen x="0" y="0" width="1366" height="728" />
@@ -412,10 +342,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595459549729" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1595464814892">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1595516858371">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595464814892" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595516858371" />
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1595113849029" />
     <state x="1728" y="0" width="889" height="483" maximized="true" key="dock-window-1" timestamp="1595515509099">
       <screen x="1366" y="0" width="1366" height="728" />

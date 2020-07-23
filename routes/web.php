@@ -21,10 +21,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/manger', 'MangerController@index')->name('manger');
-Route::get('/stud_create', 'StudInsertController@index')->name('stud_create');
 Route::get('insertArea','AreaController@insertform');
 Route::post('createArea','AreaController@insert');
 Route::post('showAreas','AreaController@showAreas')->name('showAreas');
+Route::get('delete-records','AreaController@index');
+Route::get('delete/{id}','AreaController@destroy');
+Route::get('edit-records','AreaController@index');
+Route::get('edit/{id}','AreaController@show');
+Route::post('edit/{id}','AreaController@edit');
 
 
 Route::prefix('admin')->group(function (){
