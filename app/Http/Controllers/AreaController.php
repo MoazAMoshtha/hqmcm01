@@ -19,7 +19,8 @@ class AreaController extends Controller
     public function show($id)
     {
         $areas = DB::select('select * from areas where id = ?', [$id]);
-        return view('manger', ['areas' => $areas]);
+        return redirect()->route('manger' , ['areas' => $areas] )->with('status','edit');
+
     }
 
     public function insertform()
@@ -36,17 +37,18 @@ class AreaController extends Controller
         $areas = DB::table('areas')->get();
         foreach ($areas as $area) {
             if ($area->name == $name) {
-                return redirect('manger')->withErrors('message', 'fail');
+                return redirect('manger')->with('status', 'areaInsert Failure');
             }
         }
         DB::select('insert into areas (name, number_of_mosques,number_of_teachers,number_of_students) values (?,?, ?, ?)', [$name, $number_of_mosques, $number_of_teachers, $number_of_students]);
-        return redirect('manger')->withSuccess('message', 'success');
+        return redirect('manger')->with('status', 'areaInsert success');
     }
 
     public function showAreas()
     {
         $areas = DB::select('select * from areas');
-        return view('manger', ['areas' => $areas])->withSuccess('message', 'success');
+        return view('manger', ['areas' => $areas]);
+
     }
 
     public function destroy($id)
@@ -62,11 +64,10 @@ class AreaController extends Controller
         $number_of_mosques = $request->input('number_of_mosques');
         $number_of_teachers = $request->input('number_of_teachers');
         $number_of_students = $request->input('number_of_students');
-        //$data=array('first_name'=>$first_name,"last_name"=>$last_name,"city_name"=>$city_name,"email"=>$email);
-        //DB::table('student')->update($data);
-        // DB::table('student')->whereIn('id', $id)->update($request->all());
         DB::update('update areas set name = ?,number_of_mosques=?,number_of_teachers=?,number_of_students=? where id = ?', [$name, $number_of_mosques, $number_of_teachers, $number_of_students, $id]);
-        return redirect('manger')->with('status', 'areaUpdated');
+        return redirect('manger')->with('status', 'areaUpdate success');
+
 
     }
+
 }

@@ -1,4 +1,22 @@
 <?php
+if (session('status') == 'edit') {
+    $active = 'active';
+    $show = 'show';
+    $active2 = '';
+    $show2 = '';
+} else {
+    $active = '';
+    $show = '';
+    $active2 = 'active';
+    $show2 = 'show';
+}
+
+if (isset($_GET['areas'])) {
+    $area = $_GET['areas'];
+} else {
+    $area = [0, 0, 0, 0];
+}
+
 
 ?>
 
@@ -7,41 +25,48 @@
         <div class="card-body text-right">
             <div>
                 <h2 class="text-right">ادارة المناطق</h2>
+
                 <nav>
                     <div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link " id="nav-hide-tab" data-toggle="tab" href="#nav-hide" role="tab"
                            aria-controls="nav-hide" aria-selected="true">ضم القائمة</a>
-                        <a class="nav-item nav-link " id="nav-update-tab" data-toggle="tab" href="#nav-update" role="tab"
+                        <a class="nav-item nav-link <?php echo $active?>" id="nav-update-tab" data-toggle="tab"
+                           href="#nav-update" role="tab"
                            aria-controls="nav-update" aria-selected="true">تعديل منطقة</a>
                         <a class="nav-item nav-link " id="nav-add-tab" data-toggle="tab" href="#nav-add" role="tab"
                            aria-controls="nav-add" aria-selected="false">اضافة منطقة</a>
-                        <a class="nav-item nav-link active" id="nav-view-tab" data-toggle="tab" href="#nav-view"
+                        <a class="nav-item nav-link <?php echo $active2?>" id="nav-view-tab" data-toggle="tab"
+                           href="#nav-view"
                            role="tab" aria-controls="nav-view" aria-selected="false">عرض المناطق</a>
                     </div>
                 </nav>
+
                 <div class="tab-content text-right" id="nav-tabContent">
+
                     <!--ضم القائمة-->
                     <div class="tab-pane fade" id="nav-hide" role="tabpanel" aria-labelledby="nav-hide-tab"></div>
 
                     <!--تعديل منطقة-->
-                    <div class="tab-pane fade" id="nav-update" role="tabpanel" aria-labelledby="nav-update-tab">
+                    <div class="tab-pane fade <?php echo $active . " " . $show?>" id="nav-update" role="tabpanel"
+                         aria-labelledby="nav-update-tab">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <form method="post" action="/edit/{{$areas[0]->id}}">
+                                        <form method="post" action="/edit/{{$area[0]['id']}}">
                                         @csrf
                                         <!--اسم المنطقة-->
                                             <div class="form-group row justify-content-lg-center">
                                                 <div class="col-lg-4">
 
                                                 </div>
-                                                <label for="name" class="col-lg-3 col-md-4 col-form-label text-right">{{ __('اسم المنطقة') }}</label>
+                                                <label for="name"
+                                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('اسم المنطقة') }}</label>
 
                                                 <div class=" col-md-7">
                                                     <input id="name" type="text"
                                                            class="text-right form-control @error('name') is-invalid @enderror"
-                                                           name="name" value="{{$areas[0]->name}}" required
+                                                           name="name" value="<?php if(isset($area[0]['name'])){echo $area[0]['name'];} ?>" required
                                                            autocomplete="name" autofocus>
 
                                                     @error('name')
@@ -73,6 +98,7 @@
                                                     @enderror
                                                 </div>
                                             </div>
+
                                             <!--عدد المساجد-->
                                             <div class="form-group row justify-content-lg-center">
                                                 <div class="col-lg-4">
@@ -85,7 +111,8 @@
                                                 <div class=" col-md-7">
                                                     <input id="number_of_mosques" type="text"
                                                            class="text-right form-control @error('number_of_mosques') is-invalid @enderror"
-                                                           name="secondName" value="{{ $areas[0]->number_of_mosques }}"
+                                                           name="secondName"
+                                                           value="<?php if (isset($area[0]['number_of_mosques'])){ echo $area[0]['number_of_mosques'];} ?>"
                                                            autocomplete="number_of_mosques" autofocus>
 
                                                     @error('number_of_mosques')
@@ -109,7 +136,7 @@
                                                     <input id="number_of_teachers" type="text"
                                                            class="text-right form-control @error('number_of_teachers') is-invalid @enderror"
                                                            name="number_of_teachers"
-                                                           value="{{ $areas[0]->number_of_teachers }}"
+                                                           value="<?php if (isset($area[0]['number_of_teachers'])){ echo $area[0]['number_of_teachers'];} ?>"
                                                            autocomplete="number_of_teachers" autofocus>
 
                                                     @error('number_of_teachers')
@@ -133,7 +160,7 @@
                                                     <input id="number_of_students" type="text"
                                                            class="text-right form-control @error('number_of_students') is-invalid @enderror"
                                                            name="number_of_students"
-                                                           value="{{ $areas[0]->number_of_students }}"
+                                                           value="<?php if (isset($area[0]['number_of_students'])){echo $area[0]['number_of_students'];} ?>"
                                                            autocomplete="number_of_students" autofocus>
 
                                                     @error('number_of_students')
@@ -299,7 +326,8 @@
                     </div>
 
                     <!--عرض المناطق-->
-                    <div class="tab-pane fade show active" id="nav-view" role="tabpanel" aria-labelledby="nav-view-tab">
+                    <div class="tab-pane fade <?php echo $active2 . " " . $show2?>" id="nav-view" role="tabpanel"
+                         aria-labelledby="nav-view-tab">
                         <div class="container h-100 w-100">
                             <form method="post" action="/showAreas">
                             @csrf
@@ -327,7 +355,8 @@
                                     @foreach ($areas as $area)
                                         <tbody>
                                         <tr>
-                                            <td><a href = 'delete/{{ $area->id }}'>حذف</a><a href = 'edit/{{ $area->id }}'>| تعديل</a></td>
+                                            <td><a href='delete/{{ $area->id }}'>حذف</a><a href='edit/{{ $area->id }}'>|
+                                                    تعديل</a></td>
                                             <td>{{ $area->number_of_students }}</td>
                                             <td>{{ $area->number_of_teachers }}</td>
                                             <td>{{ $area->number_of_mosques }}</td>

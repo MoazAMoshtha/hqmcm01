@@ -20,7 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/manger', 'MangerController@index')->name('manger');
 Route::get('/manger', 'MangerController@index')->name('manger');
+Route::get('/function.area_fun', 'AreaController@index')->name('area_fun');
 Route::get('insertArea','AreaController@insertform');
 Route::post('createArea','AreaController@insert');
 Route::post('showAreas','AreaController@showAreas')->name('showAreas');
