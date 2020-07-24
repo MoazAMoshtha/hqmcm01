@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6c9c5b9-17a3-4af0-b554-d0212ec98760" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/mamam.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AreaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AreaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/function/area_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/area_fun.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/manger.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/manger.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/operationStatus/area_add_status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/operationStatus/area_add_status.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +16,11 @@
     </execution>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="MoazAMoshtha &lt;mama.moshtha@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="PUSH_TAGS">
       <GitPushTagMode>
         <option name="argument" value="--tags" />
@@ -215,6 +214,7 @@
       <workItem from="1595598765773" duration="3644000" />
       <workItem from="1595599404420" duration="241000" />
       <workItem from="1595620334597" duration="6157000" />
+      <workItem from="1595627037299" duration="256000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1595001925737</created>
@@ -272,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595527149124</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="7-25-2020 12:45am">
+      <created>1595627177444</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1595627177444</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,7 +290,8 @@
     <MESSAGE value="new" />
     <MESSAGE value="7-23-2020" />
     <MESSAGE value="7-23-2020 8:58pm" />
-    <option name="LAST_COMMIT_MESSAGE" value="7-23-2020 8:58pm" />
+    <MESSAGE value="7-25-2020 12:45am" />
+    <option name="LAST_COMMIT_MESSAGE" value="7-25-2020 12:45am" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Composer" timestamp="1594860321470">
@@ -307,10 +315,10 @@
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595506592749" />
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1595163146844" />
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1595627111380">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1595627176337">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595627111380" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595627176337" />
     <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1595113846335" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1595347384961">
       <screen x="0" y="0" width="1366" height="728" />
@@ -354,10 +362,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595459549729" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1595527152694">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1595627179468">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595527152694" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595627179468" />
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1595113849029" />
     <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595627099170">
       <screen x="0" y="0" width="1366" height="728" />
