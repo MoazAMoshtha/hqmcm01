@@ -51,7 +51,13 @@ $ composer install
 ```
 make a copy of .env.example and rename to .env
 $ php artisan key:generate
-put database credentials in .env file like
+put database credentials in .env file like:
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=hqmcm01 !open phpmyadmin and create database -> http://localhost/phpmyadmin/
+DB_USERNAME=root
+DB_PASSWORD=
 ```
 
 ## Migrate and insert records
