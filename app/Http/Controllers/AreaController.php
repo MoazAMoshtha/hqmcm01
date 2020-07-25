@@ -32,7 +32,6 @@ class AreaController extends Controller
 
     public function insert(Request $request)
     {
-
         $test=new Area;
         $validator = Validator::make($request->all(),$test->rules);
         if ($validator->fails()) {
