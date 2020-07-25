@@ -9,14 +9,37 @@
 
 ## Laravel 7 : HQMCM
 
+## Download Composer
+```
+https://getcomposer.org/download/
+```
+
+
+## Download Laragon
+```
+https://laragon.org/download/
+```
+
+## Download Git
+```
+https://git-scm.com/downloads
+```
+
+## Download phpStorm
+```
+https://www.jetbrains.com/phpstorm/download/download-thanks.html?platform=windows
+rigester with you edu email to upgrade
+```
+
 ## Clone this repo
 ```
-https://github.com/MoazAMoshtha/hqmcm01.git
+open laragon->www folder , click right Git Bush
+$ git clone https://github.com/MoazAMoshtha/hqmcm01.git
 ```
 
 ## Install composer packages
 ```
-$ cd hqmcm01
+open phpStorm->terminal (bottom bar)
 $ composer install
 ```
 
@@ -24,7 +47,7 @@ $ composer install
 ```
 make a copy of .env.example and rename to .env
 $ php artisan key:generate
-put database credentials in .env file
+put database credentials in .env file like
 ```
 
 ## Migrate and insert records
@@ -32,7 +55,7 @@ put database credentials in .env file
 $ php artisan migrate
 ```
 
-## Mail setup 
+## Mail setup !skip
 ```
 visit at : https://mailtrap.io/
 put mail credentials in .env file
