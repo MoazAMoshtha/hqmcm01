@@ -3,10 +3,10 @@
 namespace App;
 use Illuminate\Database\Eloquent\Model;
 
-class Area extends Model
+class Mosque extends Model
 {
 
-    protected $table = 'areas';
+    protected $table = 'mosques';
     public $timestamps = true;
     /**
      * The attributes that are mass assignable.
@@ -14,7 +14,7 @@ class Area extends Model
      * @var array
      */
     protected $fillable = [
-        'name','hqmcm_id', 'number_of_mosques', 'number_of_teachers',
+        'name', 'number_of_mosques', 'number_of_teachers',
         'number_of_students'
     ];
 

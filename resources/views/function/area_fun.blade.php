@@ -2,11 +2,13 @@
 if (session('status') == 'edit') {
     $active = 'active';
     $show = 'show';
+    $d = '#nav-update';
     $active2 = '';
     $show2 = '';
 } else {
     $active = '';
     $show = '';
+    $d = '';
     $active2 = 'active';
     $show2 = 'show';
 }
@@ -31,7 +33,7 @@ if (isset($_GET['areas'])) {
                         <a class="nav-item nav-link " id="nav-hide-tab" data-toggle="tab" href="#nav-hide" role="tab"
                            aria-controls="nav-hide" aria-selected="true">ضم القائمة</a>
                         <a class="nav-item nav-link <?php echo $active?>" id="nav-update-tab" data-toggle="tab"
-                           href="#nav-update" role="tab"
+                           href="{{$d}}" role="tab"
                            aria-controls="nav-update" aria-selected="true">تعديل منطقة</a>
                         <a class="nav-item nav-link " id="nav-add-tab" data-toggle="tab" href="#nav-add" role="tab"
                            aria-controls="nav-add" aria-selected="false">اضافة منطقة</a>
@@ -66,10 +68,36 @@ if (isset($_GET['areas'])) {
                                                 <div class=" col-md-7">
                                                     <input id="name" type="text"
                                                            class="text-right form-control @error('name') is-invalid @enderror"
-                                                           name="name" value="<?php if(isset($area[0]['name'])){echo $area[0]['name'];} ?>" required
+                                                           name="name" value="<?php if (isset($area[0]['name'])) {
+                                                        echo $area[0]['name'];
+                                                    } ?>" required
                                                            autocomplete="name" autofocus>
 
                                                     @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <!--رقم المنطقة-->
+                                            <div class="form-group row justify-content-lg-center">
+                                                <div class="col-lg-4">
+
+                                                </div>
+                                                <label for="hqmcm_id"
+                                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('رقم المنطقة') }}</label>
+
+                                                <div class=" col-md-7">
+                                                    <input id="hqmcm_id" type="text"
+                                                           class="text-right form-control @error('hqmcm_id') is-invalid @enderror"
+                                                           name="hqmcm_id" value="<?php if (isset($area[0]['hqmcm_id'])) {
+                                                        echo $area[0]['hqmcm_id'];
+                                                    } ?>" required
+                                                           autocomplete="name" autofocus>
+
+                                                    @error('hqmcm_id')
                                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -112,7 +140,9 @@ if (isset($_GET['areas'])) {
                                                     <input id="number_of_mosques" type="text"
                                                            class="text-right form-control @error('number_of_mosques') is-invalid @enderror"
                                                            name="secondName"
-                                                           value="<?php if (isset($area[0]['number_of_mosques'])){ echo $area[0]['number_of_mosques'];} ?>"
+                                                           value="<?php if (isset($area[0]['number_of_mosques'])) {
+                                                               echo $area[0]['number_of_mosques'];
+                                                           } ?>"
                                                            autocomplete="number_of_mosques" autofocus>
 
                                                     @error('number_of_mosques')
@@ -136,7 +166,9 @@ if (isset($_GET['areas'])) {
                                                     <input id="number_of_teachers" type="text"
                                                            class="text-right form-control @error('number_of_teachers') is-invalid @enderror"
                                                            name="number_of_teachers"
-                                                           value="<?php if (isset($area[0]['number_of_teachers'])){ echo $area[0]['number_of_teachers'];} ?>"
+                                                           value="<?php if (isset($area[0]['number_of_teachers'])) {
+                                                               echo $area[0]['number_of_teachers'];
+                                                           } ?>"
                                                            autocomplete="number_of_teachers" autofocus>
 
                                                     @error('number_of_teachers')
@@ -160,7 +192,9 @@ if (isset($_GET['areas'])) {
                                                     <input id="number_of_students" type="text"
                                                            class="text-right form-control @error('number_of_students') is-invalid @enderror"
                                                            name="number_of_students"
-                                                           value="<?php if (isset($area[0]['number_of_students'])){echo $area[0]['number_of_students'];} ?>"
+                                                           value="<?php if (isset($area[0]['number_of_students'])) {
+                                                               echo $area[0]['number_of_students'];
+                                                           } ?>"
                                                            autocomplete="number_of_students" autofocus>
 
                                                     @error('number_of_students')
@@ -217,6 +251,28 @@ if (isset($_GET['areas'])) {
                                                 </div>
                                             </div>
 
+                                            <!--رقم المنطقة-->
+                                            <div class="form-group row justify-content-lg-center">
+                                                <div class="col-lg-4">
+
+                                                </div>
+                                                <label for="hqmcm_id"
+                                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('رقم المنطقة') }}</label>
+
+                                                <div class=" col-md-7">
+                                                    <input id="hqmcm_id" type="text"
+                                                           class="text-right form-control @error('hqmcm_id') is-invalid @enderror"
+                                                           name="hqmcm_id" value="{{ old('hqmcm_id') }}" required
+                                                           autocomplete="name" autofocus>
+
+                                                    @error('hqmcm_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
                                             <!--المحافظة-->
                                             <div class="form-group row justify-content-lg-center ">
                                                 <div class="col-lg-4">
@@ -238,6 +294,7 @@ if (isset($_GET['areas'])) {
                                                     @enderror
                                                 </div>
                                             </div>
+
                                             <!--عدد المساجد-->
                                             <div class="form-group row justify-content-lg-center">
                                                 <div class="col-lg-4">
@@ -361,7 +418,7 @@ if (isset($_GET['areas'])) {
                                             <td>{{ $area->number_of_teachers }}</td>
                                             <td>{{ $area->number_of_mosques }}</td>
                                             <td>{{ $area->name }}</td>
-                                            <td scope="row">{{ str_pad( $area->id, 2, "0", STR_PAD_LEFT ) }}</td>
+                                            <td scope="row">{{ str_pad( $area->hqmcm_id, 2, "0", STR_PAD_LEFT ) }}</td>
 
                                         </tr>
                                         </tbody>

@@ -14,7 +14,13 @@ class CreateMosquesTable extends Migration
     public function up()
     {
         Schema::create('mosques', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
+            $table->string('name');
+            $table->string('area');
+            $table->integer('hqmcm_id')->unique();
+            $table->string('mosque_admin');
+            $table->integer('number_of_teachers')->nullable();
+            $table->integer('number_of_students')->nullable();
             $table->timestamps();
         });
     }

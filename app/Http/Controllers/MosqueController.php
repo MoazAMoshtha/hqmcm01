@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
 
-class AreaController extends Controller
+class MosqueController extends Controller
 {
     public function index()
     {
@@ -30,32 +30,19 @@ class AreaController extends Controller
 
     public function insert(Request $request)
     {
-      /*  $validatedData = $request->validate([
-            'name' => ['required', 'unique:areas', 'max:255'],
-            'hqmcm_id' => ['required', 'unique:areas', 'max:2'],
-            'number_of_mosques' => [''],
-            'number_of_teachers' => [''],
-            'number_of_students' => [''],
-        ]);*/
-        if (true){
-            $name = $request->input('name');
-            $hqmcm_id = $request->input('hqmcm_id');
-            $number_of_mosques = $request->input('number_of_mosques');
-            $number_of_teachers = $request->input('number_of_teachers');
-            $number_of_students = $request->input('number_of_students');
-            $areas = DB::table('areas')->get();
-            foreach ($areas as $area) {
-                if ($area->name == $name) {
-                    return redirect('manger')->with('status', 'areaInsert Failure');
-                }
+        $name = $request->input('name');
+        $number_of_mosques = $request->input('number_of_mosques');
+        $number_of_teachers = $request->input('number_of_teachers');
+        $number_of_students = $request->input('number_of_students');
+        $areas = DB::table('areas')->get();
+        foreach ($areas as $area) {
+            if ($area->name == $name) {
+                return redirect('manger')->with('status', 'areaInsert Failure');
             }
-            DB::select('insert into areas (name,hqmcm_id, number_of_mosques,number_of_teachers,number_of_students) values (?,?,?, ?, ?)', [$name,$hqmcm_id, $number_of_mosques, $number_of_teachers, $number_of_students]);
-            return redirect('manger')->with('status', 'areaInsert success');
-
         }
-
-        }
-
+        DB::select('insert into areas (name, number_of_mosques,number_of_teachers,number_of_students) values (?,?, ?, ?)', [$name, $number_of_mosques, $number_of_teachers, $number_of_students]);
+        return redirect('manger')->with('status', 'areaInsert success');
+    }
 
     public function showAreas()
     {
