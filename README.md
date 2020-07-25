@@ -7,11 +7,11 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Laravel 7 multiple authentication system
+## Laravel 7 : HQMCM
 
 ## Clone this repo
 ```
-https://github.com/samironbarai/laravel-7-multi-auth.git
+https://github.com/MoazAMoshtha/hqmcm01.git
 ```
 
 ## Install composer packages
@@ -39,4 +39,6 @@ put mail credentials in .env file
 ```
 
 ## Facing any problem? Contact with me
-at *mama.moshtha@gmail.com*
+```
+mama.moshtha@gmail.com
+```
