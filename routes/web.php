@@ -19,18 +19,33 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/manger', 'MangerController@index')->name('manger');
 Route::get('/manger', 'MangerController@index')->name('manger');
-Route::get('/function.area_fun', 'AreaController@index')->name('area_fun');
-Route::get('insertArea','AreaController@insertform');
-Route::post('createArea','AreaController@insert');
-Route::post('showAreas','AreaController@showAreas')->name('showAreas');
-Route::get('delete-records','AreaController@index');
-Route::get('delete/{id}','AreaController@destroy');
-Route::get('edit-records','AreaController@index');
-Route::get('edit/{id}','AreaController@show');
-Route::post('edit/{id}','AreaController@edit');
+Route::prefix('area')->group(function (){
+    Route::get('/function.area_fun', 'AreaController@index')->name('area_fun');
+    Route::get('/insertArea','AreaController@insertform')->name('area.insertArea');
+    Route::post('/createArea','AreaController@insert')->name('area.createArea');
+    Route::post('/showAreas','AreaController@showAreas')->name('area.showAreas');
+    Route::get('/delete-records','AreaController@index')->name('area.deleteRecords');
+    Route::get('/delete/{id}','AreaController@destroy')->name('area.delete');
+    Route::get('/edit-records','AreaController@index')->name('area.editRecords');
+    Route::get('/edit/{id}','AreaController@show')->name('area.edit');
+});
+Route::post('edit/{id}','AreaController@edit')->name('area.edit');
+
+Route::prefix('mosque')->group(function (){
+    Route::get('/function.mosque_fun', 'MosqueController@index')->name('mosque_fun');
+    Route::get('/insertMosque','MosqueController@insertform')->name('mosque.insertMosque');
+    Route::post('/createMosque','MosqueController@insert')->name('mosque.createMosque');
+    Route::post('/showMosques','MosqueController@showAreas')->name('mosque.showMosques');
+    Route::get('/delete-records','MosqueController@index')->name('mosque.deleteRecords');
+    Route::get('/delete/{id}','MosqueController@destroy')->name('mosque.delete');
+    Route::get('/edit-records','MosqueController@index')->name('mosque.editRecords');
+    Route::get('/edit/{id}','MosqueController@show')->name('mosque.edit');
+});
+Route::post('edit/{id}','MosqueController@edit')->name('mosque.edit');
 
 
 Route::prefix('admin')->group(function (){

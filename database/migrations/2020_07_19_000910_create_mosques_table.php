@@ -18,7 +18,7 @@ class CreateMosquesTable extends Migration
             $table->string('name');
             $table->string('area');
             $table->integer('hqmcm_id')->unique();
-            $table->string('mosque_admin');
+            $table->string('mosque_admin')->nullable();
             $table->integer('number_of_teachers')->nullable();
             $table->integer('number_of_students')->nullable();
             $table->timestamps();

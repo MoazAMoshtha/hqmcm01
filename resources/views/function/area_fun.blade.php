@@ -55,6 +55,7 @@ if (isset($_GET['areas'])) {
                             <div class="row justify-content-center">
                                 <div class="col-md-8">
                                     <div class="card-body">
+                                        <!--$area[0]['id']-->
                                         <form method="post" action="/edit/{{$area[0]['id']}}">
                                         @csrf
                                         <!--اسم المنطقة-->
@@ -227,7 +228,7 @@ if (isset($_GET['areas'])) {
                             <div class="row justify-content-center">
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <form method="post" action="/createArea">
+                                        <form method="post" action="{{route('area.createArea')}}">
                                         @csrf
                                         <!--اسم المنطقة-->
                                             <div class="form-group row justify-content-lg-center">
@@ -386,7 +387,7 @@ if (isset($_GET['areas'])) {
                     <div class="tab-pane fade <?php echo $active2 . " " . $show2?>" id="nav-view" role="tabpanel"
                          aria-labelledby="nav-view-tab">
                         <div class="container h-100 w-100">
-                            <form method="post" action="/showAreas">
+                            <form method="post" action="{{route('area.showAreas')}}">
                             @csrf
                             <!--تسجيل-->
                                 <div class="form-group row text-center justify-content-center">
@@ -408,7 +409,7 @@ if (isset($_GET['areas'])) {
                                     <td scope="col">#</td>
                                 </tr>
                                 </thead>
-                                @if(Route::currentRouteName() == 'showAreas')
+                                @if(Route::currentRouteName() == 'area.showAreas')
                                     @foreach ($areas as $area)
                                         <tbody>
                                         <tr>
