@@ -13,10 +13,20 @@ class Area extends Model
      *
      * @var array
      */
+    public  $rules = [
+        'name' => ['required', 'unique:areas', 'string', 'max:255'],
+        'hqmcm_id' => ['required', 'unique:areas', 'max:2'],
+        'number_of_mosques' => [''],
+        'number_of_teachers' => [''],
+        'number_of_students' => [''],
+    ];
+
     protected $fillable = [
         'name','hqmcm_id', 'number_of_mosques', 'number_of_teachers',
         'number_of_students'
     ];
+
+
 
 
 }

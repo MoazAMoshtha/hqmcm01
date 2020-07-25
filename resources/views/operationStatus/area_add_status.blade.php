@@ -22,6 +22,16 @@
         <?php $message = 'تم اضافة منطقة'; $alert ='alert-success'; $status='نجحت العملية'?>
         @break(true)
 
+        @case('hqmcm_id')
+        <script type="text/javascript">
+            $(window).on('load', function () {
+                $('#modal').modal('show');
+            });
+        </script>
+        <?php $message = 'غير مسموح بتكرار رقم المنطقة'; $alert ='alert-danger'; $status='فشل التعديل'?>
+        @break(true)
+
+
         @case('areaInsert Failure')
         <script type="text/javascript">
             $(window).on('load', function () {
@@ -37,8 +47,10 @@
                 $('#modal').modal('show');
             });
         </script>
-        <?php $message = 'تم تحديث بيانات المنطقة'; $alert ='alert-success'; $status='نجحت العملية'?>
+        <?php $message = 'تم تحديث بيانات المنطقة'; $alert ='alert-success'; $status='نجح التعديل'?>
         @break(true)
+
+
 
     @endswitch
 
