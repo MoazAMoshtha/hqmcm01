@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Area;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
-use phpDocumentor\Reflection\Element;
 
 class AreaController extends Controller
 {

@@ -53,9 +53,9 @@ class RegisterController extends Controller
             'firstName' => ['required', 'string', 'max:255'],
             'secondName' => ['required', 'string', 'max:255'],
             'familyName' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phoneNumber' => ['required', 'string', 'max:10'],
+            'phoneNumber' => ['required', 'string', 'max:255'],
             'area' => ['required', 'string', 'max:255'],
             'mosque' => ['required', 'string', 'max:255'],
 
@@ -79,7 +79,6 @@ class RegisterController extends Controller
             'phoneNumber' => $data['phoneNumber'],
             'area' => $data['area'],
             'mosque' => $data['mosque'],
-
         ]);
     }
 }

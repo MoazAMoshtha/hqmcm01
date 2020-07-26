@@ -13,15 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
-
-//Route::det('/login', 'loginController@index')->name('login');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -59,3 +54,8 @@ Route::prefix('admin')->group(function (){
     Route::post('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
 });
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
