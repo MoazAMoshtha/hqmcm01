@@ -20,12 +20,15 @@ class CreateUsersTable extends Migration
             $table->string('firstName');
             $table->string('secondName');
             $table->string('familyName');
-            $table->string('email')->unique();
+            $table->integer('id_number')->nullable();
+            $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('phoneNumber');
             $table->string('area');
             $table->string('mosque');
+            $table->string('group')->nullable();
+            $table->integer('hqmcm_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

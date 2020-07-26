@@ -18,12 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::post('/manger', 'MangerController@index')->name('manger');
 Route::get('/manger', 'MangerController@index')->name('manger');
 
+/*************area routes*****************/
 Route::prefix('area')->group(function (){
     Route::get('/function.area_fun', 'AreaController@index')->name('area_fun');
     Route::get('/insertArea','AreaController@insertform')->name('area.insertArea');
@@ -36,6 +35,7 @@ Route::prefix('area')->group(function (){
 });
 Route::post('edit/{id}','AreaController@edit')->name('area.edit');
 
+/*************mosque routes*****************/
 Route::prefix('mosque')->group(function (){
     Route::get('/function.mosque_fun', 'MosqueController@index')->name('mosque_fun');
     Route::get('/insertMosque','MosqueController@insertform')->name('mosque.insertMosque');
@@ -48,7 +48,7 @@ Route::prefix('mosque')->group(function (){
 });
 Route::post('edit/{id}','MosqueController@edit')->name('mosque.edit');
 
-
+/*************admin routes*****************/
 Route::prefix('admin')->group(function (){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login.submit');
@@ -56,6 +56,8 @@ Route::prefix('admin')->group(function (){
 });
 
 
+/*************Auth routes*****************/
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+

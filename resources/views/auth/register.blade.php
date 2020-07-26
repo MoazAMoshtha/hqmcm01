@@ -4,12 +4,18 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-right">{{ __('سجل الأن') }}</div>
+                    <div class="card-header text-right">{{ __('سجل الأن') }}
+
+                        <form method ="" action="{{route('register')}}">
+<input type="submit">
+                        </form>
+
+                    </div>
 
                     <div class="card-body">
                         <form method="POST" action="{{route('register')}}">
                         @csrf
-                        <!--الاسم الأول-->
+                            <!--الاسم الأول-->
                             <div class="form-group row justify-content-lg-center">
                                 <div class="col-lg-4">
 
@@ -21,7 +27,8 @@
                                 <div class=" col-md-7">
                                     <input id="firstName" type="text"
                                            class="text-right form-control @error('firstName') is-invalid @enderror"
-                                           name="firstName" value="{{ old('firstName') }}" required autocomplete="firstName" autofocus>
+                                           name="firstName" value="{{ old('firstName') }}" required
+                                           autocomplete="firstName" autofocus>
 
                                     @error('firstName')
                                     <span class="invalid-feedback" role="alert">
@@ -43,7 +50,8 @@
                                 <div class=" col-md-7">
                                     <input id="secondName" type="text"
                                            class="text-right form-control @error('secondName') is-invalid @enderror"
-                                           name="secondName" value="{{ old('secondName') }}" required autocomplete="secondName" autofocus>
+                                           name="secondName" value="{{ old('secondName') }}" required
+                                           autocomplete="secondName" autofocus>
 
                                     @error('secondName')
                                     <span class="invalid-feedback" role="alert">
@@ -65,9 +73,33 @@
                                 <div class=" col-md-7">
                                     <input id="familyName" type="text"
                                            class="text-right form-control @error('familyName') is-invalid @enderror"
-                                           name="familyName" value="{{ old('familyName') }}" required autocomplete="familyName" autofocus>
+                                           name="familyName" value="{{ old('familyName') }}" required
+                                           autocomplete="familyName" autofocus>
 
                                     @error('familyName')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <!--رقم الهوية-->
+                            <div class="form-group row justify-content-lg-center">
+                                <div class="col-lg-4">
+
+                                </div>
+
+                                <label for="id_number"
+                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('رقم الهوية') }}</label>
+
+                                <div class=" col-md-7">
+                                    <input id="id_number" type="text"
+                                           class="text-right form-control @error('id_number') is-invalid @enderror"
+                                           name="id_number" value="{{ old('id_number') }}" required
+                                           autocomplete="id_number" autofocus>
+
+                                    @error('id_number')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -87,7 +119,7 @@
                                 <div class="col-md-7">
                                     <input id="email" type="email"
                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                           value="{{ old('email') }}" required autocomplete="email">
+                                           value="{{ old('email') }}"  autocomplete="email" placeholder="مطلوب لاعادة تعيين كلمة المرور">
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -145,7 +177,8 @@
                                 <div class="col-md-7">
                                     <input placeholder="059/056" id="phoneNumber" type="text"
                                            class="text-right form-control @error('phoneNumber') is-invalid @enderror"
-                                           name="phoneNumber" value="{{ old('phoneNumber') }}" required autocomplete="phoneNumber">
+                                           name="phoneNumber" value="{{ old('phoneNumber') }}" required
+                                           autocomplete="phoneNumber">
 
                                     @error('phoneNumber')
                                     <span class="invalid-feedback" role="alert">
@@ -205,29 +238,54 @@
                                 </div>
                             </div>
 
+                            <!--المحفظ-->
+                            <div class="form-group row justify-content-lg-center">
+                                <div class="col-lg-4">
+
+                                </div>
+
+                                <label for="group"
+                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المحفظ') }}</label>
+
+                                <div class="col-md-7 float-left">
+                                    <select class="form-control text-right" id="group" name="group">
+                                        <option name="group">1</option>
+                                        <option name="group">2</option>
+                                        <option name="group">3</option>
+                                        <option name="group">4</option>
+                                        <option name="group">5</option>
+                                    </select>
+                                    @error('group')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
                             <!--رقم المستخدم-->
                             <div class="form-group row justify-content-lg-center">
                                 <div class="col-lg-4">
 
                                 </div>
 
-                                <label for="id"
+                                <label for="hqmcm_id"
                                        class="col-lg-3 col-md-4 col-form-label text-right">{{ __('رقم المستخدم') }}</label>
 
                                 <div class=" col-md-7">
-                                    <input id="id" type="text" placeholder="<?php
+                                    <input id="hqmcm_id" type="text" placeholder="<?php
                                     $rowCount = DB::table('users')->count();
-                                    if ($rowCount == 0){
+                                    if ($rowCount == 0) {
                                         echo 01;
-                                    }else{
+                                    } else {
                                         $last = DB::table('users')->latest()->first()->id;
-                                        echo $last+1;
+                                        echo $last + 1;
                                     }
                                     ?> : خاص بتسجيل الدخول " disabled
                                            class="text-right form-control"
-                                           name="id" value="{{ old('id') }}"  autocomplete="id" autofocus>
+                                           name="id" value="{{ old('hqmcm_id') }}" autocomplete="hqmcm_id" autofocus>
 
-                                    @error('id')
+                                    @error('hqmcm_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

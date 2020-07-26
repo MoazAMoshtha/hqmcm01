@@ -15,15 +15,18 @@ class CreateTeachersTable extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->string('firstName');
-            $table->string('secondName');
-            $table->string('familyName');
-            $table->string('email')->unique();
+            $table->string('first_name');
+            $table->string('second_name');
+            $table->string('family_name');
+            $table->integer('id_number');
+            $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('phoneNumber');
+            $table->integer('phone_number');
             $table->string('area');
             $table->string('mosque');
+            $table->string('group')->nullable();
+            $table->integer('hqmcm_id');
             $table->rememberToken();
             $table->timestamps();
         });
