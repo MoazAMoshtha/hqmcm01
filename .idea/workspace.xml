@@ -16,18 +16,24 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6c9c5b9-17a3-4af0-b554-d0212ec98760" name="Default Changelist" comment="">
+    <list default="true" id="b6c9c5b9-17a3-4af0-b554-d0212ec98760" name="Default Changelist" comment="7-25-2020 10:02am">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AreaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AreaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MosqueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MosqueController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Mosque.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mosque.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_19_000910_create_mosques_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_19_000910_create_mosques_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/function/area_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/area_fun.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/function/mosque_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/mosque_fun.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/manger.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/manger.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +54,7 @@
         <option value="MoazAMoshtha &lt;mama.moshtha@gmail.com&gt;" />
       </list>
     </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="PUSH_TAGS">
       <GitPushTagMode>
         <option name="argument" value="--tags" />
@@ -198,18 +205,18 @@
     <property name="settings.editor.selected.configurable" value="Laravel.SettingsForm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\hqmcm01\resources\views\auth" />
+      <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers\Auth" />
+      <recent name="C:\laragon\www\hqmcm01\resources\views" />
+      <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers" />
+      <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers\function" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\laragon\www\hqmcm01" />
       <recent name="C:\laragon\www\hqmcm01\app" />
       <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers" />
       <recent name="C:\laragon\www\hqmcm01\bootstrap" />
-      <recent name="C:\laragon\www\hqmcm01\resources\views" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers" />
-      <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers\function" />
-      <recent name="C:\laragon\www\hqmcm01\public" />
-      <recent name="C:\laragon\www\hqmcm01\resources\views\layouts" />
       <recent name="C:\laragon\www\hqmcm01\resources\views" />
     </key>
   </component>
@@ -251,6 +258,8 @@
       <workItem from="1595627037299" duration="8313000" />
       <workItem from="1595667872694" duration="1194000" />
       <workItem from="1595669191730" duration="10757000" />
+      <workItem from="1595703535037" duration="600000" />
+      <workItem from="1595752346324" duration="10254000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1595001925737</created>
@@ -329,7 +338,13 @@
       <option name="project" value="LOCAL" />
       <updated>1595636984339</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL؜٠٠٠١٢" summary="7-25-2020 10:02am">
+      <created>1595703877623</created>
+      <option name="number" value="LOCAL؜٠٠٠١٢" />
+      <option name="presentableId" value="LOCAL؜٠٠٠١٢" />
+      <updated>1595703877623</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,7 +355,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -360,6 +387,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -368,7 +396,8 @@
     <MESSAGE value="7-23-2020 8:58pm" />
     <MESSAGE value="7-25-2020 12:45am" />
     <MESSAGE value="7-25-2020 3:29am" />
-    <option name="LAST_COMMIT_MESSAGE" value="7-25-2020 3:29am" />
+    <MESSAGE value="7-25-2020 10:02am" />
+    <option name="LAST_COMMIT_MESSAGE" value="7-25-2020 10:02am" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Composer" timestamp="1594860321470">
@@ -387,20 +416,20 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="437" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1595114640115" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595682427117">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595760789508">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595506592749" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1595682427117" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1595760789508" />
     <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1595636983409">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595636983409" />
     <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1595113846335" />
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1595673951140">
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1595752746921">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1595673951140" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1595752746921" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1595347384961">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -429,33 +458,43 @@
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595464501270" />
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1594861927058" />
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1595669782405" />
-    <state x="438" y="178" key="NewPhpClassDialog" timestamp="1595457722358">
+    <state x="129" y="55" key="MergeDialog" timestamp="1595703971027">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="129" y="55" key="MergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1595703971027" />
+    <state x="321" y="125" key="MultipleFileMergeDialog" timestamp="1595703971043">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="321" y="125" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1595703971043" />
+    <state x="438" y="174" key="NewPhpClassDialog" timestamp="1595760822853">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="438" y="178" key="NewPhpClassDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595457722358" />
-    <state x="438" y="178" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1595281586279" />
-    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1595511294197">
+    <state x="438" y="174" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1595760822853" />
+    <state x="573" y="470" key="NewPhpFileDialog" timestamp="1595760768773">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595511294197" />
-    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1595119317516" />
+    <state x="573" y="470" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1595760768773" />
     <state x="184" y="6" key="SettingsEditor" timestamp="1595459549729">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595459549729" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1595673424183">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1595766486424">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595636993545" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1595673424183" />
-    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595627099170">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1595766486424" />
+    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595752666085">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595627099170" />
-    <state x="1358" y="-8" width="921" height="483" maximized="true" key="dock-window-1" timestamp="1595634567577">
-      <screen x="1366" y="0" width="1366" height="728" />
+    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1595752666085" />
+    <state x="676" y="0" width="697" height="735" key="dock-window-1" timestamp="1595756859466">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="1358" y="-8" width="921" height="483" maximized="true" key="dock-window-1/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595634567577" />
+    <state x="676" y="0" width="697" height="735" key="dock-window-1/0.0.1366.728@0.0.1366.728" timestamp="1595756859466" />
     <state x="1366" y="0" width="1095" height="715" key="dock-window-2" timestamp="1595290516099">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>

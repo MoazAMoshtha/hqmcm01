@@ -1,14 +1,16 @@
 <?php
-if (session('status') == 'edit') {
+if (session('status') == 'editArea') {
     $active = 'active';
     $show = 'show';
     $d = '#nav-update';
-    $active2 = '';
-    $show2 = '';
-} else {
-    $active = '';
-    $show = '';
-    $d = '';
+    $active2 = $show2 = $m =  '';
+} elseif (session('status') == 'editMosque'){
+    $active = 'active';
+    $show = 'show';
+    $m = '#nav-updateMosque';
+    $active2 = $show2 = $d = '';
+}else{
+    $active = $show = $d = $m = '';
     $active2 = 'active';
     $show2 = 'show';
 }
@@ -16,7 +18,7 @@ if (session('status') == 'edit') {
 if (isset($_GET['areas'])) {
     $area = $_GET['areas'];
 } else {
-    $area = [0, 0, 0, 0];
+    $area = [0,0, 0, 0, 0];
 }
 
 

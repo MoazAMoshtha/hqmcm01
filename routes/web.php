@@ -17,12 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+//Route::det('/login', 'loginController@index')->name('login');
+
 Auth::routes();
 
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 Route::post('/manger', 'MangerController@index')->name('manger');
 Route::get('/manger', 'MangerController@index')->name('manger');
+
 Route::prefix('area')->group(function (){
     Route::get('/function.area_fun', 'AreaController@index')->name('area_fun');
     Route::get('/insertArea','AreaController@insertform')->name('area.insertArea');
@@ -39,7 +45,7 @@ Route::prefix('mosque')->group(function (){
     Route::get('/function.mosque_fun', 'MosqueController@index')->name('mosque_fun');
     Route::get('/insertMosque','MosqueController@insertform')->name('mosque.insertMosque');
     Route::post('/createMosque','MosqueController@insert')->name('mosque.createMosque');
-    Route::post('/showMosques','MosqueController@showAreas')->name('mosque.showMosques');
+    Route::post('/showMosques','MosqueController@showMosques')->name('mosque.showMosques');
     Route::get('/delete-records','MosqueController@index')->name('mosque.deleteRecords');
     Route::get('/delete/{id}','MosqueController@destroy')->name('mosque.delete');
     Route::get('/edit-records','MosqueController@index')->name('mosque.editRecords');
@@ -53,11 +59,3 @@ Route::prefix('admin')->group(function (){
     Route::post('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
 });
-
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

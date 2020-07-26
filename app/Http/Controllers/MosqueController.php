@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Area;
+use App\Mosque;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -14,47 +14,51 @@ class MosqueController extends Controller
 {
     public function index()
     {
-        $areas = DB::select('select * from areas');
-        return view('manger', ['areas' => $areas]);
+        $mosques = Mosque::all();
+        return view('manger', ['mosques' => $mosques]);
 
     }
 
     public function show($id)
     {
-        $areas = DB::select('select * from areas where id = ?', [$id]);
-        return redirect()->route('manger', ['areas' => $areas])->with('status', 'edit');
+        //$mosques = Mosque::find($id);
+        //$mosques = Mosque::all()->where('id',$id);
+        $mosques = DB::select('select * from mosques where id = ?', [$id]);
+        return redirect()->route('manger', ['mosques' => $mosques])->with('status', 'editMosque');
 
     }
 
     public function insertform()
     {
-        return view('area/function.area_fun');
+        return view('mosque/function.mosque_fun');
     }
 
     public function insert(Request $request)
     {
-        $test=new Area;
+        $test=new Mosque;
         $validator = Validator::make($request->all(),$test->rules);
         if ($validator->fails()) {
             return redirect('manger')->with('status', 'areaInsert Failure')->withErrors($validator);
         }
-        Area::create($request->all());
+        Mosque::create($request->all());
         return redirect('manger')->with('status', 'areaInsert success');
 
 
     }
 
 
-    public function showAreas()
+    public function showMosques()
     {
-        $areas = DB::select('select * from areas');
-        return view('manger', ['areas' => $areas]);
+        $mosques = DB::select('select * from mosques');
+        return view('manger', ['mosques' => $mosques]);
 
     }
 
     public function destroy($id)
     {
-        DB::delete('delete from areas where id = ?', [$id]);
+        Mosque::find($id)->delete();
+        //Mosque::destroy('id',$id);
+        //DB::delete('delete from areas where id = ?', [$id]);
         return redirect('manger')->with('status', 'areaDeleted');
 
     }
@@ -62,19 +66,20 @@ class MosqueController extends Controller
     public function edit(Request $request, $id)
     {
         $name = $request->input('name');
+        $area = $request->input('area');
         $hqmcm_id = $request->input('hqmcm_id');
-        $number_of_mosques = $request->input('number_of_mosques');
+        $mosque_admin = $request->input('mosque_admin');
         $number_of_teachers = $request->input('number_of_teachers');
         $number_of_students = $request->input('number_of_students');
-        $areas = DB::table('areas')->get();
-        foreach ($areas as $area) {
-            if ($area->name == $name and $area->name != $request->input('name')) {
+        $mosques = DB::table('mosques')->get();
+        foreach ($mosques as $mosque) {
+            if ($mosque->name == $name and $mosque->name != $request->input('name')) {
                 return redirect('manger')->with('status', 'areaInsert Failure');
-            }elseif($area->hqmcm_id == $hqmcm_id and $area->hqmcm_id != $request->input('hqmcm_id') ){
+            }elseif($mosque->hqmcm_id == $hqmcm_id and $mosque->hqmcm_id != $request->input('hqmcm_id') ){
                 return redirect('manger')->with('status', 'hqmcm_id');
             }
         }
-        Area::whereId($id)->update($request->except('_token','secondName'));
+        Mosque::whereId($id)->update($request->except('_token','secondName'));
         return redirect('manger')->with('status', 'areaUpdate success');
     }
 

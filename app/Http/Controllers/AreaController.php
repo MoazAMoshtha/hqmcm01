@@ -22,7 +22,7 @@ class AreaController extends Controller
     public function show($id)
     {
         $areas = DB::select('select * from areas where id = ?', [$id]);
-        return redirect()->route('manger', ['areas' => $areas])->with('status', 'edit');
+        return redirect()->route('manger', ['areas' => $areas])->with('status', 'editArea');
 
     }
 
