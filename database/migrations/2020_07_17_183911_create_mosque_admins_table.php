@@ -17,14 +17,14 @@ class CreateMosqueAdminsTable extends Migration
         Schema::create('mosque_admins', function (Blueprint $table) {
 
             $table->id();
-            $table->string('first_name');
-            $table->string('second_name');
-            $table->string('family_name');
+            $table->string('firstName');
+            $table->string('secondName');
+            $table->string('familyName');
             $table->integer('id_number');
             $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('phone_number');
+            $table->integer('phoneNumber');
             $table->string('area');
             $table->string('mosque');
             $table->integer('hqmcm_id');

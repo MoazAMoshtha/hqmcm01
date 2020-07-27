@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Area_Admin;
+use App\Mosque_Admin;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Http\Requests;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
 
 class RegisterController extends Controller
 {
@@ -39,6 +44,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+
     }
 
     /**
@@ -69,11 +75,41 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
+     * @param Requests $request
      * @return \App\User
      */
     protected function create(array $data)
     {
+        if ($data['user_type'] == 'area_admin'){
+            Area_Admin::create([
+                'firstName' => $data['firstName'],
+                'secondName' => $data['secondName'],
+                'familyName' => $data['familyName'],
+                'id_number' => $data['id_number'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'phoneNumber' => $data['phoneNumber'],
+                'area' => $data['area'],
+                'mosque' => $data['mosque'],
+                'group' => $data['group'],
+                'hqmcm_id' => $data['hqmcm_id'],
+            ]) ;
+        }elseif($data['user_type'] == 'mosque_admin'){
+            Mosque_Admin::create([
+                'firstName' => $data['firstName'],
+                'secondName' => $data['secondName'],
+                'familyName' => $data['familyName'],
+                'id_number' => $data['id_number'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'phoneNumber' => $data['phoneNumber'],
+                'area' => $data['area'],
+                'mosque' => $data['mosque'],
+                'group' => $data['group'],
+                'hqmcm_id' => $data['hqmcm_id'],
+            ]) ;
+        }
         return User::create([
             'firstName' => $data['firstName'],
             'secondName' => $data['secondName'],
@@ -84,8 +120,10 @@ class RegisterController extends Controller
             'phoneNumber' => $data['phoneNumber'],
             'area' => $data['area'],
             'mosque' => $data['mosque'],
-            'group' => $data['mosque'],
-            'hqmcm_id' => $data['mosque'],
+            'group' => $data['group'],
+            'hqmcm_id' => $data['hqmcm_id'],
         ]);
+
+
     }
 }
