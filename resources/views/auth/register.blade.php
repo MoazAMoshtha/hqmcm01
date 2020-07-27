@@ -1,21 +1,49 @@
+
 @extends('layouts.app')
 @section('content')
+    <?php
+    if (isset($_GET['user_type'])){
+
+    }else{
+        $_GET['user_type'] = null;
+    }
+    ?>
+
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-right">{{ __('سجل الأن') }}
 
-                        <form method ="" action="{{route('register')}}">
-<input type="submit">
-                        </form>
+                            <div class="row justify-content-center">
+                                {{$user_type=null}}
+                                <div class="">
+                                    <select class="form-control" id="user_type" name="user_type">
+                                        <option >...</option>
+                                        <option value="area_admin"  @if($_GET['user_type'] == 'area_admin') selected @endif >مشرف منطقة</option>
+                                        <option value="mosque_admin" @if($_GET['user_type'] == 'mosque_admin') selected @endif >مشرف مسجد</option>
+                                        <option value="teacher" @if($_GET['user_type'] == 'teacher') selected @endif>محفظ</option>
+                                        <option value="student" @if($_GET['user_type'] == 'student') selected @endif>طالب</option>
+                                    </select>
+                                    <script>
+                                        document.getElementById('user_type').onchange = function() {
+                                            window.location = "{{route('register')}}?user_type=" + this.value;
+                                        };
+                                    </script>
+                                </div>
+                                <div class ="pt-1 pl-2">
+                                    <label >نوع المستخدم</label>
+                                </div>
+                            </div>
 
                     </div>
 
                     <div class="card-body">
+
                         <form method="POST" action="{{route('register')}}">
                         @csrf
-                            <!--الاسم الأول-->
+                        <!--الاسم الأول-->
                             <div class="form-group row justify-content-lg-center">
                                 <div class="col-lg-4">
 
@@ -119,7 +147,8 @@
                                 <div class="col-md-7">
                                     <input id="email" type="email"
                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                           value="{{ old('email') }}"  autocomplete="email" placeholder="مطلوب لاعادة تعيين كلمة المرور">
+                                           value="{{ old('email') }}" autocomplete="email"
+                                           placeholder="مطلوب لاعادة تعيين كلمة المرور">
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -239,7 +268,7 @@
                             </div>
 
                             <!--المحفظ-->
-                            <div class="form-group row justify-content-lg-center">
+                            <div class="form-group row justify-content-lg-center" @if($_GET['user_type'] != 'student') hidden @endif>
                                 <div class="col-lg-4">
 
                                 </div>
