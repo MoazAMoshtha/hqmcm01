@@ -6,6 +6,8 @@ use App\Area_Admin;
 use App\Mosque_Admin;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Student;
+use App\Teacher;
 use App\User;
 use App\Http\Requests;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -97,6 +99,34 @@ class RegisterController extends Controller
             ]) ;
         }elseif($data['user_type'] == 'mosque_admin'){
             Mosque_Admin::create([
+                'firstName' => $data['firstName'],
+                'secondName' => $data['secondName'],
+                'familyName' => $data['familyName'],
+                'id_number' => $data['id_number'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'phoneNumber' => $data['phoneNumber'],
+                'area' => $data['area'],
+                'mosque' => $data['mosque'],
+                'group' => $data['group'],
+                'hqmcm_id' => $data['hqmcm_id'],
+            ]) ;
+        }elseif($data['user_type'] == 'teacher'){
+            Teacher::create([
+                'firstName' => $data['firstName'],
+                'secondName' => $data['secondName'],
+                'familyName' => $data['familyName'],
+                'id_number' => $data['id_number'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'phoneNumber' => $data['phoneNumber'],
+                'area' => $data['area'],
+                'mosque' => $data['mosque'],
+                'group' => $data['group'],
+                'hqmcm_id' => $data['hqmcm_id'],
+            ]) ;
+        }elseif($data['user_type'] == 'student'){
+            Student::create([
                 'firstName' => $data['firstName'],
                 'secondName' => $data['secondName'],
                 'familyName' => $data['familyName'],
