@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Area;
 use App\Mosque;
 use App\Http\Controllers\Controller;
+use App\Mosque_Admin;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use DB;
@@ -68,6 +69,12 @@ class MosqueController extends Controller
 
 
     public function showMosques()
+    {
+        $mosques = DB::select('select * from mosques');
+        return view('manger', ['mosques' => $mosques]);
+
+    }
+    public function SearchByArea()
     {
         $mosques = DB::select('select * from mosques');
         return view('manger', ['mosques' => $mosques]);

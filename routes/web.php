@@ -37,6 +37,7 @@ Route::post('edit/{id}','AreaController@edit')->name('area.edit');
 
 /*************mosque routes*****************/
 Route::prefix('mosque')->group(function (){
+    Route::post('/SearchByArea','MosqueController@SearchByArea')->name('mosque.SearchByArea');
     Route::get('/function.mosque_fun', 'MosqueController@index')->name('mosque_fun');
     Route::get('/insertMosque','MosqueController@insertform')->name('mosque.insertMosque');
     Route::post('/createMosque','MosqueController@insert')->name('mosque.createMosque');
@@ -47,6 +48,7 @@ Route::prefix('mosque')->group(function (){
     Route::get('/edit/{id}','MosqueController@show')->name('mosque.edit');
     Route::get('/mosqueDeleteAll', 'MosqueController@deleteAll');
 });
+
 Route::post('edit/{id}','MosqueController@edit')->name('mosque.edit');
 
 /*************admin routes*****************/
