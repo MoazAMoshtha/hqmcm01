@@ -43,6 +43,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'area_admins' => [
+            'driver' => 'session',
+            'provider' => 'area_admins',
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -81,6 +85,10 @@ return [
             'driver' => 'eloquent',
             'model' => \App\User::class,
          ],
+        'area_admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Area_Admin::class,
+        ],
         'admins' => [
             'driver' => 'eloquent',
             'model' => \App\Admin::class,
@@ -109,6 +117,11 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
+        ],
+        'area_admins' => [
+            'provider' => 'area_admins',
+            'table' => 'password_resets',
+            'expire' => 60,
         ],
         'admins' => [
             'provider' => 'admins',

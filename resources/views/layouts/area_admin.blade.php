@@ -1,10 +1,8 @@
-@include('includes.navbar')
+@extends('layouts.app')
+@section('content')
 
-<?php
-    echo "hello";
-    $user = DB::table('users')->where('firstName', 'معاذ')->first()->firstName;
-    echo $user;
-echo "area admin page";
-?>
-
-
+    @include('operationStatus.area_add_status')
+    <div class="container">
+        @include('function.area_fun')
+    </div>
+@endsection

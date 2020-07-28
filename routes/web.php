@@ -57,7 +57,10 @@ Route::prefix('admin')->group(function (){
 
 
 /*************Auth routes*****************/
+
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/area_admin', 'Area_adminController@index')->name('layouts.area_admin');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

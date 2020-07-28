@@ -20,6 +20,6 @@ class Area_adminController extends Controller
 
     public function index()
     {
-        return view('/area_admin');
+        return view('layouts.area_admin');
     }
 }

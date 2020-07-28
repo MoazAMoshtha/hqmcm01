@@ -83,7 +83,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $user_type='user';
         if ($data['user_type'] == 'area_admin'){
+            $user_type = 'area_admin';
             Area_Admin::create([
                 'firstName' => $data['firstName'],
                 'secondName' => $data['secondName'],
@@ -98,6 +100,7 @@ class RegisterController extends Controller
                 'hqmcm_id' => $data['hqmcm_id'],
             ]) ;
         }elseif($data['user_type'] == 'mosque_admin'){
+            $user_type = 'mosque_admin';
             Mosque_Admin::create([
                 'firstName' => $data['firstName'],
                 'secondName' => $data['secondName'],
@@ -112,6 +115,7 @@ class RegisterController extends Controller
                 'hqmcm_id' => $data['hqmcm_id'],
             ]) ;
         }elseif($data['user_type'] == 'teacher'){
+            $user_type = 'teacher';
             Teacher::create([
                 'firstName' => $data['firstName'],
                 'secondName' => $data['secondName'],
@@ -126,6 +130,7 @@ class RegisterController extends Controller
                 'hqmcm_id' => $data['hqmcm_id'],
             ]) ;
         }elseif($data['user_type'] == 'student'){
+            $user_type = 'student';
             Student::create([
                 'firstName' => $data['firstName'],
                 'secondName' => $data['secondName'],
@@ -152,6 +157,7 @@ class RegisterController extends Controller
             'mosque' => $data['mosque'],
             'group' => $data['group'],
             'hqmcm_id' => $data['hqmcm_id'],
+            'user_type' => $user_type
         ]);
 
 

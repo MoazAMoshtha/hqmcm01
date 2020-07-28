@@ -19,11 +19,11 @@
                                     {{$user_type=null}}
                                     <div class="">
                                         <select class="form-control" id="user_type" name="user_type">
-                                            <option >...</option>
-                                            <option value="area_admin"  @if($_GET['user_type'] == 'area_admin') selected @endif >مشرف منطقة</option>
-                                            <option value="mosque_admin" @if($_GET['user_type'] == 'mosque_admin') selected @endif >مشرف مسجد</option>
-                                            <option value="teacher" @if($_GET['user_type'] == 'teacher') selected @endif>محفظ</option>
-                                            <option value="student" @if($_GET['user_type'] == 'student') selected @endif>طالب</option>
+                                            <option>...</option>
+                                            <option  value="area_admin"  @if($_GET['user_type'] == 'area_admin') selected @endif >مشرف منطقة</option>
+                                            <option  value="mosque_admin" @if($_GET['user_type'] == 'mosque_admin') selected @endif >مشرف مسجد</option>
+                                            <option  value="teacher" @if($_GET['user_type'] == 'teacher') selected @endif>محفظ</option>
+                                            <option  value="student" @if($_GET['user_type'] == 'student') selected @endif>طالب</option>
                                         </select>
                                         <script>
                                             document.getElementById('user_type').onchange = function() {
@@ -49,7 +49,7 @@
 
                                 <div class=" col-md-7">
                                     <input id="id" type="text" class="text-right form-control"
-                                           name="id" value="{{ old('id') }}"  autocomplete="id" autofocus>
+                                           name="id" value="{{ old('id') }}" required autocomplete="id" autofocus>
 
                                     @error('id')
                                     <span class="invalid-feedback" role="alert">

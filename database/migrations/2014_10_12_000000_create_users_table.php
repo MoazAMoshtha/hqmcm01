@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('mosque');
             $table->string('group')->nullable();
             $table->integer('hqmcm_id')->nullable();
+            $table->string('user_type');
             $table->rememberToken();
             $table->timestamps();
         });

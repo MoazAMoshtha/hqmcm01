@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Area_Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Input;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -26,16 +27,9 @@ class HomeController extends Controller
      */
 
 
-    public function index(Request $request)
+   public function index(Request $request)
     {
-        if ($request->input('user_type') == 'area_admin'){
-            if (Area_Admin::where('id', '=', $request->input('id'))->exists()) {
-                return view('area_admins_page');
-            }
-        }else{
-            return view('home');
-        }
-
+             return view('home');
     }
 
 }
