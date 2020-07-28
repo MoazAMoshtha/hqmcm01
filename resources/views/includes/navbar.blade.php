@@ -68,15 +68,17 @@
                 <a class="nav-link" href="#">من نحن</a>
             </li>
             <li>
-                @if (Auth::id() == '1')
-
+                @if (isset(Auth::user()->user_type))
+                    @if(Auth::user()->user_type != 'student')
                     <div class="top-right links">
                         @auth
                             <a href="{{ route('manger') }}" class="nav-link">الادارة</a>
                         @else
                         @endauth
                     </div>
+                    @endif
                 @endif
+
             </li>
             <li class="nav-item">
 

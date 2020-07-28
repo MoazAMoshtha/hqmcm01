@@ -45,6 +45,7 @@ Route::prefix('mosque')->group(function (){
     Route::get('/delete/{id}','MosqueController@destroy')->name('mosque.delete');
     Route::get('/edit-records','MosqueController@index')->name('mosque.editRecords');
     Route::get('/edit/{id}','MosqueController@show')->name('mosque.edit');
+    Route::get('/mosqueDeleteAll', 'MosqueController@deleteAll');
 });
 Route::post('edit/{id}','MosqueController@edit')->name('mosque.edit');
 

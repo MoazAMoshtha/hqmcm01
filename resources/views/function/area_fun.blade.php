@@ -3,13 +3,13 @@ if (session('status') == 'editArea') {
     $active = 'active';
     $show = 'show';
     $d = '#nav-update';
-    $active2 = $show2 = $m =  '';
-} elseif (session('status') == 'editMosque'){
+    $active2 = $show2 = $m = '';
+} elseif (session('status') == 'editMosque') {
     $active = 'active';
     $show = 'show';
     $m = '#nav-updateMosque';
     $active2 = $show2 = $d = '';
-}else{
+} else {
     $active = $show = $d = $m = '';
     $active2 = 'active';
     $show2 = 'show';
@@ -18,7 +18,7 @@ if (session('status') == 'editArea') {
 if (isset($_GET['areas'])) {
     $area = $_GET['areas'];
 } else {
-    $area = [0,0, 0, 0, 0];
+    $area = [0, 0, 0, 0, 0];
 }
 
 
@@ -95,9 +95,10 @@ if (isset($_GET['areas'])) {
                                                 <div class=" col-md-7">
                                                     <input id="hqmcm_id" type="text"
                                                            class="text-right form-control @error('hqmcm_id') is-invalid @enderror"
-                                                           name="hqmcm_id" value="<?php if (isset($area[0]['hqmcm_id'])) {
-                                                        echo $area[0]['hqmcm_id'];
-                                                    } ?>" required
+                                                           name="hqmcm_id"
+                                                           value="<?php if (isset($area[0]['hqmcm_id'])) {
+                                                               echo str_pad($area[0]['hqmcm_id'], 2, '0', STR_PAD_LEFT);
+                                                           } ?>" required
                                                            autocomplete="name" autofocus>
 
                                                     @error('hqmcm_id')
@@ -248,8 +249,8 @@ if (isset($_GET['areas'])) {
 
                                                     @error('name')
                                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                    <strong>{{ $message }}</strong>
+                                                    </span>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -265,9 +266,18 @@ if (isset($_GET['areas'])) {
                                                 <div class=" col-md-7">
                                                     <input id="hqmcm_id" type="text"
                                                            class="text-right form-control @error('hqmcm_id') is-invalid @enderror"
-                                                           name="hqmcm_id" value="{{ old('hqmcm_id') }}" required
+                                                           name="hqmcm_id"
+                                                           value="<?php
+                                                           if (\App\Area::all()->last() == null) {
+                                                               $id = 1;
+                                                               echo $id;
+                                                           } else {
+                                                               $id = \App\Area::all()->last()->id + 1;
+                                                                   echo $id;
+                                                           }
+                                                           str_pad($id, 2, '0', STR_PAD_LEFT) ?>"
+                                                           required
                                                            autocomplete="name" autofocus>
-
                                                     @error('hqmcm_id')
                                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
