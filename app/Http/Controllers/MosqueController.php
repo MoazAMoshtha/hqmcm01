@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Area;
 use App\Mosque;
-use App\Http\Controllers\Controller;
-use App\Mosque_Admin;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
-use phpDocumentor\Reflection\Element;
+use Illuminate\Support\Facades\Auth;
 
 class MosqueController extends Controller
 {
@@ -56,6 +54,7 @@ class MosqueController extends Controller
             $mosque_id = $mosque->id+1;
 
         }}
+
         $hqmcm_id = str_pad($request->input('area'), 2, '0', STR_PAD_LEFT) . str_pad($mosque_id, 2, '0', STR_PAD_LEFT);
         $mosque_admin = $request->input('mosque_admin');
         $number_of_teachers = $request->input('number_of_teachers');
@@ -64,39 +63,34 @@ class MosqueController extends Controller
         Mosque::create(['hqmcm_id' => $hqmcm_id, 'area' => $areaName] + $request->all());
         return redirect('manger')->with('status', 'areaInsert success');
 
-
     }
 
 
-    public function showMosques()
+    public function showMosques(Request $request)
     {
-        $mosques = DB::select('select * from mosques');
+        $name = Auth::user()->area;
+        $mosques = Mosque::where('area' , $name)->get();
         return view('manger', ['mosques' => $mosques]);
-
     }
+
     public function SearchByArea()
     {
         $mosques = DB::select('select * from mosques');
         return view('manger', ['mosques' => $mosques]);
-
     }
 
     public function destroy($id)
     {
         Mosque::find($id)->delete();
         return redirect('manger')->with('status', 'areaDeleted');
-
     }
 
     public function deleteAll(Request $request)
-
     {
-
         $ids = $request->ids;
         DB::table("mosques")->whereIn('id', explode(",", $ids))->delete();
         return view('manger');
         //return response()->json(['success' => "Products Deleted successfully."]);
-
     }
 
     public function edit(Request $request, $id)
@@ -118,5 +112,4 @@ class MosqueController extends Controller
         Mosque::whereId($id)->update($request->except('_token', 'secondName'));
         return redirect('manger')->with('status', 'areaUpdate success');
     }
-
 }

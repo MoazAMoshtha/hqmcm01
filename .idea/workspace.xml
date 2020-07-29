@@ -26,10 +26,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6c9c5b9-17a3-4af0-b554-d0212ec98760" name="Default Changelist" comment="منح hqmcm_id للمنطقة والمسجد">
+    <list default="true" id="b6c9c5b9-17a3-4af0-b554-d0212ec98760" name="Default Changelist" comment="mosque.SearchByArea">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MosqueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MosqueController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Teacher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_17_183708_create_teachers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_17_183708_create_teachers_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/function/mosque_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/mosque_fun.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/function/teachers_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/teachers_fun.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,7 +186,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -192,19 +197,19 @@
     <property name="settings.editor.selected.configurable" value="Laravel.SettingsForm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers" />
+      <recent name="C:\laragon\www\hqmcm01\app" />
+      <recent name="C:\laragon\www\hqmcm01\bootstrap" />
+      <recent name="C:\laragon\www\hqmcm01\resources\views" />
+      <recent name="C:\laragon\www\hqmcm01\resources\views\function" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers" />
       <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers\function" />
       <recent name="C:\laragon\www\hqmcm01\public" />
       <recent name="C:\laragon\www\hqmcm01\resources\views\layouts" />
       <recent name="C:\laragon\www\hqmcm01\resources\views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\hqmcm01\app" />
-      <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers" />
-      <recent name="C:\laragon\www\hqmcm01\bootstrap" />
-      <recent name="C:\laragon\www\hqmcm01\resources\views" />
-      <recent name="C:\laragon\www\hqmcm01\resources\views\function" />
     </key>
   </component>
   <component name="RunManager">
@@ -246,6 +251,7 @@
       <workItem from="1595684510948" duration="6000" />
       <workItem from="1595701646187" duration="277000" />
       <workItem from="1595869986214" duration="5683000" />
+      <workItem from="1596019185682" duration="6537000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1595001925737</created>
@@ -364,7 +370,13 @@
       <option name="presentableId" value="LOCAL؜٠٠٠١٧" />
       <updated>1595948435268</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL؜٠٠٠١٨" summary="mosque.SearchByArea">
+      <created>1595950588517</created>
+      <option name="number" value="LOCAL؜٠٠٠١٨" />
+      <option name="presentableId" value="LOCAL؜٠٠٠١٨" />
+      <updated>1595950588517</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,7 +429,8 @@
     <MESSAGE value="تسجيل الدخول ك مشرف منطقة ومشرف مسجد" />
     <MESSAGE value="انهاء تسجيل الدخول حسب نوع المستخدم" />
     <MESSAGE value="منح hqmcm_id للمنطقة والمسجد" />
-    <option name="LAST_COMMIT_MESSAGE" value="منح hqmcm_id للمنطقة والمسجد" />
+    <MESSAGE value="mosque.SearchByArea" />
+    <option name="LAST_COMMIT_MESSAGE" value="mosque.SearchByArea" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Composer" timestamp="1594860321470">
@@ -492,11 +505,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595459549729" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1595948438500">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1595950591004">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595874110013" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1595948438500" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1595950591004" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1595701775988">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

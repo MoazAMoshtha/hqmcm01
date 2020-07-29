@@ -51,6 +51,22 @@ Route::prefix('mosque')->group(function (){
 
 Route::post('edit/{id}','MosqueController@edit')->name('mosque.edit');
 
+/*************mosque routes*****************/
+Route::prefix('teacher')->group(function (){
+    Route::post('/SearchByArea','MosqueController@SearchByArea')->name('mosque.SearchByArea');
+    Route::get('/function.teachers_fun', 'TeacherController@index')->name('Teachers_fun');
+    Route::get('/insertTeacher','TeacherController@insertform')->name('teacher.insertTeacher');
+    Route::post('/createTeacher','TeacherController@insert')->name('teacher.createTeacher');
+    Route::post('/showTeachers','TeacherController@showTeachers')->name('teacher.showTeachers');
+    Route::get('/delete-records','TeacherController@index')->name('teacher.deleteRecords');
+    Route::get('/delete/{id}','TeacherController@destroy')->name('teacher.delete');
+    Route::get('/edit-records','TeacherController@index')->name('teacher.editRecords');
+    Route::get('/edit/{id}','TeacherController@show')->name('teacher.edit');
+    Route::get('/teacherDeleteAll', 'TeacherController@deleteAll');
+});
+
+Route::post('edit/{id}','TeacherController@edit')->name('teacher.edit');
+
 /*************admin routes*****************/
 Route::prefix('admin')->group(function (){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');

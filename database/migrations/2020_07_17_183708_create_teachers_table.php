@@ -18,7 +18,7 @@ class CreateTeachersTable extends Migration
             $table->string('firstName');
             $table->string('secondName');
             $table->string('familyName');
-            $table->integer('id_number');
+            $table->integer('id_number')->unique();
             $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -26,7 +26,7 @@ class CreateTeachersTable extends Migration
             $table->string('area');
             $table->string('mosque');
             $table->string('group')->nullable();
-            $table->integer('hqmcm_id');
+            $table->integer('hqmcm_id')->unique();
             $table->rememberToken();
             $table->timestamps();
         });

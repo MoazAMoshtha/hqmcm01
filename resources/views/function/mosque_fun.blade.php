@@ -14,14 +14,11 @@ if (session('status') == 'editArea') {
     $active2 = 'active';
     $show2 = 'show';
 }
-
 if (isset($_GET['mosques'])) {
     $mosque = $_GET['mosques'];
 } else {
     $mosque = [0,0, 0, 0, 0];
 }
-
-
 ?>
 
 <div class="row justify-content-center">
@@ -368,21 +365,6 @@ if (isset($_GET['mosques'])) {
                     <div class="tab-pane fade <?php echo $active2 . " " . $show2?>" id="nav-viewMosque" role="tabpanel"
                          aria-labelledby="nav-viewMosque-tab">
                         <div class="container h-100 w-100">
-                            <form method="post" action="{{route('mosque.SearchByArea')}}">
-                            @csrf
-                            <!--تسجيل-->
-                                <div class="form-group row text-center ">
-                                    <div class="row justify-content-end">
-                                        <div class="col-3">
-                                            <input name="areaNameForSearch" type="text" class="text-right form-control">
-                                            <button type="submit" class="btn btn-primary">
-                                                {{ __('عرض حسب المنطقة ') }}
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-
                             <form method="post" action="{{route('mosque.showMosques')}}">
                             @csrf
 

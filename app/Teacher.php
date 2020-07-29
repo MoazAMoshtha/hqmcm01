@@ -34,13 +34,14 @@ class Teacher extends Authenticatable
         'phoneNumber' => ['required', 'string', 'max:255'],
         'area' => ['required', 'string', 'max:255'],
         'mosque' => ['required', 'string', 'max:255'],
+        'group' => [],
         'hqmcm_id' => [''],
     ];
 
     protected $fillable = [
         'firstName', 'secondName', 'familyName','id_number',
         'email', 'password', 'phoneNumber',
-        'area', 'mosque','hqmcm_id'
+        'area', 'mosque','group','hqmcm_id'
     ];
 
     /**
