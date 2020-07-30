@@ -26,17 +26,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6c9c5b9-17a3-4af0-b554-d0212ec98760" name="Default Changelist" comment="mosque.SearchByArea">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MosqueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MosqueController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Teacher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_17_183708_create_teachers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_17_183708_create_teachers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/function/mosque_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/mosque_fun.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/function/teachers_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/teachers_fun.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="b6c9c5b9-17a3-4af0-b554-d0212ec98760" name="Default Changelist" comment="- ادارة المحفظين .&#10;------ مطلوب -----&#10;- اضافة قائمة محفظ متوقف" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -251,7 +241,7 @@
       <workItem from="1595684510948" duration="6000" />
       <workItem from="1595701646187" duration="277000" />
       <workItem from="1595869986214" duration="5683000" />
-      <workItem from="1596019185682" duration="6537000" />
+      <workItem from="1596019185682" duration="7091000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1595001925737</created>
@@ -376,7 +366,13 @@
       <option name="presentableId" value="LOCAL؜٠٠٠١٨" />
       <updated>1595950588517</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL؜٠٠٠١٩" summary="- ادارة المحفظين .&#10;------ مطلوب -----&#10;- اضافة قائمة محفظ متوقف">
+      <created>1596025936696</created>
+      <option name="number" value="LOCAL؜٠٠٠١٩" />
+      <option name="presentableId" value="LOCAL؜٠٠٠١٩" />
+      <updated>1596025936696</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,7 +426,8 @@
     <MESSAGE value="انهاء تسجيل الدخول حسب نوع المستخدم" />
     <MESSAGE value="منح hqmcm_id للمنطقة والمسجد" />
     <MESSAGE value="mosque.SearchByArea" />
-    <option name="LAST_COMMIT_MESSAGE" value="mosque.SearchByArea" />
+    <MESSAGE value="- ادارة المحفظين .&#10;------ مطلوب -----&#10;- اضافة قائمة محفظ متوقف" />
+    <option name="LAST_COMMIT_MESSAGE" value="- ادارة المحفظين .&#10;------ مطلوب -----&#10;- اضافة قائمة محفظ متوقف" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Composer" timestamp="1594860321470">
@@ -505,11 +502,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595459549729" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1595950591004">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1596025956602">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595874110013" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1595950591004" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1596025956602" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1595701775988">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
