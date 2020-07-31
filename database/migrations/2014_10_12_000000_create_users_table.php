@@ -26,9 +26,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('phoneNumber');
             $table->string('area');
-            $table->string('mosque');
+            $table->string('mosque')->nullable();
             $table->string('group')->nullable();
-            $table->integer('hqmcm_id')->nullable();
+            $table->integer('hqmcm_id')->unique();
             $table->string('user_type');
             $table->rememberToken();
             $table->timestamps();

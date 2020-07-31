@@ -26,7 +26,7 @@ class CreateStudentsTable extends Migration
             $table->string('area');
             $table->string('mosque');
             $table->string('group');
-            $table->integer('hqmcm_id');
+            $table->integer('hqmcm_id')->unique();
             $table->rememberToken();
             $table->timestamps();
         });

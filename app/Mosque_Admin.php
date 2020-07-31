@@ -34,7 +34,7 @@ class Mosque_Admin extends Authenticatable
         'phoneNumber' => ['required', 'string', 'max:255'],
         'area' => ['required', 'string', 'max:255'],
         'mosque' => ['required', 'string', 'max:255'],
-        'hqmcm_id' => [''],
+        'hqmcm_id' => ['required'],
     ];
 
     protected $fillable = [

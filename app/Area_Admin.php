@@ -33,7 +33,6 @@ class Area_Admin extends Authenticatable
         'password' => ['required', 'string', 'min:8', 'confirmed'],
         'phoneNumber' => ['required', 'string', 'max:255'],
         'area' => ['required', 'string', 'max:255'],
-        'hqmcm_id' => [''],
     ];
 
     protected $fillable = [

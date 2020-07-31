@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Area;
 use App\Area_Admin;
+use App\Mosque;
 use App\Mosque_Admin;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -14,6 +16,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Exists;
 
 
 class RegisterController extends Controller
@@ -58,7 +61,6 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-
             'firstName' => ['required', 'string', 'max:255'],
             'secondName' => ['required', 'string', 'max:255'],
             'familyName' => ['required', 'string', 'max:255'],
@@ -67,10 +69,8 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phoneNumber' => ['required', 'string', 'max:255'],
             'area' => ['required', 'string', 'max:255'],
-            'mosque' => ['required', 'string', 'max:255'],
-            'group' => [],
-            'hqmcm_id' => [],
-
+            'mosque' => ['string','nullable', 'max:255'],
+            'group' => ['nullable'],
         ]);
     }
 
@@ -83,10 +83,40 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $area_names = Area::where('hqmcm_id', $data['area'])->get();
+        foreach ($area_names as $area_name){
+            $area = $area_name->name;
+        }
+        $area_admins = Area_Admin::where('area', $area)->get();
+
+       // $mosque_name = Mosque::where('hqmcm_id', $data['mosque'])->get('name');
+      //  $mosque_admins = Mosque_Admin::where('mosque', $mosque_name)->get();
+        if ($area_admins == null){
+            $hqmcm_id_area_admin = str_pad($data['area'], 2, '0', STR_PAD_LEFT) . str_pad(1, 2, '0', STR_PAD_LEFT);
+        }else{
+            $idCount = 0;
+            foreach ($area_admins as $area_admin){
+                $idCount++;
+            }
+            $hqmcm_id_area_admin = str_pad($data['area'], 2, '0', STR_PAD_LEFT) . str_pad($idCount+1, 2, '0', STR_PAD_LEFT);
+        }
+        /*if ($mosque_admins == null){
+            $hqmcm_id_mosque_admin = str_pad($data['area'], 2, '0', STR_PAD_LEFT) . str_pad(1, 2, '0', STR_PAD_LEFT);
+        }else{
+            $idCount = 0;
+            foreach ($mosque_admins as $mosque){
+                $idCount++;
+            }
+            $hqmcm_id_mosque_admin = str_pad($data['area'], 2, '0', STR_PAD_LEFT) . str_pad($data['mosque'], 2, '0', STR_PAD_LEFT) .  str_pad($idCount, 2, '0', STR_PAD_LEFT);
+        }
+*/
+
+
         $user_type='user';
         if ($data['user_type'] == 'area_admin'){
             $user_type = 'area_admin';
-            Area_Admin::create([
+            $hqmcm_id_user = $hqmcm_id_area_admin;
+           Area_Admin::create([
                 'firstName' => $data['firstName'],
                 'secondName' => $data['secondName'],
                 'familyName' => $data['familyName'],
@@ -94,12 +124,11 @@ class RegisterController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'phoneNumber' => $data['phoneNumber'],
-                'area' => $data['area'],
-                'mosque' => $data['mosque'],
-                'group' => $data['group'],
-                'hqmcm_id' => $data['hqmcm_id'],
+                'area' => $area,
+                'hqmcm_id' =>$hqmcm_id_area_admin,
             ]) ;
         }elseif($data['user_type'] == 'mosque_admin'){
+            $hqmcm_id_user = $hqmcm_id_mosque_admin;
             $user_type = 'mosque_admin';
             Mosque_Admin::create([
                 'firstName' => $data['firstName'],
@@ -109,10 +138,10 @@ class RegisterController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'phoneNumber' => $data['phoneNumber'],
-                'area' => $data['area'],
+                'area' => $area_name,
                 'mosque' => $data['mosque'],
                 'group' => $data['group'],
-                'hqmcm_id' => $data['hqmcm_id'],
+                'hqmcm_id' => $hqmcm_id_mosque_admin,
             ]) ;
         }elseif($data['user_type'] == 'teacher'){
             $user_type = 'teacher';
@@ -124,7 +153,7 @@ class RegisterController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'phoneNumber' => $data['phoneNumber'],
-                'area' => $data['area'],
+                'area' => $area_name,
                 'mosque' => $data['mosque'],
                 'group' => $data['group'],
                 'hqmcm_id' => $data['hqmcm_id'],
@@ -139,7 +168,7 @@ class RegisterController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'phoneNumber' => $data['phoneNumber'],
-                'area' => $data['area'],
+                'area' => $area_name,
                 'mosque' => $data['mosque'],
                 'group' => $data['group'],
                 'hqmcm_id' => $data['hqmcm_id'],
@@ -153,13 +182,11 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'phoneNumber' => $data['phoneNumber'],
-            'area' => $data['area'],
+            'area' => $area,
             'mosque' => $data['mosque'],
             'group' => $data['group'],
-            'hqmcm_id' => $data['hqmcm_id'],
+            'hqmcm_id' => $hqmcm_id_user ,
             'user_type' => $user_type
         ]);
-
-
     }
 }

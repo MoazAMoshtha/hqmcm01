@@ -35,7 +35,7 @@ class Student extends Authenticatable
         'area' => ['required', 'string', 'max:255'],
         'mosque' => ['required', 'string', 'max:255'],
         'group' => ['required', 'string', 'max:255'],
-        'hqmcm_id' => [''],
+        'hqmcm_id' => ['required' , 'unique:students'],
     ];
 
     protected $fillable = [

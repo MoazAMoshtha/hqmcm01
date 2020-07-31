@@ -20,12 +20,12 @@ class CreateAreaAdminsTable extends Migration
             $table->string('secondName');
             $table->string('familyName');
             $table->integer('id_number');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('phoneNumber');
             $table->string('area');
-            $table->integer('hqmcm_id');
+            $table->integer('hqmcm_id')->unique();
             $table->rememberToken();
             $table->timestamps();
         });

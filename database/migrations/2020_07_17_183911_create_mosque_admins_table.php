@@ -27,7 +27,7 @@ class CreateMosqueAdminsTable extends Migration
             $table->integer('phoneNumber');
             $table->string('area');
             $table->string('mosque');
-            $table->integer('hqmcm_id');
+            $table->integer('hqmcm_id')->unique();
             $table->rememberToken();
             $table->timestamps();
 

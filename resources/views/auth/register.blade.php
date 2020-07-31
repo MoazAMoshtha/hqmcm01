@@ -1,10 +1,9 @@
-
 @extends('layouts.app')
 @section('content')
     <?php
-    if (isset($_GET['user_type'])){
+    if (isset($_GET['user_type'])) {
 
-    }else{
+    } else {
         $_GET['user_type'] = null;
     }
     ?>
@@ -14,33 +13,42 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                        <form method="POST" action="{{route('register')}}">
-                            <div class="card-header text-right">{{ __('سجل الأن') }}
+                    <form method="POST" action="{{route('register')}}">
+                        <div class="card-header text-right">{{ __('سجل الأن') }}
 
-                                <div class="row justify-content-center">
-                                    {{$user_type=null}}
-                                    <div class="">
-                                        <select class="form-control" id="user_type" name="user_type">
-                                            <option >...</option>
-                                            <option value="area_admin"  @if($_GET['user_type'] == 'area_admin') selected @endif >مشرف منطقة</option>
-                                            <option value="mosque_admin" @if($_GET['user_type'] == 'mosque_admin') selected @endif >مشرف مسجد</option>
-                                            <option value="teacher" @if($_GET['user_type'] == 'teacher') selected @endif>محفظ</option>
-                                            <option value="student" @if($_GET['user_type'] == 'student') selected @endif>طالب</option>
-                                        </select>
-                                        <script>
-                                            document.getElementById('user_type').onchange = function() {
-                                                window.location = "{{route('register')}}?user_type=" + this.value;
-                                            };
-                                        </script>
-                                    </div>
-                                    <div class ="pt-1 pl-2">
-                                        <label >نوع المستخدم</label>
-                                    </div>
+                            <div class="row justify-content-center">
+                                {{$user_type=null}}
+                                <div class="">
+                                    <select class="form-control" id="user_type" name="user_type">
+                                        <option>...</option>
+                                        <option value="area_admin"
+                                                @if($_GET['user_type'] == 'area_admin') selected @endif >مشرف منطقة
+                                        </option>
+                                        <option value="mosque_admin"
+                                                @if($_GET['user_type'] == 'mosque_admin') selected @endif >مشرف مسجد
+                                        </option>
+                                        <option value="teacher" @if($_GET['user_type'] == 'teacher') selected @endif>
+                                            محفظ
+                                        </option>
+                                        <option value="student" @if($_GET['user_type'] == 'student') selected @endif>
+                                            طالب
+                                        </option>
+                                    </select>
+                                    <script>
+                                        document.getElementById('user_type').onchange = function () {
+                                            window.location = "{{route('register')}}?user_type=" + this.value;
+                                        };
+                                    </script>
+                                </div>
+                                <div class="pt-1 pl-2">
+                                    <label>نوع المستخدم</label>
                                 </div>
                             </div>
+                        </div>
                         @csrf
-                            <div class="card-body">
-                        <!--الاسم الأول-->
+                        <div class="card-body">
+
+                            <!--الاسم الأول-->
                             <div class="form-group row justify-content-lg-center">
                                 <div class="col-lg-4">
 
@@ -224,23 +232,24 @@
                                        class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المنطقة') }}</label>
 
                                 <div class="col-md-7 float-left">
-                                    <select class="form-control text-right" id="area" name="area">
-                                        <option name="area">1</option>
-                                        <option name="area">2</option>
-                                        <option name="area">3</option>
-                                        <option name="area">4</option>
-                                        <option name="area">5</option>
+                                    <select class="form-control text-right c" id="area" name="area">
+                                        <option value="" selected>...</option>
+                                        <?php $areas = \App\Area::all()?>
+                                        @foreach($areas as $area)
+                                            <option value="{{$area->hqmcm_id }}">{{ $area->name }}</option>
+                                        @endforeach
                                     </select>
                                     @error('area')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                    <strong>{{ $message }}</strong>
+                                                     </span>
                                     @enderror
                                 </div>
                             </div>
 
                             <!--المسجد-->
-                            <div class="form-group row justify-content-lg-center">
+                            <div class="form-group row justify-content-lg-center"
+                                 @if($_GET['user_type'] == 'area_admin') hidden @endif>
                                 <div class="col-lg-4">
 
                                 </div>
@@ -249,23 +258,24 @@
                                        class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المسجد') }}</label>
 
                                 <div class="col-md-7 float-left">
-                                    <select class="form-control text-right" id="mosque" name="mosque">
-                                        <option name="mosque">1</option>
-                                        <option name="mosque">2</option>
-                                        <option name="mosque">3</option>
-                                        <option name="mosque">4</option>
-                                        <option name="mosque">5</option>
+                                    <select class="form-control text-right c" id="mosque" name="mosque">
+                                        <option value="" selected>...</option>
+                                        <?php $mosques = \App\Mosque::all()?>
+                                        @foreach($mosques as $mosque)
+                                            <option value="{{$mosque->hqmcm_id }}">{{ $mosque->name }}</option>
+                                        @endforeach
                                     </select>
-                                    @error('mosque')
+                                    @error('$mosque')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                    <strong>{{ $message }}</strong>
+                                                     </span>
                                     @enderror
                                 </div>
                             </div>
 
                             <!--المحفظ-->
-                            <div class="form-group row justify-content-lg-center" @if($_GET['user_type'] != 'student') hidden @endif>
+                            <div class="form-group row justify-content-lg-center"
+                                 @if($_GET['user_type'] != 'student') hidden @endif>
                                 <div class="col-lg-4">
 
                                 </div>
@@ -289,35 +299,6 @@
                                 </div>
                             </div>
 
-                            <!--رقم المستخدم-->
-                            <div class="form-group row justify-content-lg-center">
-                                <div class="col-lg-4">
-
-                                </div>
-
-                                <label for="hqmcm_id" class="col-lg-3 col-md-4 col-form-label text-right">{{ __('رقم المستخدم') }}</label>
-
-                                <div class=" col-md-7">
-                                    <input id="hqmcm_id"  type="text" placeholder="
-                                    <?php
-                                    $rowCount = DB::table('users')->count();
-                                    if ($rowCount == 0) {
-                                        echo 01;
-                                    } else {
-                                        $last = DB::table('users')->latest()->first()->id;
-                                        echo $last + 1;
-                                    }
-                                    ?> : خاص بتسجيل الدخول "
-                                           class="text-right form-control"
-                                           name="hqmcm_id" value="{{ old('hqmcm_id') }}" autocomplete="hqmcm_id" autofocus>
-
-                                    @error('hqmcm_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
 
                             <!--تسجيل-->
                             <div class="form-group row justify-content-center">
@@ -328,7 +309,8 @@
                                 </div>
                             </div>
 
-                            </div></form>
+                        </div>
+                    </form>
 
                 </div>
             </div>
