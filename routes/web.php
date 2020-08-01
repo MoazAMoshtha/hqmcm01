@@ -21,6 +21,8 @@ Route::get('/', function () {
 
 Route::post('/manger', 'MangerController@index')->name('manger');
 Route::get('/manger', 'MangerController@index')->name('manger');
+Route::post('/daily_followup', 'Daily_followupController@index')->name('daily_followup');
+Route::get('/daily_followup', 'Daily_followupController@index')->name('daily_followup');
 
 /*************area routes*****************/
 Route::prefix('area')->group(function (){

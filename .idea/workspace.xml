@@ -26,23 +26,25 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6c9c5b9-17a3-4af0-b554-d0212ec98760" name="Default Changelist" comment="mosque.SearchByArea">
+    <list default="true" id="b6c9c5b9-17a3-4af0-b554-d0212ec98760" name="Default Changelist" comment="---مطلوب---&#10;-المتابعة اليومية">
+      <change afterPath="$PROJECT_DIR$/app/Group.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Daily_followupController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/daily_followup.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Area_Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Area_Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mosque.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mosque.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Mosque_Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mosque_Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Teacher.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_17_183619_create_students_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_17_183619_create_students_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_17_183708_create_teachers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_17_183708_create_teachers_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_17_183828_create_area_admins_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_17_183828_create_area_admins_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_17_183911_create_mosque_admins_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_17_183911_create_mosque_admins_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_26_144012_create_groups_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_26_144012_create_groups_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +197,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -206,19 +208,19 @@
     <property name="settings.editor.selected.configurable" value="Laravel.SettingsForm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers" />
-      <recent name="C:\laragon\www\hqmcm01\app" />
-      <recent name="C:\laragon\www\hqmcm01\bootstrap" />
-      <recent name="C:\laragon\www\hqmcm01\resources\views" />
-      <recent name="C:\laragon\www\hqmcm01\resources\views\function" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers" />
       <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers\function" />
       <recent name="C:\laragon\www\hqmcm01\public" />
       <recent name="C:\laragon\www\hqmcm01\resources\views\layouts" />
       <recent name="C:\laragon\www\hqmcm01\resources\views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\hqmcm01\app" />
+      <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers" />
+      <recent name="C:\laragon\www\hqmcm01\bootstrap" />
+      <recent name="C:\laragon\www\hqmcm01\resources\views" />
+      <recent name="C:\laragon\www\hqmcm01\resources\views\function" />
     </key>
   </component>
   <component name="RunManager">
@@ -263,6 +265,7 @@
       <workItem from="1596019185682" duration="6537000" />
       <workItem from="1596145721606" duration="11838000" />
       <workItem from="1596212629896" duration="2265000" />
+      <workItem from="1596235522321" duration="17712000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1595001925737</created>
@@ -441,7 +444,8 @@
     <MESSAGE value="انهاء تسجيل الدخول حسب نوع المستخدم" />
     <MESSAGE value="منح hqmcm_id للمنطقة والمسجد" />
     <MESSAGE value="mosque.SearchByArea" />
-    <option name="LAST_COMMIT_MESSAGE" value="mosque.SearchByArea" />
+    <MESSAGE value="---مطلوب---&#10;-المتابعة اليومية" />
+    <option name="LAST_COMMIT_MESSAGE" value="---مطلوب---&#10;-المتابعة اليومية" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Composer" timestamp="1594860321470">
@@ -465,10 +469,10 @@
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1596150579333" />
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1595934491999" />
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1596146997181">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1596256277353">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1596146997181" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1596256277353" />
     <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1595113846335" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1596146959368">
       <screen x="0" y="0" width="1366" height="728" />
@@ -503,15 +507,15 @@
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595464501270" />
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1594861927058" />
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1595284153825" />
-    <state x="438" y="178" key="NewPhpClassDialog" timestamp="1595457722358">
+    <state x="438" y="178" key="NewPhpClassDialog" timestamp="1596256160499">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="438" y="178" key="NewPhpClassDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595457722358" />
+    <state x="438" y="178" key="NewPhpClassDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1596256160499" />
     <state x="438" y="178" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1595281586279" />
-    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1595511294197">
+    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1596255976867">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595511294197" />
+    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1596255976867" />
     <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1595119317516" />
     <state x="184" y="6" key="SettingsEditor" timestamp="1595459549729">
       <screen x="0" y="0" width="1366" height="728" />

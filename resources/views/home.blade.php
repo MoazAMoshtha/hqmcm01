@@ -16,6 +16,7 @@ echo request()->input('user_type');
 
                         </div>
                     @endif
+
                     {{ __('You are logged in!') }}
                 </div>
             </div>

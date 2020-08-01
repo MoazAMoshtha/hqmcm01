@@ -80,6 +80,19 @@
                 @endif
 
             </li>
+            <li>
+                @if (isset(Auth::user()->user_type))
+                    @if(Auth::user()->user_type != 'student')
+                    <div class="top-right links">
+                        @auth
+                            <a href="{{ route('daily_followup')}}" class="nav-link">المتابعة اليومية</a>
+                        @else
+                        @endauth
+                    </div>
+                    @endif
+                @endif
+
+            </li>
             <li class="nav-item">
 
                 <a href="{{route('welcome')}}" class="nav-link  ">الرئيسية</a>
@@ -101,4 +114,3 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 </body>
-</html>

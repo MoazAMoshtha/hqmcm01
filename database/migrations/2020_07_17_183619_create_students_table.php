@@ -15,10 +15,11 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->integer('hqmcm_id')->unique();
             $table->string('firstName');
             $table->string('secondName');
             $table->string('familyName');
-            $table->integer('id_number');
+            $table->integer('id_number')->unique()->nullable();
             $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -26,7 +27,6 @@ class CreateStudentsTable extends Migration
             $table->string('area');
             $table->string('mosque');
             $table->string('group');
-            $table->integer('hqmcm_id')->unique();
             $table->rememberToken();
             $table->timestamps();
         });

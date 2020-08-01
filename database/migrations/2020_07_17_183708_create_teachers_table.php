@@ -15,6 +15,7 @@ class CreateTeachersTable extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
+            $table->integer('hqmcm_id')->unique();
             $table->string('firstName');
             $table->string('secondName');
             $table->string('familyName');
@@ -26,7 +27,6 @@ class CreateTeachersTable extends Migration
             $table->string('area');
             $table->string('mosque');
             $table->string('group')->nullable();
-            $table->integer('hqmcm_id')->unique();
             $table->rememberToken();
             $table->timestamps();
         });

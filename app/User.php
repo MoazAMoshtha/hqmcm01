@@ -8,9 +8,9 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    protected $primaryKey = 'hqmcm_id';
     use Notifiable;
     protected $table = 'users';
-    protected $primaryKey = 'hqmcm_id';
 
 
 

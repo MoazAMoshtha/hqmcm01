@@ -236,7 +236,7 @@
                                         <option value="" selected>...</option>
                                         <?php $areas = \App\Area::all()?>
                                         @foreach($areas as $area)
-                                            <option value="{{$area->hqmcm_id }}">{{ $area->name }}</option>
+                                            <option value="{{$area->hqmcm_id }} " name="area">{{ $area->name }}</option>
                                         @endforeach
                                     </select>
                                     @error('area')
@@ -259,10 +259,10 @@
 
                                 <div class="col-md-7 float-left">
                                     <select class="form-control text-right c" id="mosque" name="mosque">
-                                        <option value="" selected>...</option>
+                                        <option value="null" name="mosque" selected>...</option>
                                         <?php $mosques = \App\Mosque::all()?>
                                         @foreach($mosques as $mosque)
-                                            <option value="{{$mosque->hqmcm_id }}">{{ $mosque->name }}</option>
+                                            <option value="{{$mosque->hqmcm_id}}" name="mosque">{{$mosque->name}}</option>
                                         @endforeach
                                     </select>
                                     @error('$mosque')
@@ -284,17 +284,17 @@
                                        class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المحفظ') }}</label>
 
                                 <div class="col-md-7 float-left">
-                                    <select class="form-control text-right" id="group" name="group">
-                                        <option name="group">1</option>
-                                        <option name="group">2</option>
-                                        <option name="group">3</option>
-                                        <option name="group">4</option>
-                                        <option name="group">5</option>
+                                    <select class="form-control text-right c" id="group" name="group">
+                                        <option value="null" name="group" selected>...</option>
+                                        <?php $groups = \App\Group::all()?>
+                                        @foreach($groups as $group)
+                                            <option value="{{$group->hqmcm_id }}" name="group">{{ $group->teacher }}</option>
+                                        @endforeach
                                     </select>
-                                    @error('group')
+                                    @error('$mosque')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                    <strong>{{ $message }}</strong>
+                                                     </span>
                                     @enderror
                                 </div>
                             </div>

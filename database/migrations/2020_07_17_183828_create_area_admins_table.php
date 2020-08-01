@@ -16,16 +16,16 @@ class CreateAreaAdminsTable extends Migration
     {
         Schema::create('area_admins', function (Blueprint $table) {
             $table->id();
+            $table->integer('hqmcm_id')->unique();
             $table->string('firstName');
             $table->string('secondName');
             $table->string('familyName');
-            $table->integer('id_number');
+            $table->integer('id_number')->unique()->nullable();
             $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('phoneNumber');
             $table->string('area');
-            $table->integer('hqmcm_id')->unique();
             $table->rememberToken();
             $table->timestamps();
         });

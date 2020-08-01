@@ -14,7 +14,12 @@ class CreateGroupsTable extends Migration
     public function up()
     {
         Schema::create('groups', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
+            $table->integer('hqmcm_id')->unique();
+            $table->string('area');
+            $table->string('mosque');
+            $table->string('teacher')->nullable();
+            $table->integer('number_of_students')->nullable();
             $table->timestamps();
         });
     }

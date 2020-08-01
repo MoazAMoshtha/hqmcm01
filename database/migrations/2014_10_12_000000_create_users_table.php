@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
+    protected $primaryKey = 'hqmcm_id';
+
     /**
      * Run the migrations.
      *
@@ -16,11 +18,12 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->bigInteger('id')->autoIncrement();
+            $table->bigInteger('hqmcm_id')->unsigned();
             $table->string('firstName');
             $table->string('secondName');
             $table->string('familyName');
-            $table->integer('id_number')->nullable();
+            $table->integer('id_number')->unique()->nullable();
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -28,7 +31,6 @@ class CreateUsersTable extends Migration
             $table->string('area');
             $table->string('mosque')->nullable();
             $table->string('group')->nullable();
-            $table->integer('hqmcm_id')->unique();
             $table->string('user_type');
             $table->rememberToken();
             $table->timestamps();
