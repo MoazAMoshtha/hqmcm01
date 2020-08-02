@@ -15,12 +15,11 @@ if (session('status') == 'editArea') {
     $show2 = 'show';
 }
 
-if (isset($_GET['areas'])) {
+if(isset($_GET['areas'])) {
     $area = $_GET['areas'];
-} else {
+}else{
     $area = [0, 0, 0, 0, 0];
 }
-
 
 ?>
 

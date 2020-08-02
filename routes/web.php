@@ -21,8 +21,10 @@ Route::get('/', function () {
 
 Route::post('/manger', 'MangerController@index')->name('manger');
 Route::get('/manger', 'MangerController@index')->name('manger');
+
 Route::post('/daily_followup', 'Daily_followupController@index')->name('daily_followup');
 Route::get('/daily_followup', 'Daily_followupController@index')->name('daily_followup');
+Route::get('/daily_record/{hqmcm_id}', 'Daily_followupController@daily_record')->name('daily_record');
 
 /*************area routes*****************/
 Route::prefix('area')->group(function (){
@@ -69,6 +71,7 @@ Route::prefix('teacher')->group(function (){
 
 Route::post('edit/{id}','TeacherController@edit')->name('teacher.edit');
 
+
 /*************admin routes*****************/
 Route::prefix('admin')->group(function (){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -78,7 +81,6 @@ Route::prefix('admin')->group(function (){
 
 
 /*************Auth routes*****************/
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

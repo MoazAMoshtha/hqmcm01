@@ -82,7 +82,7 @@
             </li>
             <li>
                 @if (isset(Auth::user()->user_type))
-                    @if(Auth::user()->user_type != 'student')
+                    @if(Auth::user()->user_type == 'teacher')
                     <div class="top-right links">
                         @auth
                             <a href="{{ route('daily_followup')}}" class="nav-link">المتابعة اليومية</a>

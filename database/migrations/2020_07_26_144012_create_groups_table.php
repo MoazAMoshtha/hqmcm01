@@ -18,7 +18,7 @@ class CreateGroupsTable extends Migration
             $table->integer('hqmcm_id')->unique();
             $table->string('area');
             $table->string('mosque');
-            $table->string('teacher')->nullable();
+            $table->integer('teacher')->nullable();
             $table->integer('number_of_students')->nullable();
             $table->timestamps();
         });

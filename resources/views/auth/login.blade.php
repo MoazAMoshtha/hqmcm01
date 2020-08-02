@@ -6,7 +6,15 @@
     } else {
         $_GET['user_type'] = null;
     }
+    $get_area_admin_from_url = $get_mosque_admin_from_url = $get_teacher_from_url = $get_student_from_url = 0;
+    $get_area_admin_from_url = preg_match("/user_type=area_admin/i", url()->previous());
+    $get_mosque_admin_from_url = preg_match("/user_type=mosque_admin/i", url()->previous());
+    $get_teacher_from_url = preg_match("/user_type=teacher/i", url()->previous());
+    $get_student_from_url = preg_match("/user_type=student/i", url()->previous());
+
     ?>
+
+
 
     <div class="container">
         <div class="row justify-content-center">
@@ -21,15 +29,19 @@
                                     <select class="form-control" id="user_type" name="user_type">
                                         <option>...</option>
                                         <option value="area_admin"
-                                                @if($_GET['user_type'] == 'area_admin') selected @endif >مشرف منطقة
+                                                @if($_GET['user_type'] == 'area_admin') selected @endif
+                                                @if($get_area_admin_from_url == 1) selected @endif>مشرف منطقة
                                         </option>
                                         <option value="mosque_admin"
-                                                @if($_GET['user_type'] == 'mosque_admin') selected @endif >مشرف مسجد
+                                                @if($_GET['user_type'] == 'mosque_admin') selected @endif
+                                        @if($get_mosque_admin_from_url == 1) selected @endif>مشرف مسجد
                                         </option>
-                                        <option value="teacher" @if($_GET['user_type'] == 'teacher') selected @endif>
+                                        <option value="teacher" @if($_GET['user_type'] == 'teacher') selected @endif
+                                        @if($get_teacher_from_url == 1) selected @endif>
                                             محفظ
                                         </option>
-                                        <option value="student" @if($_GET['user_type'] == 'student') selected @endif>
+                                        <option value="student" @if($_GET['user_type'] == 'student') selected @endif
+                                        @if($get_student_from_url == 1) selected @endif>
                                             طالب
                                         </option>
                                     </select>

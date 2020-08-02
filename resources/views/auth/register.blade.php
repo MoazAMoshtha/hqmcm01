@@ -286,9 +286,11 @@
                                 <div class="col-md-7 float-left">
                                     <select class="form-control text-right c" id="group" name="group">
                                         <option value="null" name="group" selected>...</option>
-                                        <?php $groups = \App\Group::all()?>
+                                        <?php $groups = \App\Group::all();
+                                        ?>
                                         @foreach($groups as $group)
-                                            <option value="{{$group->hqmcm_id }}" name="group">{{ $group->teacher }}</option>
+                                            {{ $teachers = \App\Teacher::where('hqmcm_id' , $group->teacher)->first()->firstName ." " . \App\Teacher::where('hqmcm_id' , $group->teacher)->first()->secondName}}
+                                            <option value="{{$group->hqmcm_id}}" name="group">{{ $teachers }}</option>
                                         @endforeach
                                     </select>
                                     @error('$mosque')

@@ -107,12 +107,11 @@ class RegisterController extends Controller
             }
         }
         if ($data['group'] != 0) {
-            $group = Group::where('hqmcm_id', $data['group'])->first()->teacher;
+            $group = $data['group'];
             if (Student::all()->count() != 0){
                 $last_student_hqmcm_id = Student::where('group', $group)->orderBy('hqmcm_id', 'ASC')->get()->last()->hqmcm_id;
             }else{
                 $last_student_hqmcm_id = $data['group'] . str_pad(0, 2, '0', STR_PAD_LEFT);;
-
             }
         }
 
@@ -172,6 +171,7 @@ class RegisterController extends Controller
             ]);
 
 
+
         } elseif ($data['user_type'] == 'student') {
             $hqmcm_id_student = $last_student_hqmcm_id + 1;
             $hqmcm_id_user = $hqmcm_id_student;
@@ -189,6 +189,8 @@ class RegisterController extends Controller
                 'group' => $group,
                 'hqmcm_id' => $hqmcm_id_student,
             ]);
+            $student_count = Student::where('group',$group)->count() ;
+            Group::where('hqmcm_id',$group)->update(['number_of_students' => $student_count]);
         }
 
 
