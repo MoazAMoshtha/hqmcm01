@@ -17,9 +17,8 @@ class CreateUsersDailyRecord extends Migration
             $table->id();
             $table->integer('student_hqmcm_id');
             $table->string('attendance');
-            $table->string('notes');
             $table->date('date');
-            $table->string('daily_recitations');
+            $table->string('daily_recitations')->nullable();
             $table->timestamps();
         });
     }

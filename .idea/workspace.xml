@@ -27,19 +27,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6c9c5b9-17a3-4af0-b554-d0212ec98760" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Daily.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_02_143344_create_users_daily_record.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at________Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at________Default_Changelist_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_٢٧_٧_٢٠٢٠_٤_٢٩_م_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_٢٨_٧_٢٠٢٠_١٠_٣٣_ص_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Daily.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Daily.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AreaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AreaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Daily_followupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Daily_followupController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_26_144012_create_groups_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_26_144012_create_groups_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_02_143344_create_users_daily_record.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_02_143344_create_users_daily_record.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/daily_followup.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/daily_followup.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/function/area_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/area_fun.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/function/students_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/students_fun.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/manger.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/manger.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -264,7 +263,9 @@
       <workItem from="1596235522321" duration="18891000" />
       <workItem from="1596314489869" duration="8332000" />
       <workItem from="1596368871847" duration="11695000" />
-      <workItem from="1596383818985" duration="8036000" />
+      <workItem from="1596383818985" duration="9943000" />
+      <workItem from="1596484774248" duration="15377000" />
+      <workItem from="1596541804040" duration="6918000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1595001925737</created>
@@ -403,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596256651597</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="---مطلوب---&#10;-حفظ التسجيل اليومي للطلاب">
+      <created>1596391930360</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1596391930360</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,7 +466,8 @@
     <MESSAGE value="منح hqmcm_id للمنطقة والمسجد" />
     <MESSAGE value="mosque.SearchByArea" />
     <MESSAGE value="---مطلوب---&#10;-المتابعة اليومية" />
-    <option name="LAST_COMMIT_MESSAGE" value="---مطلوب---&#10;-المتابعة اليومية" />
+    <MESSAGE value="---مطلوب---&#10;-حفظ التسجيل اليومي للطلاب" />
+    <option name="LAST_COMMIT_MESSAGE" value="---مطلوب---&#10;-حفظ التسجيل اليومي للطلاب" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Composer" timestamp="1594860321470">

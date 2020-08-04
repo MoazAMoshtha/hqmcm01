@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use PhpParser\Node\Scalar\String_;
 
 
 class Daily extends Authenticatable
@@ -15,6 +16,7 @@ class Daily extends Authenticatable
         return $this->belongsTo(User::class);
     }
 
+    use Notifiable;
     protected $table = 'daily_record';
 
 
@@ -26,16 +28,15 @@ class Daily extends Authenticatable
 
     public $rules = [
         'student_hqmcm_id' => ['required'],
-        'attendance' => [],
-        'date' => [],
-        'daily_recitations' => [],
-        'notes' => [],
+        'attendance' => ['required'],
+        'date' => ['required'],
+        'daily_recitations' => ['nullable'],
 
     ];
 
     protected $fillable = [
         'student_hqmcm_id', 'attendance', 'date',
-        'daily_recitations','notes'
+        'daily_recitations'
     ];
 
 }

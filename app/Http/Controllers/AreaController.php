@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Area;
+use App\Daily;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use DB;
@@ -10,6 +11,7 @@ use App\Http\Requests;
 
 class AreaController extends Controller
 {
+
     public function index()
     {
         $areas = DB::select('select * from areas');

@@ -24,6 +24,7 @@ Route::get('/manger', 'MangerController@index')->name('manger');
 
 Route::post('/daily_followup', 'Daily_followupController@index')->name('daily_followup');
 Route::get('/daily_followup', 'Daily_followupController@index')->name('daily_followup');
+Route::get('/daily_record_save', 'Daily_followupController@save_record')->name('daily_record_save');
 Route::get('/daily_record/{hqmcm_id}', 'Daily_followupController@daily_record')->name('daily_record');
 
 /*************area routes*****************/
