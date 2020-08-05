@@ -56,7 +56,7 @@ Route::prefix('mosque')->group(function (){
 
 Route::post('edit/{id}','MosqueController@edit')->name('mosque.edit');
 
-/*************mosque routes*****************/
+/*************teacher routes*****************/
 Route::prefix('teacher')->group(function (){
     Route::post('/SearchByArea','MosqueController@SearchByArea')->name('mosque.SearchByArea');
     Route::get('/function.teachers_fun', 'TeacherController@index')->name('Teachers_fun');
@@ -68,6 +68,21 @@ Route::prefix('teacher')->group(function (){
     Route::get('/edit-records','TeacherController@index')->name('teacher.editRecords');
     Route::get('/edit/{id}','TeacherController@show')->name('teacher.edit');
     Route::get('/teacherDeleteAll', 'TeacherController@deleteAll');
+});
+
+Route::post('edit/{id}','TeacherController@edit')->name('teacher.edit');
+
+/*************student routes*****************/
+Route::prefix('student')->group(function (){
+    Route::get('/function.students_fun', 'StudentController@index')->name('Students_fun');
+    Route::get('/insertStudent','StudentController@insertform')->name('student.insertStudent');
+    Route::post('/createStudent','StudentController@insert')->name('student.createStudent');
+    Route::post('/showStudents','StudentController@showStudents')->name('student.showStudents');
+    Route::get('/delete-records','StudentController@index')->name('student.deleteRecords');
+    Route::get('/delete/{hqmcm_id}','StudentController@destroy')->name('student.delete');
+    Route::get('/edit-records','StudentController@index')->name('student.editRecords');
+    Route::get('/edit/{hqmcm_id}','StudentController@show')->name('student.edit');
+    Route::get('/studentDeleteAll', 'StudentController@deleteAll');
 });
 
 Route::post('edit/{id}','TeacherController@edit')->name('teacher.edit');

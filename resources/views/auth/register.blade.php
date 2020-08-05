@@ -275,13 +275,13 @@
 
                             <!--المحفظ-->
                             <div class="form-group row justify-content-lg-center"
-                                 @if($_GET['user_type'] != 'student') hidden @endif>
+                                 @if($_GET['user_type'] != 'student' and $_GET['user_type'] != 'teacher') hidden @endif>
                                 <div class="col-lg-4">
 
                                 </div>
 
                                 <label for="group"
-                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المحفظ') }}</label>
+                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('حلقة التحفيظ') }}</label>
 
                                 <div class="col-md-7 float-left">
                                     <select class="form-control text-right c" id="group" name="group">
@@ -289,8 +289,7 @@
                                         <?php $groups = \App\Group::all();
                                         ?>
                                         @foreach($groups as $group)
-                                            {{ $teachers = \App\Teacher::where('hqmcm_id' , $group->teacher)->first()->firstName ." " . \App\Teacher::where('hqmcm_id' , $group->teacher)->first()->secondName}}
-                                            <option value="{{$group->hqmcm_id}}" name="group">{{ $teachers }}</option>
+                                            <option value="{{$group->hqmcm_id}}" name="group">{{ $group->hqmcm_id }}</option>
                                         @endforeach
                                     </select>
                                     @error('$mosque')

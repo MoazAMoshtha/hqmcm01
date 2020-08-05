@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
     <?php
     if (isset($_GET['hqmcm_id'])) {
         $hqmcm_id = $_GET['hqmcm_id'];
@@ -21,8 +20,7 @@
             </thead>
             <tbody class="text-center">
             <?php
-            $group = \App\Group::where('teacher', Auth::user()->hqmcm_id)->first()->hqmcm_id;
-            $students = \App\Student::where('group', $group)->get();
+            $students = \App\Student::where('group', Auth::user()->group)->get();
             use App\Http\Controllers\Daily_followupController;
 
             ?>
@@ -77,7 +75,6 @@
                                     $("#attendance3").click(function () {
                                         $("#nnn").show();
                                     });
-
                                 }
                             </script>
                         </div>

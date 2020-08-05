@@ -1,13 +1,13 @@
 <?php
-if (session('status') == 'editTeacher') {
+if (session('status') == 'editStudent') {
     $active = 'active';
     $show = 'show';
     $d = '#nav-update';
     $active2 = $show2 = $m = '';
-} elseif (session('status') == 'editTeacher') {
+} elseif (session('status') == 'editStudent') {
     $active = 'active';
     $show = 'show';
-    $m = '#nav-updateTeacher';
+    $m = '#nav-updateStudent';
     $active2 = $show2 = $d = '';
 } else {
     $active = $show = $d = $m = '';
@@ -31,18 +31,18 @@ if (isset($_GET['students'])) {
                 <nav>
                     <div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
 
-                        <a class="nav-item nav-link " id="nav-hideTeacher-tab" data-toggle="tab" href="#nav-hideTeacher"
-                           role="tab" aria-controls="nav-hideTeacher" aria-selected="true">ضم القائمة</a>
+                        <a class="nav-item nav-link " id="nav-hideStudent-tab" data-toggle="tab" href="#nav-hideStudent"
+                           role="tab" aria-controls="nav-hideStudent" aria-selected="true">ضم القائمة</a>
 
-                        <a class="nav-item nav-link <?php echo $active ?>" id="nav-updateTeacher-tab" data-toggle="tab"
-                           href="{{$m}}" role="tab" aria-controls="nav-updateTeacher" aria-selected="true">تعديل
+                        <a class="nav-item nav-link <?php echo $active ?>" id="nav-updateStudent-tab" data-toggle="tab"
+                           href="{{$m}}" role="tab" aria-controls="nav-updateStudent" aria-selected="true">تعديل
                             طالب</a>
 
-                        <a class="nav-item nav-link " id="nav-addTeacher-tab" data-toggle="tab" href="#nav-addTeacher"
-                           role="tab" aria-controls="nav-addTeacher" aria-selected="false">اضافة طالب</a>
+                        <a class="nav-item nav-link " id="nav-addStudent-tab" data-toggle="tab" href="#nav-addStudent"
+                           role="tab" aria-controls="nav-addStudent" aria-selected="false">اضافة طالب</a>
 
-                        <a class="nav-item nav-link <?php echo $active2 ?>" id="nav-viewTeacher-tab" data-toggle="tab"
-                           href="#nav-viewTeacher" role="tab" aria-controls="nav-viewTeacher" aria-selected="false">عرض
+                        <a class="nav-item nav-link <?php echo $active2 ?>" id="nav-viewStudent-tab" data-toggle="tab"
+                           href="#nav-viewStudent" role="tab" aria-controls="nav-viewStudent" aria-selected="false">عرض
                             طالب</a>
 
                     </div>
@@ -51,12 +51,12 @@ if (isset($_GET['students'])) {
                 <div class="tab-content text-right" id="nav-tabContent">
 
                     <!--ضم القائمة-->
-                    <div class="tab-pane fade" id="nav-hideTeacher" role="tabpanel"
-                         aria-labelledby="nav-hideTeacher-tab"></div>
+                    <div class="tab-pane fade" id="nav-hideStudent" role="tabpanel"
+                         aria-labelledby="nav-hideStudent-tab"></div>
 
-                    <!--تعديل محفظ-->
-                    <div class="tab-pane fade <?php echo $active . " " . $show?>" id="nav-updateTeacher" role="tabpanel"
-                         aria-labelledby="nav-updateTeacher-tab">
+                    <!--تعديل طالب-->
+                    <div class="tab-pane fade <?php echo $active . " " . $show?>" id="nav-updateStudent" role="tabpanel"
+                         aria-labelledby="nav-updateStudent-tab">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-md-8">
@@ -220,52 +220,10 @@ if (isset($_GET['students'])) {
                                             </div>
 
                                             <!--المنطقة-->
-                                            <div class="form-group row justify-content-lg-center">
-                                                <div class="col-lg-4">
-                                                </div>
-                                                <label for="area"
-                                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المنطقة') }}</label>
-
-                                                <div class="col-md-7 float-left">
-                                                    <select class="form-control text-right c" id="area" name="area">
-                                                        <option value="" selected>...</option>
-                                                        <?php $areas = \App\Area::all()?>
-                                                        @foreach($areas as $area)
-                                                            <option
-                                                                value="{{$area->hqmcm_id }}">{{ $area->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                    @error('area')
-                                                    <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                     </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
+                                            <input name="area" value="{{Auth::user()->area}}" hidden>
                                             <!--المسجد-->
-                                            <div class="form-group row justify-content-lg-center">
-                                                <div class="col-lg-4">
-                                                </div>
-                                                <label for="mosque"
-                                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المسجد') }}</label>
+                                            <input name="mosque" value="{{Auth::user()->mosque}}" hidden>
 
-                                                <div class="col-md-7 float-left">
-                                                    <select class="form-control text-right c" id="mosque" name="mosque">
-                                                        <option value="" selected>...</option>
-                                                        <?php $mosques = \App\Mosque::all()?>
-                                                        @foreach($mosques as $mosque)
-                                                            <option
-                                                                value="{{$mosque->hqmcm_id }}">{{ $mosque->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                    @error('mosque')
-                                                    <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                     </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
 
                                             <!--تسجيل-->
                                             <div class="form-group row justify-content-center">
@@ -283,13 +241,13 @@ if (isset($_GET['students'])) {
                         </div>
                     </div>
 
-                    <!--اضافة محفظ-->
-                    <div class="tab-pane fade" id="nav-addTeacher" role="tabpanel" aria-labelledby="nav-addTeacher-tab">
+                    <!--اضافة طالب-->
+                    <div class="tab-pane fade" id="nav-addStudent" role="tabpanel" aria-labelledby="nav-addStudent-tab">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <form method="post" action="{{route('teacher.createTeacher')}}">
+                                        <form method="post" action="{{route('student.createStudent')}}">
                                         @csrf
 
                                         <!--الاسم الأول-->
@@ -463,60 +421,16 @@ if (isset($_GET['students'])) {
 
                                                     @error('phoneNumber')
                                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                         <strong>{{ $message }}</strong>
+                                                    </span>
                                                     @enderror
                                                 </div>
                                             </div>
 
                                             <!--المنطقة-->
-                                            <div class="form-group row justify-content-lg-center">
-                                                <div class="col-lg-4">
-                                                </div>
-                                                <label for="area"
-                                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المنطقة') }}</label>
-
-                                                <div class="col-md-7 float-left">
-                                                    <select class="form-control text-right c" id="area" name="area">
-                                                        <option value="" selected>...</option>
-                                                        <?php $areas = \App\Area::all()?>
-                                                        @foreach($areas as $area)
-                                                            <option
-                                                                value="{{$area->hqmcm_id }}">{{ $area->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                    @error('area')
-                                                    <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                     </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
+                                            <input name="area" value="{{Auth::user()->area}}" hidden>
                                             <!--المسجد-->
-                                            <div class="form-group row justify-content-lg-center">
-                                                <div class="col-lg-4">
-                                                </div>
-                                                <label for="mosque"
-                                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المسجد') }}</label>
-
-                                                <div class="col-md-7 float-left">
-                                                    <select class="form-control text-right c" id="mosque" name="mosque">
-                                                        <option value="" selected>...</option>
-                                                        <?php $mosques = \App\Mosque::all()?>
-                                                        @foreach($mosques as $mosque)
-                                                            <option
-                                                                value="{{$mosque->hqmcm_id }}">{{ $mosque->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                    @error('mosque')
-                                                    <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                     </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
+                                            <input name="mosque" value="{{Auth::user()->mosque}}" hidden>
                                             <!--تسجيل-->
                                             <div class="form-group row justify-content-center">
                                                 <div class="col-md-6 offset-md-4">
@@ -533,12 +447,11 @@ if (isset($_GET['students'])) {
                         </div>
                     </div>
 
-                    <!--عرض المحفظين-->
-                    <div class="tab-pane fade <?php echo $active2 . " " . $show2?>" id="nav-viewTeacher" role="tabpanel"
-                         Teacher
-                         aria-labelledby="nav-viewTeacher-tab">
+                    <!--عرض الطلاب-->
+                    <div class="tab-pane fade <?php echo $active2 . " " . $show2?>" id="nav-viewStudent" role="tabpanel"
+                         aria-labelledby="nav-viewStudent-tab">
                         <div class="container h-100 w-100">
-                            <form method="post" action="{{route('teacher.showTeachers')}}">
+                            <form method="post" action="{{route('student.showStudents')}}">
                             @csrf
 
                             <!--تسجيل-->
@@ -556,26 +469,22 @@ if (isset($_GET['students'])) {
                                 <thead>
                                 <tr>
                                     <td>حذف | تعديل</td>
-                                    <td scope="col">الاسم</td>
                                     <td scope="col">رقم الجوال</td>
-                                    <td scope="col">المنطقة</td>
-                                    <td scope="col">المسجد</td>
+                                    <td scope="col">رقم الهوية</td>
+                                    <td scope="col">الاسم</td>
                                     <td scope="col">#</td>
-                                    <th scope="coll"><a href='mosqueDeleteAll'>حذف المحدد</a></th>
                                 </tr>
                                 </thead>
-                                @if(Route::currentRouteName() == 'teacher.showTeachers')
-                                    @foreach ($teachers as $teacher)
+                                @if(Route::currentRouteName() == 'student.showStudents')
+                                    @foreach ($students as $student)
                                         <tbody>
                                         <tr>
-                                            <td><a href='delete/{{ $teacher->id }}'>حذف</a><a
-                                                    href='edit/{{ $teacher->id }}'>| تعديل</a></td>
-                                            <td>{{ $teacher->firstName . " " . $teacher->secondName . " " . $teacher->familyName  }}</td>
-                                            <td>{{ $teacher->phoneNumber }}</td>
-                                            <td>{{ $teacher->area }}</td>
-                                            <td>{{ $teacher->mosque }}</td>
-                                            <td scope="row">{{ str_pad( $teacher->hqmcm_id, 4, "0", STR_PAD_LEFT ) }}</td>
-                                            <td><input type="checkbox" name="checkForDelete"></td>
+                                            <td><a href='delete/{{$student->hqmcm_id}}'>حذف</a><a href='edit/{{$student->hqmcm_id}}'>| تعديل</a></td>
+                                            <td>{{ $student->phoneNumber }}</td>
+                                            <td>{{ $student->id_number }}</td>
+                                            <td>{{ $student->firstName . " " . $student->secondName . " " . $student->familyName  }}</td>
+                                            <td scope="row">{{ $student->hqmcm_id}}</td>
+
                                         </tr>
                                         </tbody>
                                     @endforeach

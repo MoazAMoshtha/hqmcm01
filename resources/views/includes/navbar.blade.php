@@ -68,14 +68,21 @@
                 <a class="nav-link" href="#">من نحن</a>
             </li>
             <li>
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ادارة
+                    </a>
+                    <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#mosqueFun" onclick="showManger()">المساجد</a>
+                        <a class="dropdown-item" href="#groupFun" onclick="showManger()">الحلقات</a>
+                        <a class="dropdown-item" href="#teacherFun" onclick="showManger()">المحفظين</a>
+                        <a class="dropdown-item" href="#studentFun" onclick="showManger()">الطلاب</a>
+                    </div>
+                </div>
+
                 @if (isset(Auth::user()->user_type))
                     @if(Auth::user()->user_type != 'student')
-                    <div class="top-right links">
-                        @auth
-                            <a href="{{ route('manger') }}" class="nav-link">الادارة</a>
-                        @else
-                        @endauth
-                    </div>
+
                     @endif
                 @endif
 
