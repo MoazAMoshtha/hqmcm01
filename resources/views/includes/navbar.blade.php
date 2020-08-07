@@ -1,5 +1,14 @@
 @include('layouts.master')
 @section('content')
+    <?php
+    if (isset(Auth::user()->user_type)){
+       $user_type = Auth::user()->user_type;
+    }else{
+        $user_type = null;
+    }
+
+    ?>
+
 <style>
     .bg{
         background-image: url("{{ asset('assets/images/bg.jpg') }}")
@@ -67,28 +76,26 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">من نحن</a>
             </li>
+            @if (isset(Auth::user()->user_type))
+                @if(Auth::user()->user_type == 'student')
+@else
             <li>
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ادارة
                     </a>
                     <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#mosqueFun" onclick="showManger()">المساجد</a>
-                        <a class="dropdown-item" href="#groupFun" onclick="showManger()">الحلقات</a>
-                        <a class="dropdown-item" href="#teacherFun" onclick="showManger()">المحفظين</a>
-                        <a class="dropdown-item" href="#studentFun" onclick="showManger()">الطلاب</a>
+                        <a class="dropdown-item" href="{{route('mosque_fun')}}" @if($user_type != 'area_admin') hidden @endif>المساجد</a>
+                        <a class="dropdown-item" href="{{route('manger') . '?groups_manger'}}" @if($user_type != 'area_admin' and $user_type != 'mosque_admin') hidden @endif>الحلقات</a>
+                        <a class="dropdown-item" href="{{route('manger') . '?teachers_manger'}}" @if($user_type == 'student' or $user_type == 'teacher' ) hidden @endif>المحفظين</a>
+                        <a class="dropdown-item" href="{{route('manger') . '?students_manger'}}" @if($user_type == 'student') hidden @endif >الطلاب</a>
                     </div>
                 </div>
-
-                @if (isset(Auth::user()->user_type))
-                    @if(Auth::user()->user_type != 'student')
-
-                    @endif
                 @endif
+
 
             </li>
             <li>
-                @if (isset(Auth::user()->user_type))
                     @if(Auth::user()->user_type == 'teacher')
                     <div class="top-right links">
                         @auth

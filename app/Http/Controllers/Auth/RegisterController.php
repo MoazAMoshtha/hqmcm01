@@ -109,7 +109,7 @@ class RegisterController extends Controller
         if ($data['group'] != 0) {
             $group = $data['group'];
             if (Student::all()->count() != 0){
-                $last_student_hqmcm_id = Student::where('group', $group)->orderBy('hqmcm_id', 'ASC')->get()->last()->hqmcm_id;
+                $last_student_hqmcm_id = Student::where('group', $group)->orderBy('hqmcm_id', 'desc')->first();
             }else{
                 $last_student_hqmcm_id = $data['group'] . str_pad(0, 2, '0', STR_PAD_LEFT);;
             }

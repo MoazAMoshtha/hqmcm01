@@ -15,16 +15,13 @@ class MosqueController extends Controller
     public function index()
     {
         $mosques = Mosque::all();
-        return view('manger', ['mosques' => $mosques]);
-
+        return view('function.mosque_fun', ['mosques' => $mosques]);
     }
 
     public function show($id)
     {
-        //$mosques = Mosque::find($id);
-        //$mosques = Mosque::all()->where('id',$id);
         $mosques = DB::select('select * from mosques where id = ?', [$id]);
-        return redirect()->route('manger', ['mosques' => $mosques])->with('status', 'editMosque');
+        return redirect()->route('mosque_fun', ['mosques' => $mosques])->with('status', 'editMosque');
 
     }
 
@@ -38,7 +35,7 @@ class MosqueController extends Controller
         $test = new Mosque;
         $validator = Validator::make($request->all(), $test->rules);
         if ($validator->fails()) {
-            return redirect('manger')->with('status', 'areaInsert Failure')->withErrors($validator);
+            return redirect('mosque/function.mosque_fun')->with('status', 'areaInsert Failure');
         }
         $name = $request->input('name');
         $areas = Area::where('id', $request->input('area'))->get();
@@ -61,7 +58,7 @@ class MosqueController extends Controller
         $number_of_students = $request->input('number_of_students');
 
         Mosque::create(['hqmcm_id' => $hqmcm_id, 'area' => $areaName] + $request->all());
-        return redirect('manger')->with('status', 'areaInsert success');
+        return redirect('mosque/function.mosque_fun')->with('status', 'areaInsert success');
 
     }
 
@@ -70,30 +67,30 @@ class MosqueController extends Controller
     {
         $name = Auth::user()->area;
         $mosques = Mosque::where('area' , $name)->get();
-        return view('manger', ['mosques' => $mosques]);
+        return view('function.mosque_fun', ['mosques' => $mosques]);
     }
 
     public function SearchByArea()
     {
         $mosques = DB::select('select * from mosques');
-        return view('manger', ['mosques' => $mosques]);
+        return view('function.mosque_fun', ['mosques' => $mosques]);
     }
 
     public function destroy($id)
     {
         Mosque::find($id)->delete();
-        return redirect('manger')->with('status', 'areaDeleted');
+        return redirect('function.mosque_fun')->with('status', 'areaDeleted');
     }
 
     public function deleteAll(Request $request)
     {
         $ids = $request->ids;
         DB::table("mosques")->whereIn('id', explode(",", $ids))->delete();
-        return view('manger');
+        return view('function.mosque_fun');
         //return response()->json(['success' => "Products Deleted successfully."]);
     }
 
-    public function edit(Request $request, $id)
+    public function edit(Request $request)
     {
         $name = $request->input('name');
         $area = $request->input('area');
@@ -101,15 +98,16 @@ class MosqueController extends Controller
         $mosque_admin = $request->input('mosque_admin');
         $number_of_teachers = $request->input('number_of_teachers');
         $number_of_students = $request->input('number_of_students');
-        $mosques = DB::table('mosques')->get();
+        $mosques = Mosque::all();
+        //$mosques = DB::table('mosques')->get();
         foreach ($mosques as $mosque) {
             if ($mosque->name == $name and $mosque->name != $request->input('name')) {
-                return redirect('manger')->with('status', 'areaInsert Failure');
+                return redirect('mosque/function.mosque_fun')->with('status', 'areaInsert Failure');
             } elseif ($mosque->hqmcm_id == $hqmcm_id and $mosque->hqmcm_id != $request->input('hqmcm_id')) {
-                return redirect('manger')->with('status', 'hqmcm_id');
+                return redirect('mosque/function.mosque_fun')->with('status', 'hqmcm_id');
             }
         }
-        Mosque::whereId($id)->update($request->except('_token', 'secondName'));
-        return redirect('manger')->with('status', 'areaUpdate success');
+        Mosque::where('hqmcm_id' , $hqmcm_id)->update($request->except('_token'));
+        return redirect('mosque/function.mosque_fun')->with('status', 'areaUpdate success');
     }
 }

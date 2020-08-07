@@ -19,8 +19,8 @@ Route::get('/', function () {
 })->name('welcome');
 
 
-Route::post('/manger', 'MangerController@index')->name('manger');
-Route::get('/manger', 'MangerController@index')->name('manger');
+Route::post('/manger' , 'MangerController@index')->name('manger');
+Route::get('/manger'  , 'MangerController@index')->name('manger');
 
 Route::post('/daily_followup', 'Daily_followupController@index')->name('daily_followup');
 Route::get('/daily_followup', 'Daily_followupController@index')->name('daily_followup');
@@ -46,11 +46,13 @@ Route::prefix('mosque')->group(function (){
     Route::get('/function.mosque_fun', 'MosqueController@index')->name('mosque_fun');
     Route::get('/insertMosque','MosqueController@insertform')->name('mosque.insertMosque');
     Route::post('/createMosque','MosqueController@insert')->name('mosque.createMosque');
+    Route::get('/createMosque','MosqueController@insert')->name('mosque.createMosque');
     Route::post('/showMosques','MosqueController@showMosques')->name('mosque.showMosques');
     Route::get('/delete-records','MosqueController@index')->name('mosque.deleteRecords');
-    Route::get('/delete/{id}','MosqueController@destroy')->name('mosque.delete');
-    Route::get('/edit-records','MosqueController@index')->name('mosque.editRecords');
-    Route::get('/edit/{id}','MosqueController@show')->name('mosque.edit');
+    Route::get('/delete_mosque/{id}','MosqueController@destroy')->name('mosque.delete');
+    Route::get('/edit-mosque-records','MosqueController@edit')->name('mosque.editRecords');
+    Route::post('/edit-mosque-records','MosqueController@edit')->name('mosque.editRecords');
+    Route::get('/edit_mosque/{id}','MosqueController@show')->name('mosque.edit');
     Route::get('/mosqueDeleteAll', 'MosqueController@deleteAll');
 });
 

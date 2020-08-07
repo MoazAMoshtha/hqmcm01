@@ -557,7 +557,6 @@ if (isset($_GET['teachers'])) {
                                     <td scope="col">المنطقة</td>
                                     <td scope="col">المسجد</td>
                                     <td scope="col">#</td>
-                                    <th scope="coll"><a href='mosqueDeleteAll'>حذف المحدد</a></th>
                                 </tr>
                                 </thead>
                                 @if(Route::currentRouteName() == 'teacher.showTeachers')
@@ -571,7 +570,6 @@ if (isset($_GET['teachers'])) {
                                             <td>{{ $teacher->area }}</td>
                                             <td>{{ $teacher->mosque }}</td>
                                             <td scope="row">{{ str_pad( $teacher->hqmcm_id, 4, "0", STR_PAD_LEFT ) }}</td>
-                                            <td><input type="checkbox" name="checkForDelete"></td>
                                         </tr>
                                         </tbody>
                                     @endforeach

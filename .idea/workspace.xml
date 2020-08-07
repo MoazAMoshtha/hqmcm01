@@ -27,11 +27,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6c9c5b9-17a3-4af0-b554-d0212ec98760" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/database/sql_tabels/hqmcm01.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/example.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/marquee.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/marquee.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/function/group_fun.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/function/simple_marquee.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/daily_followup.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/daily_followup.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/function/students_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/students_fun.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MosqueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MosqueController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/function/mosque_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/mosque_fun.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/function/teachers_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/teachers_fun.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/manger.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/manger.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -43,7 +50,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="EditorConfigPreviewManager">
     <editorConfig file="$PROJECT_DIR$/.editorconfig" previewFile="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
@@ -188,7 +197,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/function" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -199,19 +208,19 @@
     <property name="settings.editor.selected.configurable" value="Laravel.SettingsForm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\hqmcm01\app" />
-      <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers" />
-      <recent name="C:\laragon\www\hqmcm01\bootstrap" />
-      <recent name="C:\laragon\www\hqmcm01\resources\views" />
-      <recent name="C:\laragon\www\hqmcm01\resources\views\function" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers" />
       <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers\function" />
       <recent name="C:\laragon\www\hqmcm01\public" />
       <recent name="C:\laragon\www\hqmcm01\resources\views\layouts" />
       <recent name="C:\laragon\www\hqmcm01\resources\views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\hqmcm01\resources\views\function" />
+      <recent name="C:\laragon\www\hqmcm01\public\css" />
+      <recent name="C:\laragon\www\hqmcm01\public\js" />
+      <recent name="C:\laragon\www\hqmcm01\app" />
+      <recent name="C:\laragon\www\hqmcm01\app\Http\Controllers" />
     </key>
   </component>
   <component name="RunManager">
@@ -263,6 +272,10 @@
       <workItem from="1596484774248" duration="15377000" />
       <workItem from="1596541804040" duration="6918000" />
       <workItem from="1596633028924" duration="2780000" />
+      <workItem from="1596714900614" duration="15773000" />
+      <workItem from="1596796886282" duration="1652000" />
+      <workItem from="1596831175617" duration="603000" />
+      <workItem from="1596835012127" duration="3821000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1595001925737</created>
@@ -412,7 +425,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -441,12 +454,12 @@
                   </entry>
                 </map>
               </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -534,16 +547,16 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="395" y="80" key="MultipleFileMergeDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1596256577550" />
-    <state x="438" y="178" key="NewPhpClassDialog" timestamp="1596256160499">
+    <state x="438" y="178" key="NewPhpClassDialog" timestamp="1596721102930">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="438" y="178" key="NewPhpClassDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1596256160499" />
-    <state x="438" y="178" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1595281586279" />
-    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1596255976867">
+    <state x="438" y="178" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1596721102930" />
+    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1596717432640">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1596255976867" />
-    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1595119317516" />
+    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1596717432640" />
     <state x="184" y="6" key="SettingsEditor" timestamp="1595459549729">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -1,6 +1,3 @@
-@extends('layouts.app')
-@section('content')
-    @include('operationStatus.area_add_status')
 <?php
 if (session('status') == 'editArea') {
     $active = 'active';
@@ -56,7 +53,7 @@ if (isset($_GET['mosques'])) {
                             <div class="row justify-content-center">
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <form method="post" action="edit-mosque-records">
+                                        <form method="post" action="/edit/{{$mosque[0]['id']}}">
                                         @csrf
                                             <!--اسم المسجد-->
                                             <div class="form-group row justify-content-lg-center">
@@ -91,9 +88,9 @@ if (isset($_GET['mosques'])) {
                                                        class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المنطقة') }}</label>
 
                                                 <div class=" col-md-7">
-                                                    <input id="area" type="text"
+                                                    <input id="name" type="text"
                                                            class="text-right form-control @error('area') is-invalid @enderror"
-                                                           name="area" value="<?php if (isset($mosque[0]['area'])) {
+                                                           name="name" value="<?php if (isset($mosque[0]['area'])) {
                                                         echo $mosque[0]['area'];
                                                     } ?>" required
                                                            autocomplete="area" autofocus>
@@ -254,7 +251,29 @@ if (isset($_GET['mosques'])) {
                                             </div>
 
                                             <!--المنطقة-->
-                                            <input value="{{Auth::user()->area}}" hidden name="area">
+                                            <div class="form-group row justify-content-lg-center">
+                                                <div class="col-lg-4">
+
+                                                </div>
+
+                                                <label for="area"
+                                                       class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المنطقة') }}</label>
+
+                                                <div class="col-md-7 float-left">
+                                                    <select class="form-control text-right c" id="area" name="area">
+                                                        <option value="" selected >...</option>
+                                                        <?php $areas = \App\Area::all()?>
+                                                        @foreach($areas as $area)
+                                                            <option value="{{$area->hqmcm_id }}" >{{ $area->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('area')
+                                                    <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                     </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
 
                                             <!--مشرف المسجد-->
                                             <div class="form-group row justify-content-lg-center">
@@ -371,19 +390,21 @@ if (isset($_GET['mosques'])) {
                                     <td scope="col">المنطقة</td>
                                     <td scope="col">اسم المسجد</td>
                                     <td scope="col">#</td>
+                                    <th scope="coll"><a href='mosqueDeleteAll'>حذف المحدد</a></th>
                                 </tr>
                                 </thead>
                                 @if(Route::currentRouteName() == 'mosque.showMosques')
                                     @foreach ($mosques as $mosque)
                                         <tbody>
                                         <tr>
-                                            <td><a href='delete_mosque/{{ $mosque->id }}'>حذف</a><a href='edit_mosque/{{ $mosque->id }}'>| تعديل</a></td>
+                                            <td><a href='delete/{{ $mosque->id }}'>حذف</a><a href='edit/{{ $mosque->id }}'>| تعديل</a></td>
                                             <td>{{ $mosque->number_of_students }}</td>
                                             <td>{{ $mosque->number_of_teachers }}</td>
                                             <td>{{ $mosque->mosque_admin }}</td>
                                             <td>{{ $mosque->area }}</td>
                                             <td>{{ $mosque->name }}</td>
                                             <td scope="row">{{ str_pad( $mosque->hqmcm_id, 4, "0", STR_PAD_LEFT ) }}</td>
+                                            <td><input type="checkbox" name="checkForDelete"></td>
                                         </tr>
                                         </tbody>
                                     @endforeach
@@ -397,4 +418,5 @@ if (isset($_GET['mosques'])) {
         </div>
     </div>
 </div>
-@endsection
+
+

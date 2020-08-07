@@ -1,42 +1,46 @@
 @extends('layouts.app')
 @section('content')
 
-    @include('operationStatus.area_add_status')
-    <script>
-        function showManger() {
-           $("#mosqueFun").click(function () {
-                $("#mosque_fun").show();
-                $("#teachers_fun").hide();
-                $("#students_fun").hide();
-            });
-            //$('#vvvvv').hide();
+@include('operationStatus.area_add_status')
+    <?php
+    $get_mosques_manger_from_url = $get_groups_manger_from_url = $get_teachers_manger_from_url = $get_students_manger_from_url = 0;
+    $get_mosques_manger_from_url = preg_match("/mosques_manger/i", url()->full());
+    $get_groups_manger_from_url = preg_match("/groups_manger/i", url()->full());
+    $get_teachers_manger_from_url = preg_match("/teachers_manger/i", url()->full());
+    $get_students_manger_from_url = preg_match("/students_manger/i", url()->full());
 
-        }
-    </script>
-    <div class="container" >
+    ?>
+
+    <div class="container">
         @if(Auth::user()->user_type == 'area_admin')
-            <div id="mosque_fun">
-            @include('function.mosque_fun')
-        </div>
-        <div id="teachers_fun">
-            @include('function.teachers_fun')
-
-        </div>
-        <div id="students_fun">
-            @include('function.students_fun')
-        </div>
-    @endif
-
-
+            @if($get_mosques_manger_from_url == 1)
+                @include('function.mosque_fun')
+            @elseif($get_groups_manger_from_url == 1)
+                @include('function.group_fun')
+            @elseif($get_teachers_manger_from_url == 1)
+                @include('function.teachers_fun')
+            @elseif($get_students_manger_from_url == 1)
+                @include('function.students_fun')
+            @endif
+        @endif
     </div>
 
+    <div class="container">
         @if(Auth::user()->user_type == 'mosque_admin')
-            @include('function.teachers_fun')
-            @include('function.students_fun')
-        @endif
-        @if(Auth::user()->user_type == 'teacher')
-            @include('function.students_fun')
+            @if($get_mosques_manger_from_url == 1)
+                @include('function.teachers_fun')
+            @elseif($get_groups_manger_from_url == 1)
+                @include('function.students_fun')
+            @endif
         @endif
 
+    </div>
+    <div class="container">
+        @if(Auth::user()->user_type == 'teacher')
+                @if($get_mosques_manger_from_url == 1)
+                    @include('function.students_fun')
+                @endif
+        @endif
     </div>
 @endsection
+
