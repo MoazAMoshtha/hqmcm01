@@ -86,9 +86,9 @@
                     </a>
                     <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="{{route('mosque_fun')}}" @if($user_type != 'area_admin') hidden @endif>المساجد</a>
-                        <a class="dropdown-item" href="{{route('manger') . '?groups_manger'}}" @if($user_type != 'area_admin' and $user_type != 'mosque_admin') hidden @endif>الحلقات</a>
-                        <a class="dropdown-item" href="{{route('manger') . '?teachers_manger'}}" @if($user_type == 'student' or $user_type == 'teacher' ) hidden @endif>المحفظين</a>
-                        <a class="dropdown-item" href="{{route('manger') . '?students_manger'}}" @if($user_type == 'student') hidden @endif >الطلاب</a>
+                        <a class="dropdown-item" href="{{route('group_fun')}}" @if($user_type != 'area_admin' and $user_type != 'mosque_admin') hidden @endif>الحلقات</a>
+                        <a class="dropdown-item" href="" @if($user_type == 'student' or $user_type == 'teacher' ) hidden @endif>المحفظين</a>
+                        <a class="dropdown-item" href="" @if($user_type == 'student') hidden @endif >الطلاب</a>
                     </div>
                 </div>
                 @endif

@@ -69,8 +69,8 @@ class RegisterController extends Controller
             'email' => ['unique:users', 'nullable', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phoneNumber' => ['required', 'string', 'max:255'],
-            'area' => ['required', 'string', 'max:255'],
-            'mosque' => ['string', 'nullable', 'max:255'],
+            'area' => ['required', 'max:255'],
+            'mosque' => [ 'nullable', 'max:255'],
             'group' => ['nullable'],
         ]);
     }
@@ -129,7 +129,7 @@ class RegisterController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'phoneNumber' => $data['phoneNumber'],
-                'area' => $area,
+                'area' => $data['area'],
                 'hqmcm_id' => $hqmcm_id_area_admin,
             ]);
 
@@ -146,8 +146,8 @@ class RegisterController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'phoneNumber' => $data['phoneNumber'],
-                'area' => $area,
-                'mosque' => $mosque,
+                'area' => $data['area'],
+                'mosque' => $data['mosque'],
                 'hqmcm_id' => $hqmcm_id_mosque_admin,
             ]);
 
@@ -164,8 +164,8 @@ class RegisterController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'phoneNumber' => $data['phoneNumber'],
-                'area' => $area,
-                'mosque' => $mosque,
+                'area' => $data['area'],
+                'mosque' => $data['mosque'],
                 'group' => $group,
                 'hqmcm_id' => $hqmcm_id_teacher,
             ]);
@@ -184,8 +184,8 @@ class RegisterController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'phoneNumber' => $data['phoneNumber'],
-                'area' => $area,
-                'mosque' => $mosque,
+                'area' => $data['area'],
+                'mosque' => $data['mosque'],
                 'group' => $group,
                 'hqmcm_id' => $hqmcm_id_student,
             ]);
@@ -202,8 +202,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'phoneNumber' => $data['phoneNumber'],
-            'area' => $area,
-            'mosque' => $mosque,
+            'area' => $data['area'],
+            'mosque' => $data['mosque'],
             'group' => $group,
             'hqmcm_id' => $hqmcm_id_user,
             'user_type' => $user_type

@@ -236,7 +236,7 @@
                                         <option value="" selected>...</option>
                                         <?php $areas = \App\Area::all()?>
                                         @foreach($areas as $area)
-                                            <option value="{{$area->hqmcm_id }} " name="area">{{ $area->name }}</option>
+                                            <option value="{{$area->hqmcm_id}} " name="area">{{ $area->name}}</option>
                                         @endforeach
                                     </select>
                                     @error('area')

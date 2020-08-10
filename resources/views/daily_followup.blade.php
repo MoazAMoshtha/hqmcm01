@@ -19,6 +19,7 @@
             </tr>
             </thead>
             <tbody class="text-center">
+
             <?php
             $students = \App\Student::where('group', Auth::user()->group)->get();
             use App\Http\Controllers\Daily_followupController;
@@ -46,6 +47,7 @@
                         <input type="text" name="hqmcm_id" value="{{$_GET['hqmcm_id']}}" hidden>
                         <input type="text" name="date" value="{{date("Y/m/d")}}" hidden>
                     </div>
+
                     <div class="card-body">
                         <div class="row justify-content-center text-center">
                             <label class="col-lg-2 order-lg-1">: الحضور والغياب</label>
@@ -66,8 +68,7 @@
                                     <input onclick="myFunction()" class="form-check-input" type="radio"
                                            name="attendance" id="attendance3"
                                            value="حاضر">
-                                    <label class="form-check-label" for="inlineRadio3">حاضر</label>
-                                </div>
+                                    <label class="form-check-label" for="inlineRadio3">حاضر</label></div>
                             </div>
                             <script>
                                 function myFunction() {

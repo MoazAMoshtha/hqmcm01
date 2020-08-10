@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/admin' , 'AdminController@admin_login_page')->name('admin');
+Route::get('/admin/login' , 'AdminController@admin_login')->name('admin.login');
+Route::get('/admin/dashboard' , 'AdminController@admin_dashboard')->name('admin.dashboard');
 
 Route::get('/', function () {
     return view('welcome');
@@ -58,6 +61,23 @@ Route::prefix('mosque')->group(function (){
 
 Route::post('edit/{id}','MosqueController@edit')->name('mosque.edit');
 
+/*************group routes*****************/
+Route::prefix('group')->group(function (){
+    Route::post('/SearchByArea','GroupController@SearchByArea')->name('group.SearchByArea');
+    Route::get('/function.group_fun', 'GroupController@index')->name('group_fun');
+    Route::get('/insertGroup','GroupController@insertform')->name('group.insertGroup');
+    Route::post('/createGroup','GroupController@insert')->name('group.createGroup');
+    Route::get('/createGroup','GroupController@insert')->name('group.createGroup');
+    Route::post('/showGroups','GroupController@showGroups')->name('group.showGroups');
+    Route::get('/delete-records','GroupController@index')->name('group.deleteRecords');
+    Route::get('/delete_group/{id}','GroupController@destroy')->name('group.delete');
+    Route::get('/edit-group-records','GroupController@edit')->name('group.editRecords');
+    Route::post('/edit-group-records','GroupController@edit')->name('group.editRecords');
+    Route::get('/edit_group/{id}','GroupController@show')->name('group.edit');
+    Route::get('/mosqueDeleteAll', 'GroupController@deleteAll');
+});
+Route::post('edit/{id}','GroupController@edit')->name('group.edit');
+
 /*************teacher routes*****************/
 Route::prefix('teacher')->group(function (){
     Route::post('/SearchByArea','MosqueController@SearchByArea')->name('mosque.SearchByArea');
@@ -89,19 +109,10 @@ Route::prefix('student')->group(function (){
 
 Route::post('edit/{id}','TeacherController@edit')->name('teacher.edit');
 
-
-/*************admin routes*****************/
-Route::prefix('admin')->group(function (){
-    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-    Route::post('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login.submit');
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
-});
-
-
 /*************Auth routes*****************/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/area_admin', 'Area_adminController@index')->name('layouts.area_admin');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 

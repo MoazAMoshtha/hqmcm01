@@ -32,7 +32,7 @@ class Area_Admin extends Authenticatable
         'email' => ['nullable','email', 'max:255'],
         'password' => ['required', 'string', 'min:8', 'confirmed'],
         'phoneNumber' => ['required', 'string', 'max:255'],
-        'area' => ['required', 'string', 'max:255'],
+        'area' => ['required', 'integer', 'max:255'],
     ];
 
     protected $fillable = [

@@ -8,10 +8,10 @@ class CreateAreaAdminsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
      * @param $data
      * @return void
      */
+
     public function up()
     {
         Schema::create('area_admins', function (Blueprint $table) {
@@ -25,7 +25,7 @@ class CreateAreaAdminsTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('phoneNumber');
-            $table->string('area');
+            $table->integer('area');
             $table->rememberToken();
             $table->timestamps();
         });

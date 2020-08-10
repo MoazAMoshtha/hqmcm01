@@ -25,8 +25,8 @@ class CreateMosqueAdminsTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('phoneNumber');
-            $table->string('area');
-            $table->string('mosque');
+            $table->integer('area');
+            $table->integer('mosque');
             $table->rememberToken();
             $table->timestamps();
 

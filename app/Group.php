@@ -16,8 +16,8 @@ class Group extends Model
 
     public  $rules = [
         'hqmcm_id' => ['required','unique:groups','max:6'],
-        'area' => ['required',  'max:255'],
-        'mosque' => ['required',  'max:255'],
+        'area' => ['required'],
+        'mosque' => ['required'],
         'teacher' => [],
         'number_of_students' => [],
     ];

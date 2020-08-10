@@ -24,9 +24,9 @@ class CreateStudentsTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('phoneNumber');
-            $table->string('area');
-            $table->string('mosque');
-            $table->string('group');
+            $table->integer('area');
+            $table->integer('mosque');
+            $table->integer('group');
             $table->rememberToken();
             $table->timestamps();
         });

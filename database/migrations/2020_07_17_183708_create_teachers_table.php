@@ -24,9 +24,9 @@ class CreateTeachersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('phoneNumber');
-            $table->string('area');
-            $table->string('mosque');
-            $table->string('group')->nullable();
+            $table->integer('area');
+            $table->integer('mosque');
+            $table->integer('group')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

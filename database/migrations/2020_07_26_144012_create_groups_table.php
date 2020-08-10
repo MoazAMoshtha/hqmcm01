@@ -16,8 +16,8 @@ class CreateGroupsTable extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->integer('hqmcm_id')->unique();
-            $table->string('area');
-            $table->string('mosque');
+            $table->integer('area');
+            $table->integer('mosque');
             $table->integer('teacher')->nullable();
             $table->integer('number_of_students')->nullable();
             $table->timestamps();
