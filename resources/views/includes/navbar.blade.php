@@ -49,7 +49,7 @@
                     <div class="top-right links">
                         @auth
                         @else
-                            <a href="{{ route('register') }}" class="nav-link">سجل الان</a>
+                            <a href="{{ route('register') }}" class="nav-link" hidden>سجل الان</a>
                         @endauth
 
                     </div>
@@ -62,7 +62,8 @@
                     <div class="top-right links">
                         @auth
                         @else
-                            <a href="{{ route('login') }}" class="nav-link"> تسجيل الدخول</a>
+
+                            <a href="{{ route('login') }}" class="nav-link" @if(Route::currentRouteName() == 'login')  hidden @endif> تسجيل الدخول</a>
                         @endauth
                     </div>
                 @endif
@@ -86,9 +87,10 @@
                     </a>
                     <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="{{route('mosque_fun')}}" @if($user_type != 'area_admin') hidden @endif>المساجد</a>
+                        <a class="dropdown-item" href="{{route('mosque_admin_fun')}}" @if($user_type != 'area_admin') hidden @endif>مشرفو المساجد</a>
                         <a class="dropdown-item" href="{{route('group_fun')}}" @if($user_type != 'area_admin' and $user_type != 'mosque_admin') hidden @endif>الحلقات</a>
-                        <a class="dropdown-item" href="" @if($user_type == 'student' or $user_type == 'teacher' ) hidden @endif>المحفظين</a>
-                        <a class="dropdown-item" href="" @if($user_type == 'student') hidden @endif >الطلاب</a>
+                        <a class="dropdown-item" href="{{route('teacher_fun')}}" @if($user_type == 'student' or $user_type == 'teacher' ) hidden @endif>المحفظين</a>
+                        <a class="dropdown-item" href="{{route('students_fun')}}" @if($user_type == 'student') hidden @endif >الطلاب</a>
                     </div>
                 </div>
                 @endif

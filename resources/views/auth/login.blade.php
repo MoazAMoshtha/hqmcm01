@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('content')
     <?php
@@ -27,7 +28,7 @@
                                 {{$user_type=null}}
                                 <div class="">
                                     <select class="form-control" id="user_type" name="user_type">
-                                        <option>...</option>
+                                        <option value="admin">...</option>
                                         <option value="area_admin"
                                                 @if($_GET['user_type'] == 'area_admin') selected @endif
                                                 @if($get_area_admin_from_url == 1) selected @endif>مشرف منطقة

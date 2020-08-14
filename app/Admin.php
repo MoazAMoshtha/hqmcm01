@@ -19,7 +19,7 @@ class Admin extends Model
      */
     protected $fillable = [
         'firstName', 'secondName', 'familyName',
-        'email', 'password', 'phoneNumber',
+        'email', 'password', 'phoneNumber','hqmcm_id'
 
     ];
 

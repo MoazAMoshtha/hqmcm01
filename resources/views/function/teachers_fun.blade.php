@@ -1,3 +1,7 @@
+@extends('layouts.' . $layout)
+@section('content')
+    @include('operationStatus.area_add_status')
+
 <?php
 if (session('status') == 'editTeacher') {
     $active = 'active';
@@ -19,8 +23,6 @@ if (isset($_GET['teachers'])) {
 } else {
     $teacher = [0, 0, 0, 0, 0];
 }
-
-
 ?>
 
 <div class="row justify-content-center">
@@ -584,4 +586,4 @@ if (isset($_GET['teachers'])) {
     </div>
 </div>
 
-
+@endsection

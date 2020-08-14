@@ -9,13 +9,16 @@ use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class MosqueController extends Controller
 {
+
+
     public function index()
     {
         $mosques = Mosque::all();
-        return view('function.mosque_fun', ['mosques' => $mosques]);
+        return view('function.mosque_fun', ['mosques' => $mosques] );
     }
 
     public function show($id)

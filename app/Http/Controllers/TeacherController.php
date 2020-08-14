@@ -17,7 +17,7 @@ class TeacherController extends Controller
     public function index()
     {
         $teachers = Teacher::all();
-        return view('manger', ['teachers' => $teachers]);
+        return view('function.teachers_fun', ['teachers' => $teachers]);
     }
 
     public function show($id)

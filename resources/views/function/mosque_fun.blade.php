@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.' . $layout)
 @section('content')
     @include('operationStatus.area_add_status')
     <?php
@@ -67,6 +67,7 @@
                                         <div class="card-body">
                                             <form method="post" action="edit-mosque-records">
                                             @csrf
+
                                             <!--اسم المسجد-->
                                                 <div class="form-group row justify-content-lg-center">
                                                     <div class="col-lg-4">
@@ -92,55 +93,16 @@
                                                 </div>
 
                                                 <!--اسم المنطقة-->
-                                                <div class="form-group row justify-content-lg-center">
-                                                    <div class="col-lg-4">
-
-                                                    </div>
-                                                    <label for="area"
-                                                           class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المنطقة') }}</label>
-
-                                                    <div class=" col-md-7">
-                                                        <input id="area" type="text"
-                                                               class="text-right form-control @error('area') is-invalid @enderror"
-                                                               name="area" value="<?php if (isset($mosque[0]['area'])) {
-                                                            echo $mosque[0]['area'];
-                                                        } ?>" required
-                                                               autocomplete="area" autofocus>
-
-                                                        @error('area')
-                                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
+                                                <input name="area" value="{{$mosque[0]['area']}}" hidden>
 
                                                 <!--مشرف المسجد-->
-                                                <div class="form-group row justify-content-lg-center">
-                                                    <div class="col-lg-4">
+                                                @if(isset($mosque[0]['mosque_admin']))
+                                                    <input name="mosque_admin" value="{{$mosque[0]['mosque_admin']}}" hidden>
+                                                @else
+                                            @endif
 
-                                                    </div>
-                                                    <label for="mosque_admin"
-                                                           class="col-lg-3 col-md-4 col-form-label text-right">{{ __('مشرف المسجد') }}</label>
 
-                                                    <div class=" col-md-7">
-                                                        <input id="mosque_admin" type="text"
-                                                               class="text-right form-control @error('mosque_admin') is-invalid @enderror"
-                                                               name="mosque_admin"
-                                                               value="<?php if (isset($mosque[0]['mosque_admin'])) {
-                                                                   echo $mosque[0]['mosque_admin'];
-                                                               } ?>" required
-                                                               autocomplete="mosque_admin" autofocus>
-
-                                                        @error('mosque_admin')
-                                                        <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                    </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
-                                                <!--رقم المسجد-->
+                                            <!--رقم المسجد-->
                                                 <div class="form-group row justify-content-lg-center">
                                                     <div class="col-lg-4">
 
@@ -165,57 +127,6 @@
                                                     </div>
                                                 </div>
 
-                                                <!--عدد المحفظين-->
-                                                <div class="form-group row justify-content-lg-center">
-                                                    <div class="col-lg-4">
-
-                                                    </div>
-
-                                                    <label for="number_of_teachers"
-                                                           class="col-lg-3 col-md-4 col-form-label text-right">{{ __('عدد المحفظين') }}</label>
-
-                                                    <div class=" col-md-7">
-                                                        <input id="number_of_teachers" type="text"
-                                                               class="text-right form-control @error('number_of_teachers') is-invalid @enderror"
-                                                               name="number_of_teachers"
-                                                               value="<?php if (isset($mosque[0]['number_of_teachers'])) {
-                                                                   echo $mosque[0]['number_of_teachers'];
-                                                               } ?>"
-                                                               autocomplete="number_of_teachers" autofocus>
-
-                                                        @error('number_of_teachers')
-                                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
-                                                <!--عدد الطلاب-->
-                                                <div class="form-group row justify-content-lg-center">
-                                                    <div class="col-lg-4">
-
-                                                    </div>
-
-                                                    <label for="number_of_students"
-                                                           class="col-lg-3 col-md-4 col-form-label text-right">{{ __('عدد الطلاب') }}</label>
-
-                                                    <div class=" col-md-7">
-                                                        <input id="number_of_students" type="text"
-                                                               class="text-right form-control @error('number_of_students') is-invalid @enderror"
-                                                               name="number_of_students"
-                                                               value="<?php if (isset($mosque[0]['number_of_students'])) {
-                                                                   echo $mosque[0]['number_of_students'];
-                                                               } ?>"
-                                                               autocomplete="number_of_students" autofocus>
-
-                                                        @error('number_of_students')
-                                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
 
                                                 <!--تسجيل-->
                                                 <div class="form-group row text-center justify-content-center">
@@ -239,6 +150,7 @@
                             <div class="container">
                                 <div class="row justify-content-center">
                                     <div class="col-md-8">
+
                                         <div class="card-body">
                                             <form method="post" action="{{route('mosque.createMosque')}}">
                                             @csrf
@@ -268,86 +180,15 @@
                                                 <!--المنطقة-->
                                                 <input value="{{Auth::user()->area}}" hidden name="area">
 
-                                                <!--مشرف المسجد-->
-                                                <div class="form-group row justify-content-lg-center">
-                                                    <div class="col-lg-4">
-
-                                                    </div>
-                                                    <label for="mosque_admin"
-                                                           class="col-lg-3 col-md-4 col-form-label text-right">{{ __('مشرف المسجد') }}</label>
-
-                                                    <div class=" col-md-7">
-                                                        <input id="mosque_admin" type="text"
-                                                               class="text-right form-control @error('mosque_admin') is-invalid @enderror"
-                                                               name="mosque_admin" value="{{ old('mosque_admin') }}"
-                                                               required
-                                                               autocomplete="mosque_admin" autofocus>
-
-                                                        @error('mosque_admin')
-                                                        <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                    </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
-                                                <!--عدد المحفظين-->
-                                                <div class="form-group row justify-content-lg-center">
-                                                    <div class="col-lg-4">
-
-                                                    </div>
-
-                                                    <label for="number_of_teachers"
-                                                           class="col-lg-3 col-md-4 col-form-label text-right">{{ __('عدد المحفظين') }}</label>
-
-                                                    <div class=" col-md-7">
-                                                        <input id="number_of_teachers" type="text"
-                                                               class="text-right form-control @error('number_of_teachers') is-invalid @enderror"
-                                                               name="number_of_teachers"
-                                                               value="{{ old('number_of_teachers') }}"
-                                                               autocomplete="number_of_teachers" autofocus>
-
-                                                        @error('number_of_teachers')
-                                                        <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                     </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
-                                                <!--عدد الطلاب-->
-                                                <div class="form-group row justify-content-lg-center">
-                                                    <div class="col-lg-4">
-
-                                                    </div>
-
-                                                    <label for="number_of_students"
-                                                           class="col-lg-3 col-md-4 col-form-label text-right">{{ __('عدد الطلاب') }}</label>
-
-                                                    <div class=" col-md-7">
-                                                        <input id="number_of_students" type="text"
-                                                               class="text-right form-control @error('number_of_students') is-invalid @enderror"
-                                                               name="number_of_students"
-                                                               value="{{ old('number_of_students') }}"
-                                                               autocomplete="number_of_students" autofocus>
-
-                                                        @error('number_of_students')
-                                                        <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                    </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
                                                 <!--hqmcm_id-->
                                                 <input hidden name="hqmcm_id" value="<?php
 
-                                                if (App\Mosque::all()->count() == 0){
+                                                if (App\Mosque::all()->count() == 0) {
                                                     $hqmcm_id = Auth::user()->area . str_pad(1, 2, '0', STR_PAD_LEFT);
                                                     echo $hqmcm_id;
-                                                }else{
-                                                    //$hqmcm_id = App\Mosque::where('area',Auth::user()->area)->orderby('hqmcm_id','desc')->first()->hqmcm_id + 1;
-                                                    //echo $hqmcm_id;
+                                                } else {
+                                                    $hqmcm_id = App\Mosque::where('area', Auth::user()->area)->orderby('hqmcm_id', 'desc')->first()->hqmcm_id + 1;
+                                                    echo $hqmcm_id;
                                                 }
                                                 ?>">
 
@@ -361,7 +202,9 @@
                                                 </div>
 
                                             </form>
+
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -406,8 +249,18 @@
                                                         href='edit_mosque/{{ $mosque->id }}'>| تعديل</a></td>
                                                 <td>{{ $mosque->number_of_students }}</td>
                                                 <td>{{ $mosque->number_of_teachers }}</td>
-                                                <td>{{ $mosque->mosque_admin }}</td>
-                                                <td>{{ $mosque->area }}</td>
+                                                <td>
+                                                    @if(\App\Mosque_Admin::where('hqmcm_id' , $mosque->mosque_admin )->exists())
+                                                        {{\App\Mosque_Admin::where('hqmcm_id' , $mosque->mosque_admin )->first()->firstName ." " . \App\Mosque_Admin::where('hqmcm_id' , $mosque->mosque_admin )->first()->secondName }}
+                                                    @else
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if(\App\Area::where('hqmcm_id' , $mosque->area)->exists())
+                                                        {{\App\Area::where('hqmcm_id' , $mosque->area)->first()->name}}
+                                                    @else
+                                                    @endif
+                                                </td>
                                                 <td>{{ $mosque->name }}</td>
                                                 <td scope="row">{{$mosque->hqmcm_id}}</td>
                                             </tr>

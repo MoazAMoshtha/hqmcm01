@@ -85,6 +85,35 @@
                     </div>
                 </div>
             </div>
+
+            <table class="table mt-5">
+                <thead class="text-center alert-danger">
+                <tr>
+                    <th scope="col">الصفحات خلال الشهر</th>
+                    <th scope="col">الصفحات خلال الاسبوع</th>
+                    <th scope="col">اخر حضور</th>
+                    <th scope="col">الطالب</th>
+                </tr>
+                </thead>
+                <tbody class="text-center">
+
+                <?php
+                $students = \App\Student::where('group', Auth::user()->group)->get();
+
+                ?>
+                @foreach ($students as $student)
+                    <tr>
+                        <td><a href='{{route('daily_record' , $student->hqmcm_id )}} #record'>تسجيل</a></td>
+                        <td>{{Daily_followupController::Last_recitations($student->hqmcm_id)}}</td>
+                        <td>{{Daily_followupController::Last_attendance($student->hqmcm_id)}}</td>
+                        <td>{{ $student->firstName . " " . $student->familyName }}</td>
+                    </tr>
+
+
+                @endforeach
+                </tbody>
+            </table>
+
         </div>
 
     @elseif(Auth::user()->user_type == 'student')

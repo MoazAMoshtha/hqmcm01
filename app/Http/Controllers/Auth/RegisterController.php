@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Area;
 use App\Area_Admin;
+use App\Admin;
 use App\Group;
 use App\Mosque;
 use App\Mosque_Admin;
@@ -47,11 +48,6 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
-
-    }
 
     /**
      * Get a validator for an incoming registration request.
@@ -84,39 +80,44 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $mosque = null;
-        $group = null;
-        $area = Area::where('hqmcm_id', $data['area'])->first()->name;
-        if (Area_Admin::all()->count() != 0) {
-            $last_area_admin_hqmcm_id = Area_Admin::where('area', $area)->orderBy('hqmcm_id', 'ASC')->get()->last()->hqmcm_id;
-        } else {
-            $last_area_admin_hqmcm_id = $data['area'] . str_pad(0, 2, '0', STR_PAD_LEFT);
-        }
+        $mosque = 0;
+        $group = 0;
+        if ($data['user_type'] == 'admin'){
+            $area=$data['arae'] = 0;
+            $mosque = $data['mosque']=  0;
+            $group = $data['group'] =  0;
+        }else {
 
-        if ($data['mosque'] != 0) {
-            $mosque = Mosque::where('hqmcm_id', $data['mosque'])->first()->name;
-            if (Mosque_Admin::all()->count() != 0) {
-                $last_mosque_admin_hqmcm_id = Mosque_Admin::where('mosque', $mosque)->orderBy('hqmcm_id', 'ASC')->get()->last()->hqmcm_id;
+            if (Area_Admin::all()->count() != 0) {
+                $last_area_admin_hqmcm_id = Area_Admin::where('area', $data['area'])->orderBy('hqmcm_id', 'ASC')->get()->last()->hqmcm_id;
             } else {
-                $last_mosque_admin_hqmcm_id = $data['mosque'] . str_pad(0, 2, '0', STR_PAD_LEFT);;
+                $last_area_admin_hqmcm_id = $data['area'] . str_pad(0, 2, '0', STR_PAD_LEFT);
             }
-            if (Teacher::all()->count() != 0) {
-                $last_teacher_hqmcm_id = Teacher::where('mosque', $mosque)->orderBy('hqmcm_id', 'ASC')->get()->last()->hqmcm_id;
-            } else {
-                $last_teacher_hqmcm_id = $data['mosque'] . str_pad(1, 2, '0', STR_PAD_LEFT);
-            }
-        }
-        if ($data['group'] != 0) {
-            $group = $data['group'];
-            if (Student::all()->count() != 0){
-                $last_student_hqmcm_id = Student::where('group', $group)->orderBy('hqmcm_id', 'desc')->first();
-            }else{
-                $last_student_hqmcm_id = $data['group'] . str_pad(0, 2, '0', STR_PAD_LEFT);;
-            }
-        }
 
+            if ($data['mosque'] != 0) {
+                $mosque = $data['mosque'];
+                if (Mosque_Admin::all()->count() != 0) {
+                    $last_mosque_admin_hqmcm_id = Mosque_Admin::where('mosque', $mosque)->orderBy('hqmcm_id', 'ASC')->get()->last()->hqmcm_id;
+                } else {
+                    $last_mosque_admin_hqmcm_id = substr($data['mosque'], -2) . str_pad(0, 2, '0', STR_PAD_LEFT);;
+                }
+                if (Teacher::all()->count() != 0) {
+                    $last_teacher_hqmcm_id = Teacher::where('mosque', $mosque)->orderBy('hqmcm_id', 'ASC')->get()->last()->hqmcm_id;
+                } else {
+                    $last_teacher_hqmcm_id = substr($data['mosque'], -2) . str_pad(1, 2, '0', STR_PAD_LEFT);
+                }
+            }
+            if ($data['group'] != 0) {
+                $group = $data['group'];
+                if (Student::all()->count() != 0) {
+                    $last_student_hqmcm_id = Student::where('group', $group)->orderBy('hqmcm_id', 'desc')->first();
+                } else {
+                    $last_student_hqmcm_id = substr($data['group'], -2) . str_pad(0, 2, '0', STR_PAD_LEFT);;
+                }
+            }
+            $user_type = 'user';
 
-        $user_type = 'user';
+        }
         if ($data['user_type'] == 'area_admin') {
             $hqmcm_id_area_admin = $last_area_admin_hqmcm_id + 1;
             $user_type = 'area_admin';
@@ -193,6 +194,21 @@ class RegisterController extends Controller
             Group::where('hqmcm_id',$group)->update(['number_of_students' => $student_count]);
         }
 
+        elseif ($data['user_type'] == 'admin') {
+            $hqmcm_id_user = 1;
+            $user_type = 'admin';
+            Admin::create([
+                'firstName' => $data['firstName'],
+                'secondName' => $data['secondName'],
+                'familyName' => $data['familyName'],
+                'id_number' => $data['id_number'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'phoneNumber' => $data['phoneNumber'],
+                'hqmcm_id' => 1,
+            ]);
+        }
+
 
         return User::create([
             'firstName' => $data['firstName'],
@@ -203,7 +219,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'phoneNumber' => $data['phoneNumber'],
             'area' => $data['area'],
-            'mosque' => $data['mosque'],
+            'mosque' => $mosque,
             'group' => $group,
             'hqmcm_id' => $hqmcm_id_user,
             'user_type' => $user_type
