@@ -32,8 +32,8 @@ class Mosque_Admin extends Authenticatable
         'email' => ['nullable','email', 'max:255'],
         'password' => ['required', 'string', 'min:8', 'confirmed'],
         'phoneNumber' => ['required', 'integer', 'max:11'],
-        'area' => ['required', ],
-        'mosque' => ['required' ],
+        'area' => ['required'],
+        'mosque' => ['required'],
         'hqmcm_id' => ['required'],
     ];
 

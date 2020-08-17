@@ -47,7 +47,7 @@ Route::prefix('area')->group(function (){
     Route::get('/edit-records','AreaController@index')->name('area.editRecords');
     Route::get('/edit/{id}','AreaController@show')->name('area.edit');
 });
-Route::post('edit/{id}','AreaController@edit')->name('area.edit');
+Route::post('edit-area/{id}','AreaController@edit')->name('area.edit');
 
 /*************mosque routes*****************/
 Route::prefix('mosque')->group(function (){

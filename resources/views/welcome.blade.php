@@ -37,19 +37,19 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block  imagesSize" src="{{asset('assets/images/1.svg')}}"
+                            <img class="d-block  imagesSize" src="{{asset('assets/images/خبر1.jpg')}}"
                                  alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Third slide label</h5>
-                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                <h5>وزارة الأوقاف والشؤون الدينية</h5>
+                                <p>مساجد غزة تزخر بحلقات القرآن الكريم.. تهذيب وتشجيع وحفظ</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block imagesSize" src="{{asset('assets/images/2.svg')}}"
+                            <img class="d-block imagesSize" src="{{asset('assets/images/1.jpg')}}"
                                  alt="Second slide">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>وزارة الأوقاف والشؤون الدينية</h5>
-                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                <p>مساجد غزة تزخر بحلقات القرآن الكريم.. تهذيب وتشجيع وحفظ</p>
                             </div>
                         </div>
                         <div class="carousel-item">

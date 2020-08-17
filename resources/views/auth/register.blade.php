@@ -164,40 +164,10 @@
                             </div>
 
                             <!--كلمة السر-->
-                            <div class="form-group row justify-content-lg-center">
-                                <div class="col-lg-4">
-
-                                </div>
-
-                                <label for="password"
-                                       class="col-md-3 col-form-label text-right">{{ __('كلمة السر') }}</label>
-
-                                <div class="col-md-7">
-                                    <input id="password" type="password"
-                                           class="form-control @error('password') is-invalid @enderror" name="password"
-                                           required autocomplete="new-password">
-
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
+                            <input type="password" name="password" value="12345678" hidden>
 
                             <!--تأكيد كلمة السر-->
-                            <div class="form-group row justify-content-lg-center">
-                                <div class="col-lg-4">
-
-                                </div>
-                                <label for="password-confirm"
-                                       class="col-md-3 col-form-label text-right">{{ __('تأكيد كلمة السر') }}</label>
-
-                                <div class="col-md-7">
-                                    <input id="password-confirm" type="password" class="form-control"
-                                           name="password_confirmation" required autocomplete="new-password">
-                                </div>
-                            </div>
+                            <input type="password" name="password_confirmation" value="12345678" hidden>
 
                             <!--رقم الجوال-->
                             <div class="form-group row justify-content-lg-center">

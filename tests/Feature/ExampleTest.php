@@ -18,4 +18,20 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    use RefreshDatabase;
+
+    /**
+     * A basic functional test example.
+     *
+     * @return void
+     */
+    public function testBasicExample()
+    {
+        $response = $this->get('/');
+
+        // ...
+    }
+
+
 }

@@ -1,4 +1,5 @@
 @extends('layouts.' . $layout)
+
 @section('content')
     @include('operationStatus.area_add_status')
 
@@ -29,6 +30,7 @@
     ?>
 
     <div class="row justify-content-center">
+
         <div class="card h-100 w-100">
             <div class="card-body text-right">
                 <div>
@@ -37,8 +39,7 @@
                     <nav>
                         <div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
                             <a class="nav-item nav-link " id="nav-hide-tab" data-toggle="tab" href="#nav-hide"
-                               role="tab"
-                               aria-controls="nav-hide" aria-selected="true">ضم القائمة</a>
+                               role="tab"></a>
                             <a class="nav-item nav-link <?php echo $active?>" id="nav-update-tab" data-toggle="tab"
                                href="{{$d}}" role="tab"
                                aria-controls="nav-update" aria-selected="true">تعديل منطقة</a>
@@ -52,8 +53,6 @@
 
                     <div class="tab-content text-right" id="nav-tabContent">
 
-                        <!--ضم القائمة-->
-                        <div class="tab-pane fade" id="nav-hide" role="tabpanel" aria-labelledby="nav-hide-tab"></div>
 
                         <!--تعديل منطقة-->
                         <div class="tab-pane fade <?php echo $active . " " . $show?>" id="nav-update" role="tabpanel"
@@ -63,7 +62,7 @@
                                     <div class="col-md-8">
                                         <div class="card-body">
                                             <!--$area[0]['id']-->
-                                            <form method="post" action="/edit/{{$area[0]['id']}}">
+                                            <form method="post" action="/edit-area/{{$area[0]['id']}}">
                                             @csrf
                                             <!--اسم المنطقة-->
                                                 <div class="form-group row justify-content-lg-center">
@@ -115,7 +114,7 @@
                                                 </div>
 
                                                 <!--المحافظة-->
-                                                <div class="form-group row justify-content-lg-center ">
+                                                <div hidden class="form-group row justify-content-lg-center ">
                                                     <div class="col-lg-4">
 
                                                     </div>
@@ -137,7 +136,7 @@
                                                 </div>
 
                                                 <!--عدد المساجد-->
-                                                <div class="form-group row justify-content-lg-center">
+                                                <div hidden class="form-group row justify-content-lg-center">
                                                     <div class="col-lg-4">
 
                                                     </div>
@@ -163,7 +162,7 @@
                                                 </div>
 
                                                 <!--عدد المحفظين-->
-                                                <div class="form-group row justify-content-lg-center">
+                                                <div hidden class="form-group row justify-content-lg-center">
                                                     <div class="col-lg-4">
 
                                                     </div>
@@ -189,7 +188,7 @@
                                                 </div>
 
                                                 <!--عدد الطلاب-->
-                                                <div class="form-group row justify-content-lg-center">
+                                                <div hidden class="form-group row justify-content-lg-center">
                                                     <div class="col-lg-4">
 
                                                     </div>
@@ -238,6 +237,7 @@
                                         <div class="card-body">
                                             <form method="post" action="{{route('area.createArea')}}">
                                             @csrf
+
                                             <!--اسم المنطقة-->
                                                 <div class="form-group row justify-content-lg-center">
                                                     <div class="col-lg-4">
@@ -273,16 +273,16 @@
                                                                class="text-right form-control @error('hqmcm_id') is-invalid @enderror"
                                                                name="hqmcm_id"
                                                                value="<?php
-                                                               if (\App\Area::all()->last() == null) {
-                                                                   $id = 1;
-                                                                   echo $id;
+                                                               if (\App\Area::all()->count() == 0) {
+                                                                   $hqmcm_id = 1;
+                                                                   echo str_pad($hqmcm_id , 2, '0', STR_PAD_LEFT) ;
                                                                } else {
-                                                                   $id = \App\Area::all()->last()->id + 1;
-                                                                   echo $id;
+                                                                   $hqmcm_id = \App\Area::all()->last()->hqmcm_id + 1;
+                                                                   echo str_pad($hqmcm_id , 2, '0', STR_PAD_LEFT) ;
                                                                }
-                                                               str_pad($id, 2, '0', STR_PAD_LEFT) ?>"
+                                                               ?>"
                                                                required
-                                                               autocomplete="name" autofocus>
+                                                               autocomplete="hqmcm_id" autofocus>
                                                         @error('hqmcm_id')
                                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -292,7 +292,7 @@
                                                 </div>
 
                                                 <!--المحافظة-->
-                                                <div class="form-group row justify-content-lg-center ">
+                                                <div hidden class="form-group row justify-content-lg-center ">
                                                     <div class="col-lg-4">
 
                                                     </div>
@@ -314,7 +314,7 @@
                                                 </div>
 
                                                 <!--عدد المساجد-->
-                                                <div class="form-group row justify-content-lg-center">
+                                                <div hidden class="form-group row justify-content-lg-center">
                                                     <div class="col-lg-4">
 
                                                     </div>
@@ -337,7 +337,7 @@
                                                 </div>
 
                                                 <!--عدد المحفظين-->
-                                                <div class="form-group row justify-content-lg-center">
+                                                <div hidden class="form-group row justify-content-lg-center">
                                                     <div class="col-lg-4">
 
                                                     </div>
@@ -361,7 +361,7 @@
                                                 </div>
 
                                                 <!--عدد الطلاب-->
-                                                <div class="form-group row justify-content-lg-center">
+                                                <div hidden class="form-group row justify-content-lg-center">
                                                     <div class="col-lg-4">
 
                                                     </div>

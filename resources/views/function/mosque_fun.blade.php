@@ -178,19 +178,51 @@
                                                 </div>
 
                                                 <!--المنطقة-->
-                                                <input value="{{Auth::user()->area}}" hidden name="area">
+                                                @if(Auth::user()->user_type == 'admin')
+                                                        <div class="form-group row justify-content-lg-center">
+                                                            <div class="col-lg-4">
+
+                                                            </div>
+
+                                                            <label for="area"
+                                                                   class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المنطقة') }}</label>
+
+                                                            <div class="col-md-7 float-left">
+                                                                <select class="form-control text-right c" id="area" name="area">
+                                                                    <option value="" selected>...</option>
+                                                                    <?php $areas = \App\Area::all()?>
+                                                                    @foreach($areas as $area)
+                                                                        <option value="{{$area->hqmcm_id}}" name="area">{{ $area->name}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                                @error('area')
+                                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                     </span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                @else
+                                                        <input value="{{Auth::user()->area}}" hidden name="area">
+                                                @endif
 
                                                 <!--hqmcm_id-->
-                                                <input hidden name="hqmcm_id" value="<?php
+                                                @if(Auth::user()->user_type == 'admin')
+                                                    <input name="hqmcm_id" value="null" hidden>
+                                                @else
+                                                    <input hidden name="hqmcm_id" value="<?php
 
-                                                if (App\Mosque::all()->count() == 0) {
-                                                    $hqmcm_id = Auth::user()->area . str_pad(1, 2, '0', STR_PAD_LEFT);
-                                                    echo $hqmcm_id;
-                                                } else {
-                                                    $hqmcm_id = App\Mosque::where('area', Auth::user()->area)->orderby('hqmcm_id', 'desc')->first()->hqmcm_id + 1;
-                                                    echo $hqmcm_id;
-                                                }
-                                                ?>">
+                                                    if (App\Mosque::all()->count() == 0) {
+                                                        $hqmcm_id = Auth::user()->area . str_pad(1, 2, '0', STR_PAD_LEFT);
+                                                        echo $hqmcm_id;
+                                                    } else {
+                                                        $hqmcm_id = App\Mosque::where('area', Auth::user()->area)->orderby('hqmcm_id', 'desc')->first()->hqmcm_id + 1;
+                                                        echo $hqmcm_id;
+                                                    }
+                                                    ?>">
+                                                @endif
+
+
 
                                                 <!--تسجيل-->
                                                 <div class="form-group row text-center justify-content-center">

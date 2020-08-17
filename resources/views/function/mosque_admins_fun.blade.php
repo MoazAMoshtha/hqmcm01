@@ -274,7 +274,7 @@ if (isset($_GET['mosque_admins'])) {
                         </div>
                     </div>
 
-                    <!--اضافة محفظ-->
+                    <!--اضافة مشرف مسجد-->
                     <div class="tab-pane fade" id="nav-addMosqueAdmin" role="tabpanel" aria-labelledby="nav-addMosqueAdmin-tab">
                         <div class="container">
                             <div class="row justify-content-center">
@@ -400,42 +400,10 @@ if (isset($_GET['mosque_admins'])) {
                                             </div>
 
                                             <!--كلمة السر-->
-                                            <div class="form-group row justify-content-lg-center">
-                                                <div class="col-lg-4">
-
-                                                </div>
-
-                                                <label for="password"
-                                                       class="col-md-3 col-form-label text-right">{{ __('كلمة السر') }}</label>
-
-                                                <div class="col-md-7">
-                                                    <input id="password" type="password"
-                                                           class="form-control @error('password') is-invalid @enderror"
-                                                           name="password"
-                                                           required autocomplete="new-password">
-
-                                                    @error('password')
-                                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
+                                           <input name="password" type="password" hidden value="12345678">
 
                                             <!--تأكيد كلمة السر-->
-                                            <div class="form-group row justify-content-lg-center">
-                                                <div class="col-lg-4">
-
-                                                </div>
-                                                <label for="password-confirm"
-                                                       class="col-md-3 col-form-label text-right">{{ __('تأكيد كلمة السر') }}</label>
-
-                                                <div class="col-md-7">
-                                                    <input id="password-confirm" type="password" class="form-control"
-                                                           name="password_confirmation" required
-                                                           autocomplete="new-password">
-                                                </div>
-                                            </div>
+                                            <input name="password_confirmation" type="password" hidden value="12345678">
 
                                             <!--رقم الجوال-->
                                             <div class="form-group row justify-content-lg-center">
@@ -454,14 +422,41 @@ if (isset($_GET['mosque_admins'])) {
 
                                                     @error('phoneNumber')
                                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                         <strong>{{ $message }}</strong>
+                                                    </span>
                                                     @enderror
                                                 </div>
                                             </div>
 
                                             <!--المنطقة-->
-                                            <input name="area" value="{{Auth::user()->area}}" hidden>
+                                            @if(Auth::user()->user_type == 'admin' )
+                                                <div class="form-group row justify-content-lg-center">
+                                                    <div class="col-lg-4">
+
+                                                    </div>
+
+                                                    <label for="area"
+                                                           class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المنطقة') }}</label>
+
+                                                    <div class="col-md-7 float-left">
+                                                        <select class="form-control text-right c" id="area" name="area">
+                                                            <option value="" selected>...</option>
+                                                            <?php $areas = \App\Area::all()?>
+                                                            @foreach($areas as $area)
+                                                                <option value="{{$area->hqmcm_id}}" name="area">{{ $area->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error('area')
+                                                        <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                     </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                            @else
+                                                <input name="area" value="{{Auth::user()->area}}" hidden>
+                                              @endif
 
                                             <!--المسجد-->
                                             <div class="form-group row justify-content-lg-center">

@@ -1,3 +1,4 @@
+
 <?php
 if(isset($_GET['hqmcm_id'])){
     switch ($_GET['user_type']){
@@ -22,7 +23,8 @@ if(isset($_GET['hqmcm_id'])){
 ?>
 @extends('layouts.admin')
 @section('content')
-    <div class="container aljazera">
+    <div>
+
         <div class="card-deck text-center justify-content-center">
 
             <div class="col-lg-3 card text-white bg-primary">
@@ -97,44 +99,43 @@ if(isset($_GET['hqmcm_id'])){
                         اجمالي المسنخدمين
                 </div>
                 <div class="card-body">
-                    <h1>{{\App\User::all()->count()}}</h1>
+                    <h1>{{$users = \App\User::where('hqmcm_id' , '!=' , Auth::user()->hqmcm_id)->count()}}</h1>
                 </div>
             </div>
 
         </div>
-    </div>
 
-    <div class="container mt-5">
-
+        <div class="col-10 mt-5 ml-3">
             <h4 class="text-right">أخر مستخدم مضاف </h4><hr>
-        <table class="table ">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">رقم المستخدم</th>
-                <th scope="col">اسم المستخدم</th>
-                <th scope="col">نوع المسنخدم</th>
-                <th scope="col">حذف | تعديل</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php $users = \App\User::where('hqmcm_id' , '!=' , Auth::user()->hqmcm_id)->get()?>
-            @foreach($users as $user)
-            <tr>
-                <th scope="row">{{$user->hqmcm_id}}</th>
-                <td>{{$user->firstName . " " . $user->secondName . " " . $user->familyName}}</td>
-                <td>{{$user->user_type}}</td>
-                <form action="" >
-                    <td><input type="number" name="hqmcm_id" hidden value="{{$user->hqmcm_id}}">
-                        <input type="text" name="user_type" hidden value="{{$user->user_type}}">
-                        <input type="submit" value="حذف" class="btn-danger"></td>
-                </form>
-            </tr>
-            @endforeach
-            </tbody>
-        </table>
+            <table class="table text-center">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">حذف | تعديل</th>
+                    <th scope="col">نوع المسنخدم</th>
+                    <th scope="col">اسم المستخدم</th>
+                    <th scope="col">رقم المستخدم</th>
+                </tr>
+
+                </thead>
+                <tbody>
+                <?php $users = \App\User::where('hqmcm_id' , '!=' , Auth::user()->hqmcm_id)->get()?>
+                @foreach($users as $user)
+                    <tr>
+                        <form action="" >
+                            <td><input type="number" name="hqmcm_id" hidden value="{{$user->hqmcm_id}}">
+                                <input type="text" name="user_type" hidden value="{{$user->user_type}}">
+                                <input type="submit" value="حذف" class="btn-danger"></td>
+                        </form>
+                        <td>{{$user->user_type}}</td>
+                        <td>{{$user->firstName . " " . $user->secondName . " " . $user->familyName}}</td>
+                        <th scope="row">{{$user->hqmcm_id}}</th>
+
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+
     </div>
-
-
-
 @endsection
 

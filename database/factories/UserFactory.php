@@ -17,12 +17,25 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(App\User::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
+        'firstName' => $faker->firstName,
+        'secondName' => $faker->name,
+        'familyName' => $faker->lastName,
+        'id_number' => $faker->randomDigit,
+        'phoneNumber' => $faker->randomDigit,
+        'area' => $faker->randomDigit,
+        'mosque' => $faker->randomDigit,
+        'group' => $faker->randomDigit,
+        'hqmcm_id' => $faker->randomDigit,
+        'user_type' => $faker->numerify('user_type'),
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         'remember_token' => Str::random(10),
     ];
+
 });
+$factory->state(User::class, 'delinquent', [
+    'account_status' => 'delinquent',
+]);

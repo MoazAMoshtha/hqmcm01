@@ -38,42 +38,24 @@ class MosqueAdminController extends Controller
         $test = new Mosque_Admin;
         $validator = Validator::make($request->all(), $test->rules);
         if ($validator->fails()) {
-            return redirect('mosque_admin/function.mosque_admin_fun')->with('status', 'areaInsert Failure')->withErrors($validator);
+            return redirect()->route('mosque_admin_fun')->with('status', 'areaInsert Failure')->withErrors($validator);
         }else{
             if(Mosque_Admin::all()->count() == 0){
                     $hqmcm_id = substr($request->input('mosque') , -2) . str_pad(1, 2, '0', STR_PAD_LEFT);
             }else{
                 if(Mosque_Admin::where('mosque' ,$request->input('mosque') )->exists()){
-                    return redirect('mosque_admin/function.mosque_admin_fun')->with('status', 'areaInsert Failure');
-
+                    $hqmcm_id = 1 + Mosque_Admin::where('mosque', $request->input('mosque'))->orderBy('hqmcm_id', 'ASC')->get()->last()->hqmcm_id;
                 }
             }
         }
 
-        $mosques = Mosque::where('hqmcm_id', $request->input('mosque'))->orderby('hqmcm_id' , 'DESC')->first()->name;
-        foreach ($mosques as $mosque) {
-            $mosqueName = $mosque->name;
-        }
-        $mosque_admins = Mosque_Admin::where('mosque', $mosqueName)->get();
-        if ($mosque_admins->all() == null) {
-            $mosque_admin_id = 1;
-        } else {
-            foreach ($mosque_admins as $mosque_admin) {
-
-                $mosque_admin_id = $mosque_admin->id + 1;
-
-            }
-        }
-
-        $hqmcm_id = str_pad($request->input('area'), 2, '0', STR_PAD_LEFT) . str_pad($request->input('mosque'), 2, '0', STR_PAD_LEFT) . str_pad($mosque_admin_id, 2, '0', STR_PAD_LEFT);
-
         if (User::where('email', '=', $request->input('email'))->exists()) {
-            return redirect('mosque_admin/function.mosque_admin_fun')->with('status', 'areaInsert Failure')->withErrors($validator);
+            return redirect()->route('mosque_admin_fun')->with('status', 'areaInsert Failure')->withErrors($validator);
         } else {
 
-            Mosque_Admin::create($request->all());
-            User::create(['user_type' => 'mosque_admin' + $request->all()]);
-            return redirect('mosque_admin/function.mosque_admin_fun')->with('status', 'areaInsert success');
+            Mosque_Admin::create(['hqmcm_id' => $hqmcm_id] + $request->all());
+            User::create(['user_type' => 'mosque_admin'] + ['hqmcm_id' => $hqmcm_id] + $request->all());
+            return redirect()->route('mosque_admin_fun')->with('status', 'areaInsert success');
         }
     }
 

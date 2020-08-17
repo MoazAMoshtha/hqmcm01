@@ -39,38 +39,22 @@ class AreaAdminController extends Controller
             return redirect('area_admin/function.area_admin_fun')->with('status', 'areaInsert Failure')->withErrors($validator);
         }else{
             if(Area_Admin::all()->count() == 0){
-                $hqmcm_id = substr($request->input('area') , -2) . str_pad(1, 2, '0', STR_PAD_LEFT);
+                $hqmcm_id = $request->input('area') . str_pad(1, 2, '0', STR_PAD_LEFT);
             }else{
-                if(Area_Admin::where('area' ,$request->input('area') )->exists()){
-                    return redirect('area_admin/function.area_admin_fun')->with('status', 'areaInsert Failure');
-
-                }
+                $hqmcm_id = 1 + Area_Admin::where('area', $request->input('area'))->orderBy('hqmcm_id', 'ASC')->get()->last()->hqmcm_id;
+               // if(Area_Admin::where('area' ,$request->input('area'))->exists()){
+                    //return redirect('area_admin/function.area_admin_fun')->with('status', 'areaInsert Failure');
+              //  }
             }
         }
 
-        $areas = Area::where('hqmcm_id', $request->input('area'))->orderby('hqmcm_id' , 'DESC')->first()->name;
-        foreach ($areas as $area) {
-            $areaName = $area->name;
-        }
-        $area_admins = Area_Admin::where('area', $areaName)->get();
-        if ($area_admins->all() == null) {
-            $area_admin_id = 1;
-        } else {
-            foreach ($area_admins as $area_admin) {
-
-                $area_admin_id = $area_admin->id + 1;
-
-            }
-        }
-
-        $hqmcm_id = str_pad($request->input('area'), 2, '0', STR_PAD_LEFT) . str_pad($request->input('area'), 2, '0', STR_PAD_LEFT) . str_pad($area_admin_id, 2, '0', STR_PAD_LEFT);
 
         if (User::where('email', '=', $request->input('email'))->exists()) {
             return redirect('area_admin/function.area_admin_fun')->with('status', 'areaInsert Failure')->withErrors($validator);
         } else {
 
-            Area_Admin::create($request->all());
-            User::create(['user_type' => 'area_admin' + $request->all()]);
+            Area_Admin::create(['hqmcm_id'=> $hqmcm_id] + $request->all());
+            User::create(['user_type' => 'area_admin'] + ['hqmcm_id'=> $hqmcm_id] +  $request->all());
             return redirect('area_admin/function.area_admin_fun')->with('status', 'areaInsert success');
         }
     }
