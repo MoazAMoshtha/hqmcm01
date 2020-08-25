@@ -18,6 +18,7 @@
         $active2 = 'active';
         $show2 = 'show';
     }
+
     if (isset($_GET['students'])) {
         $student = $_GET['students'];
     } else {
@@ -34,10 +35,6 @@
                     <h2 class="text-right">ادارة الطلاب</h2>
                     <nav>
                         <div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
-
-                            <a class="nav-item nav-link " id="nav-hideStudent-tab" data-toggle="tab"
-                               href="#nav-hideStudent"
-                               role="tab" aria-controls="nav-hideStudent" aria-selected="true">ضم القائمة</a>
 
                             <a class="nav-item nav-link <?php echo $active ?>" id="nav-updateStudent-tab"
                                data-toggle="tab"
@@ -57,10 +54,6 @@
                     </nav>
 
                     <div class="tab-content text-right" id="nav-tabContent">
-
-                        <!--ضم القائمة-->
-                        <div class="tab-pane fade" id="nav-hideStudent" role="tabpanel"
-                             aria-labelledby="nav-hideStudent-tab"></div>
 
                         <!--تعديل طالب-->
                         <div class="tab-pane fade <?php echo $active . " " . $show?>" id="nav-updateStudent"
@@ -229,9 +222,61 @@
                                                 </div>
 
                                                 <!--المنطقة-->
-                                                <input name="area" value="{{Auth::user()->area}}" hidden>
-                                                <!--المسجد-->
-                                                <input name="mosque" value="{{Auth::user()->mosque}}" hidden>
+                                                @if(Auth::user()->user_type == 'admin' )
+                                                    <div class="form-group row justify-content-lg-center">
+                                                        <div class="col-lg-4">
+
+                                                        </div>
+
+                                                        <label for="area"
+                                                               class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المنطقة') }}</label>
+
+                                                        <div class="col-md-7 float-left">
+                                                            <select class="form-control text-right c" id="area"
+                                                                    name="area">
+                                                                <option value="" selected>...</option>
+                                                                <?php $areas = \App\Area::all()?>
+                                                                @foreach($areas as $area)
+                                                                    <option value="{{$area->hqmcm_id}}"
+                                                                            name="area">{{ $area->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            @error('area')
+                                                            <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                     </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                @else
+                                                    <input name="area" value="{{Auth::user()->area}}" hidden>
+                                            @endif
+
+                                            <!--المسجد-->
+                                                <div class="form-group row justify-content-lg-center">
+                                                    <div class="col-lg-4">
+                                                    </div>
+                                                    <label for="mosque"
+                                                           class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المسجد') }}</label>
+
+                                                    <div class="col-md-7 float-left">
+                                                        <select class="form-control text-right c" id="mosque"
+                                                                name="mosque">
+                                                            <option value="" selected>...</option>
+                                                            <?php $mosques = \App\Mosque::all()?>
+                                                            @foreach($mosques as $mosque)
+                                                                <option
+                                                                    value="{{$mosque->hqmcm_id }}">{{ $mosque->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error('mosque')
+                                                        <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                     </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
 
 
                                                 <!--تسجيل-->
@@ -257,7 +302,9 @@
                                 <div class="row justify-content-center">
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <form method="post" action="{{route('student.createStudent')}}">
+
+                                            <form method="POST" action="{{route('register')}}">
+                                                <input name="user_type" value="student" hidden>
                                             @csrf
 
                                             <!--الاسم الأول-->
@@ -295,8 +342,7 @@
                                                     <div class=" col-md-7">
                                                         <input id="secondName" type="text"
                                                                class="text-right form-control @error('secondName') is-invalid @enderror"
-                                                               name="secondName" value="{{ old('secondName') }}"
-                                                               required
+                                                               name="secondName" value="{{ old('secondName') }}" required
                                                                autocomplete="secondName" autofocus>
 
                                                         @error('secondName')
@@ -319,8 +365,7 @@
                                                     <div class=" col-md-7">
                                                         <input id="familyName" type="text"
                                                                class="text-right form-control @error('familyName') is-invalid @enderror"
-                                                               name="familyName" value="{{ old('familyName') }}"
-                                                               required
+                                                               name="familyName" value="{{ old('familyName') }}" required
                                                                autocomplete="familyName" autofocus>
 
                                                         @error('familyName')
@@ -379,43 +424,10 @@
                                                 </div>
 
                                                 <!--كلمة السر-->
-                                                <div class="form-group row justify-content-lg-center">
-                                                    <div class="col-lg-4">
-
-                                                    </div>
-
-                                                    <label for="password"
-                                                           class="col-md-3 col-form-label text-right">{{ __('كلمة السر') }}</label>
-
-                                                    <div class="col-md-7">
-                                                        <input id="password" type="password"
-                                                               class="form-control @error('password') is-invalid @enderror"
-                                                               name="password"
-                                                               required autocomplete="new-password">
-
-                                                        @error('password')
-                                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
+                                                <input name="password" type="password" hidden value="12345678">
 
                                                 <!--تأكيد كلمة السر-->
-                                                <div class="form-group row justify-content-lg-center">
-                                                    <div class="col-lg-4">
-
-                                                    </div>
-                                                    <label for="password-confirm"
-                                                           class="col-md-3 col-form-label text-right">{{ __('تأكيد كلمة السر') }}</label>
-
-                                                    <div class="col-md-7">
-                                                        <input id="password-confirm" type="password"
-                                                               class="form-control"
-                                                               name="password_confirmation" required
-                                                               autocomplete="new-password">
-                                                    </div>
-                                                </div>
+                                                <input name="password_confirmation" type="password" hidden value="12345678">
 
                                                 <!--رقم الجوال-->
                                                 <div class="form-group row justify-content-lg-center">
@@ -429,8 +441,7 @@
                                                     <div class="col-md-7">
                                                         <input placeholder="059/056" id="phoneNumber" type="text"
                                                                class="text-right form-control @error('phoneNumber') is-invalid @enderror"
-                                                               name="phoneNumber" value="{{ old('phoneNumber') }}"
-                                                               required
+                                                               name="phoneNumber" value="{{ old('phoneNumber') }}" required
                                                                autocomplete="phoneNumber">
 
                                                         @error('phoneNumber')
@@ -442,29 +453,93 @@
                                                 </div>
 
                                                 <!--المنطقة-->
-                                                <input name="area" value="{{Auth::user()->area}}" hidden>
-                                                <!--المسجد-->
-                                                <input name="mosque" value="{{Auth::user()->mosque}}" hidden>
+                                                @if(Auth::user()->user_type == 'admin')
+                                                    <div class="form-group row justify-content-lg-center">
+                                                        <div class="col-lg-4">
+
+                                                        </div>
+
+                                                        <label for="area"
+                                                               class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المنطقة') }}</label>
+
+                                                        <div class="col-md-7 float-left">
+                                                            <select class="form-control text-right c" id="area" name="area">
+                                                                <option value="" selected>...</option>
+                                                                <?php $areas = \App\Area::all()?>
+                                                                @foreach($areas as $area)
+                                                                    <option value="{{$area->hqmcm_id}}" name="area">{{ $area->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            @error('area')
+                                                            <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                     </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                @else
+
+                                                    <input name="area" value="{{Auth::user()->area}}" hidden>
+
+                                            @endif
+
+                                            <!--المسجد-->
+                                                @if(Auth::user()->user_type == 'teacher')
+                                                    <input name="mosque" hidden value="{{Auth::user()->mosque}}">
+                                                @else
+                                                <div class="form-group row justify-content-lg-center">
+                                                    <div class="col-lg-4">
+                                                    </div>
+                                                    <label for="mosque"
+                                                           class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المسجد') }}</label>
+
+                                                    <div class="col-md-7 float-left">
+                                                        <select class="form-control text-right c" id="mosque" name="mosque">
+                                                            <option value="" selected>...</option>
+                                                            <?php
+                                                            if (Auth::user()->user_type == 'admin'){
+                                                                $mosques = \App\Mosque::all();
+
+                                                            }elseif(Auth::user()->user_type == 'area_admin'){
+                                                                $mosques = \App\Mosque::where('area' ,Auth::user()->area )->get();
+
+                                                            }
+                                                            ?>
+                                                            @foreach($mosques as $mosque)
+                                                                <option
+                                                                    value="{{$mosque->hqmcm_id }}">{{ $mosque->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error('mosque')
+                                                        <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                     </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                @endif
 
                                                 <!--المحفظ-->
-                                                @if(  Auth::user()->user_type == 'teacher')
-                                                    <input name="group" value="{{Auth::user()->group + 102}}" hidden>
+                                                @if(Auth::user()->user_type == 'teacher')
+                                                    <input name="group" hidden value="{{10101}}">
                                                 @else
-                                                    <div class="form-group row justify-content-lg-center" >
+                                                    <div class="form-group row justify-content-lg-center"
+                                                         @if(Auth::user()->user_type == 'student' and Auth::user()->user_type == 'teacher') hidden @endif>
                                                         <div class="col-lg-4">
+
                                                         </div>
+
                                                         <label for="group"
                                                                class="col-lg-3 col-md-4 col-form-label text-right">{{ __('حلقة التحفيظ') }}</label>
 
                                                         <div class="col-md-7 float-left">
-                                                            <select class="form-control text-right c" id="group"
-                                                                    name="group">
+                                                            <select class="form-control text-right c" id="group" name="group">
                                                                 <option value="null" name="group" selected>...</option>
                                                                 <?php $groups = \App\Group::all();
                                                                 ?>
                                                                 @foreach($groups as $group)
-                                                                    <option value="{{$group->hqmcm_id}}"
-                                                                            name="group">{{ \App\Teacher::where('hqmcm_id' , $group->teacher)->first()->firstName . " " . \App\Teacher::where('hqmcm_id' , $group->teacher)->first()->familyName }}</option>
+                                                                    <option value="{{$group->hqmcm_id}}" name="group">{{ \App\Teacher::where('hqmcm_id' , $group->teacher)->first()->firstName . " " . \App\Teacher::where('hqmcm_id' , $group->teacher)->first()->secondName  }}</option>
                                                                 @endforeach
                                                             </select>
                                                             @error('$mosque')
@@ -474,18 +549,20 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-                                                @endif
+
+                                            @endif
 
                                                 <!--تسجيل-->
                                                 <div class="form-group row justify-content-center">
-                                                    <div class="col-md-6 offset-md-4">
-                                                        <button type="submit" class="btn btn-primary">
-                                                            {{ __('تسجيل') }}
-                                                        </button>
-                                                    </div>
+
+                                                    <button type="submit" class="btn btn-primary">
+                                                        {{ __('تسجيل') }}
+                                                    </button>
+
                                                 </div>
 
                                             </form>
+
                                         </div>
                                     </div>
                                 </div>

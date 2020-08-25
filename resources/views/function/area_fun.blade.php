@@ -433,8 +433,8 @@
                                                 <td><a href='delete/{{ $area->id }}'>حذف</a><a
                                                         href='edit/{{ $area->id }}'>|
                                                         تعديل</a></td>
-                                                <td>{{ $area->number_of_students }}</td>
-                                                <td>{{ $area->number_of_teachers }}</td>
+                                                <td>{{ \App\Student::where('area' , $area->hqmcm_id)->count() }}</td>
+                                                <td>{{ \App\Teacher::where('area' , $area->hqmcm_id)->count() }}</td>
                                                 <td>{{ $area->number_of_mosques }}</td>
                                                 <td>{{ $area->name }}</td>
                                                 <td scope="row">{{ str_pad( $area->hqmcm_id, 2, "0", STR_PAD_LEFT ) }}</td>

@@ -16,8 +16,16 @@ class Daily_followupController extends Controller
         }
     }
     public static function  Last_attendance($hqmcm_id){
-        if (Daily::where('attendance' , 'حاضر')->orderBy('student_hqmcm_id')){
-            return DB::table('daily_record')->where('student_hqmcm_id', $hqmcm_id)->orderBy('updated_at','DESC')->value('date');
+        $student_records = Daily::where('student_hqmcm_id' , $hqmcm_id)->orderBy('attendance' , 'asc')->get();
+        foreach ($student_records as $student_record){
+            if ($student_record->attendance == 'لم يسمع'){
+                return $student_record->date;
+            }elseif ($student_record->attendance == 'غائب'){
+                return " ";
+            }else{
+                return $student_record->date;
+
+            }
         }
     }
     /**
@@ -49,7 +57,9 @@ class Daily_followupController extends Controller
 
     public function save_record(Request $request)
     {
-        if ($request->input('s_quran')==null){
+        if ($request->input('attendance') == 'لم يسمع'){
+          $d = 'لم يسمع';
+        }elseif ($request->input('s_quran') == null){
             $d = null;
         }else{
             $d = $request->input('to') . "<-" . $request->input('from') . $request->input('s_quran');

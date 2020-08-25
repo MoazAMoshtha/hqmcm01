@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Area;
 use App\Mosque;
 use App\Group;
+use App\Teacher;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use DB;
@@ -33,19 +34,33 @@ class GroupController extends Controller
 
     public function insertform()
     {
-        return view('group/function.group_fun');
+        return view('function.group_fun');
     }
 
 
 
     public function insert(Request $request)
     {
+        if (Group::all()->count() == 0) {
+            $hqmcm_id =$request->input('mosque') . str_pad(1, 2, '0', STR_PAD_LEFT);
+        } else {
+            if (Group::where('mosque' , $request->input('mosque'))->exists()){
+                $hqmcm_id = Group::where('mosque', $request->input('mosque'))->orderby('hqmcm_id', 'desc')->first()->hqmcm_id + 1;
+
+            }else{
+                $hqmcm_id =$request->input('mosque') . str_pad(1, 2, '0', STR_PAD_LEFT);
+
+            }
+        }
+
+
         $test = new Group;
-        $validator = Validator::make($request->all(), $test->rules);
+        $validator = Validator::make(['hqmcm_id'=>$hqmcm_id] + $request->all(), $test->rules);
         if ($validator->fails()) {
             return redirect('group/function.group_fun')->with('status', 'areaInsert Failure');
         } else {
-            Group::create($request->all());
+            Group::create(['hqmcm_id'=> $hqmcm_id ] + $request->all());
+            //Teacher::where('hqmcm_id' , $request->input('teacher'))->update(['group' , $hqmcm_id]);
             return redirect('group/function.group_fun')->with('status', 'areaInsert success');
         }
     }
@@ -53,14 +68,15 @@ class GroupController extends Controller
 
     public function showGroups(Request $request)
     {
-        if (Auth::user()->user_type) {
-            $name = Auth::user()->area;
-            $groups = Group::where('area', $name)->get();
-        } else {
-            $name = Auth::user()->mosque;
-            $groups = Group::where('mosque', $name)->get();
+        if(Auth::user()->user_type ='admin'){
+            $groups = Group::all();
+        } elseif (Auth::user()->user_type = 'area_admin') {
+            $groups = Group::where('area', Auth::user()->area)->get();
+        } elseif(Auth::user()->user_type ='mosque_admin') {
+            $groups = Group::where('mosque', Auth::user()->mosque)->get();
         }
         return view('function.group_fun', ['groups' => $groups]);
+
     }
 
 
@@ -85,7 +101,7 @@ class GroupController extends Controller
     {
         $ids = $request->ids;
         DB::table("mosques")->whereIn('id', explode(",", $ids))->delete();
-        return view('function.mosque_fun');
+        return view('function.group_fun');
         //return response()->json(['success' => "Products Deleted successfully."]);
     }
 
@@ -93,22 +109,8 @@ class GroupController extends Controller
 
     public function edit(Request $request)
     {
-        $name = $request->input('name');
-        $area = $request->input('area');
-        $hqmcm_id = $request->input('hqmcm_id');
-        $mosque_admin = $request->input('mosque_admin');
-        $number_of_teachers = $request->input('number_of_teachers');
-        $number_of_students = $request->input('number_of_students');
-        $mosques = Mosque::all();
-        //$mosques = DB::table('mosques')->get();
-        foreach ($mosques as $mosque) {
-            if ($mosque->name == $name and $mosque->name != $request->input('name')) {
-                return redirect('group/function.group_fun')->with('status', 'areaInsert Failure');
-            } elseif ($mosque->hqmcm_id == $hqmcm_id and $mosque->hqmcm_id != $request->input('hqmcm_id')) {
-                return redirect('group/function.group_fun')->with('status', 'hqmcm_id');
-            }
-        }
-        Mosque::where('hqmcm_id', $hqmcm_id)->update($request->except('_token'));
+
+        Group::where('hqmcm_id', $request->input('hqmcm_id') )->update(['teacher' => $request->input('teacher')]);
         return redirect('group/function.group_fun')->with('status', 'areaUpdate success');
     }
 }

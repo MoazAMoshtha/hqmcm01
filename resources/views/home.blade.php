@@ -81,7 +81,7 @@
                         عدد الطلاب
                     </div>
                     <div class="card-body">
-                        <h1>{{\App\Student::where('group' ,Auth::user()->group )->count()}}</h1>
+                        <h1>{{\App\Student::where('group' ,10101 )->count()}}</h1>
                     </div>
                 </div>
             </div>
@@ -98,14 +98,14 @@
                 <tbody class="text-center">
 
                 <?php
-                $students = \App\Student::where('group', Auth::user()->group)->get();
+                $students = \App\Student::where('group', 10101)->get();
 
                 ?>
                 @foreach ($students as $student)
                     <tr>
-                        <td><a href='{{route('daily_record' , $student->hqmcm_id )}} #record'>تسجيل</a></td>
-                        <td>{{Daily_followupController::Last_recitations($student->hqmcm_id)}}</td>
-                        <td>{{Daily_followupController::Last_attendance($student->hqmcm_id)}}</td>
+                        <td>{{rand(4,10)}}</td>
+                        <td>{{rand(1,3)}}</td>
+                        <td>{{\App\Http\Controllers\Daily_followupController::Last_attendance($student->hqmcm_id)}}</td>
                         <td>{{ $student->firstName . " " . $student->familyName }}</td>
                     </tr>
 
@@ -117,26 +117,33 @@
         </div>
 
     @elseif(Auth::user()->user_type == 'student')
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-header text-right">{{ __('طالب') }}</div>
+        <table class="table mt-5">
+            <thead class="text-center alert-danger">
+            <tr>
+                <th scope="col">التسميع</th>
+                <th scope="col">الحضور والغياب</th>
+                <th scope="col">تاريخ اليوم</th>
+            </tr>
+            </thead>
+            <tbody class="text-center">
 
-                        <div class="card-body">
-                            @if (session('status'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('status') }}
+            <?php
+            $students = \App\Daily::where('student_hqmcm_id', Auth::user()->hqmcm_id)->get();
 
-                                </div>
-                            @endif
+            ?>
+            @foreach ($students as $student)
 
-                            {{ __('You are logged in!') }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <tr>
+                    <td>{{$student->daily_recitations}}</td>
+                    <td>{{$student->attendance}}</td>
+                    <td>{{$student->date}}</td>
+                </tr>
+
+
+            @endforeach
+            </tbody>
+        </table>
+
     @endif()
 
 @endsection

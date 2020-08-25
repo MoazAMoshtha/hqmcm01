@@ -10,7 +10,7 @@
                 $('#modal').modal('show');
             });
         </script>
-        <?php $message = 'تم حذف المنطقة'; $alert ='alert-success'; $status='نجحت العملية'?>
+        <?php $message = 'تم الحذف '; $alert ='alert-success'; $status='نجحت العملية'?>
         @break(true)
 
         @case('areaInsert success')
@@ -19,7 +19,7 @@
                 $('#modal').modal('show');
             });
         </script>
-        <?php $message = 'تم اضافة منطقة'; $alert ='alert-success'; $status='نجحت العملية'?>
+        <?php $message = 'تمت الاضافة '; $alert ='alert-success'; $status='نجحت العملية'?>
         @break(true)
 
         @case('hqmcm_id')
@@ -38,7 +38,7 @@
                 $('#modal').modal('show');
             });
         </script>
-        <?php $message = 'المنطقة موجودة مسبقا!'; $alert ='alert-danger'; $status='فشلت العملية'?>
+        <?php $message = 'موجودة مسبقا!'; $alert ='alert-danger'; $status='فشلت العملية'?>
         @break(true)
 
         @case('areaUpdate success')
@@ -47,10 +47,8 @@
                 $('#modal').modal('show');
             });
         </script>
-        <?php $message = 'تم تحديث بيانات المنطقة'; $alert ='alert-success'; $status='نجح التعديل'?>
+        <?php $message = 'تم تحديث البيانات '; $alert ='alert-success'; $status='نجح التعديل'?>
         @break(true)
-
-
 
     @endswitch
 

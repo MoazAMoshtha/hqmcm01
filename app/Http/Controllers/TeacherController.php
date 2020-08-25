@@ -23,12 +23,12 @@ class TeacherController extends Controller
     public function show($id)
     {
         $teachers = DB::select('select * from teachers where id = ?', [$id]);
-        return redirect()->route('manger', ['teachers' => $teachers])->with('status', 'editTeacher');
+        return redirect()->route('teacher_fun', ['teachers' => $teachers])->with('status', 'editTeacher');
     }
 
     public function insertform()
     {
-        return view('teacher/function.teachers_fun');
+        return view('function.teachers_fun');
     }
 
     public function insert(Request $request)
@@ -41,7 +41,7 @@ class TeacherController extends Controller
         $test = new Teacher;
         $validator = Validator::make($request->all(), $test->rules);
         if ($validator->fails()) {
-            return redirect('manger')->with('status', 'areaInsert Failure')->withErrors($validator);
+            return redirect('teacher/function.teachers_fun')->with('status', 'areaInsert Failure')->withErrors($validator);
         }
         $name = $request->input('name');
         $mosques = Mosque::where('hqmcm_id', $request->input('mosque'))->get();
@@ -62,40 +62,48 @@ class TeacherController extends Controller
         $hqmcm_id = str_pad($request->input('area'), 2, '0', STR_PAD_LEFT) . str_pad($request->input('mosque'), 2, '0', STR_PAD_LEFT) . str_pad($teacher_id, 2, '0', STR_PAD_LEFT);
 
         if (User::where('email', '=', $request->input('email'))->exists()) {
-            return redirect('manger')->with('status', 'areaInsert Failure')->withErrors($validator);
+            return redirect('teacher/function.teachers_fun')->with('status', 'areaInsert Failure')->withErrors($validator);
         } else {
 
             Teacher::create(['hqmcm_id' => $hqmcm_id, 'mosque' => $mosqueName, 'area' => $areaName] + $request->all());
             User::create(['hqmcm_id' => $hqmcm_id, 'mosque' => $mosqueName, 'user_type' => 'teacher', 'area' => $areaName] + $request->all());
-            return redirect('manger')->with('status', 'areaInsert success');
+            return redirect('teacher/function.teachers_fun')->with('status', 'areaInsert success');
         }
     }
 
 
     public function showTeachers(Request $request)
     {
-        $name = Auth::user()->area;
-        $teachers = Teacher::where('area', $name)->get();
-        return view('manger', ['teachers' => $teachers]);
+        if (Auth::user()->user_type == 'admin'){
+            $teachers = Teacher::all();
+        }elseif (Auth::user()->user_type == 'area_admin'){
+            $teachers = Teacher::where('area', Auth::user()->area)->get();
+        }else{
+            $teachers = Teacher::where('mosque', Auth::user()->mosque)->get();
+
+        }
+
+
+        return view('function.teachers_fun', ['teachers' => $teachers]);
     }
 
     public function SearchByArea()
     {
         $mosques = DB::select('select * from mosques');
-        return view('manger', ['mosques' => $mosques]);
+        return view('function.teachers_fun', ['mosques' => $mosques]);
     }
 
     public function destroy($id)
     {
         Teacher::find($id)->delete();
-        return redirect('manger')->with('status', 'areaDeleted');
+        return redirect('teacher/function.teachers_fun')->with('status', 'areaDeleted');
     }
 
     public function deleteAll(Request $request)
     {
         $ids = $request->ids;
         DB::table("mosques")->whereIn('id', explode(",", $ids))->delete();
-        return view('manger');
+        return view('function.teachers_fun');
         //return response()->json(['success' => "Products Deleted successfully."]);
     }
 
@@ -110,12 +118,12 @@ class TeacherController extends Controller
         $teachers = DB::table('teachers')->get();
         foreach ($teachers as $teacher) {
             if ($teacher->firstName == $firstName and $teacher->firstName != $request->input('firstName')) {
-                return redirect('manger')->with('status', 'areaInsert Failure');
+                return redirect('teacher/function.teachers_fun')->with('status', 'areaInsert Failure');
             } elseif ($teacher->hqmcm_id == $hqmcm_id and $teacher->hqmcm_id != $request->input('hqmcm_id')) {
-                return redirect('manger')->with('status', 'hqmcm_id');
+                return redirect('teacher/function.teachers_fun')->with('status', 'hqmcm_id');
             }
         }
         Teacher::whereId($id)->update($request->except('_token'));
-        return redirect('manger')->with('status', 'areaUpdate success');
+        return redirect('teacher/function.teachers_fun')->with('status', 'areaUpdate success');
     }
 }

@@ -27,9 +27,6 @@ if (isset($_GET['mosque_admins'])) {
                 <nav>
                     <div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
 
-                        <a class="nav-item nav-link " id="nav-hideMosqueAdmin-tab" data-toggle="tab" href="#nav-hideMosqueAdmin"
-                           role="tab" aria-controls="nav-hideMosqueAdmin" aria-selected="true">ضم القائمة</a>
-
                         <a class="nav-item nav-link <?php echo $active ?>" id="nav-updateMosqueAdmin-tab" data-toggle="tab"
                            href="{{$m}}" role="tab" aria-controls="nav-updateMosqueAdmin" aria-selected="true">تعديل
                             مشرف</a>
@@ -46,9 +43,6 @@ if (isset($_GET['mosque_admins'])) {
 
                 <div class="tab-content text-right" id="nav-tabContent">
 
-                    <!--ضم القائمة-->
-                    <div class="tab-pane fade" id="nav-hideMosqueAdmin" role="tabpanel"
-                         aria-labelledby="nav-hideMosqueAdmin-tab"></div>
 
                     <!--تعديل محفظ-->
                     <div class="tab-pane fade <?php echo $active . " " . $show?>" id="nav-updateMosqueAdmin" role="tabpanel"
@@ -280,7 +274,9 @@ if (isset($_GET['mosque_admins'])) {
                             <div class="row justify-content-center">
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <form method="post" action="{{route('mosque_admin.createMosqueAdmin')}}">
+                                        <form method="POST" action="{{route('register')}}">
+                                          <input name="user_type" value="mosque_admin" hidden>
+                                          <input name="group" value="0" hidden>
                                         @csrf
 
                                             <!--الاسم الأول-->
@@ -521,10 +517,10 @@ if (isset($_GET['mosque_admins'])) {
                                 <thead>
                                 <tr>
                                     <td>حذف | تعديل</td>
-                                    <td scope="col">الاسم</td>
-                                    <td scope="col">رقم الجوال</td>
-                                    <td scope="col">المنطقة</td>
                                     <td scope="col">المسجد</td>
+                                    <td scope="col">المنطقة</td>
+                                    <td scope="col">رقم الجوال</td>
+                                    <td scope="col">الاسم</td>
                                     <td scope="col">#</td>
                                 </tr>
                                 </thead>
@@ -534,10 +530,17 @@ if (isset($_GET['mosque_admins'])) {
                                         <tr>
                                             <td><a href='delete/{{ $mosque_admin->id }}'>حذف</a><a
                                                     href='edit/{{ $mosque_admin->id }}'>| تعديل</a></td>
-                                            <td>{{ $mosque_admin->firstName . " " . $mosque_admin->secondName . " " . $mosque_admin->familyName  }}</td>
+                                            <td><?php
+                                                echo \App\Mosque::where( 'hqmcm_id' , $mosque_admin->mosque )->first()->name;
+                                                ?></td>
+                                            <td>
+                                                <?php
+                                                echo \App\Area::where( 'hqmcm_id' , $mosque_admin->area )->first()->name;
+                                                ?></td>
+
                                             <td>{{ $mosque_admin->phoneNumber }}</td>
-                                            <td>{{ $mosque_admin->area }}</td>
-                                            <td>{{ $mosque_admin->mosque }}</td>
+
+                                            <td>{{ $mosque_admin->firstName . " " . $mosque_admin->secondName . " " . $mosque_admin->familyName  }}</td>
                                             <td scope="row">{{ str_pad( $mosque_admin->hqmcm_id, 4, "0", STR_PAD_LEFT ) }}</td>
                                         </tr>
                                         </tbody>

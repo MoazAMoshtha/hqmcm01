@@ -55,7 +55,7 @@
                         <div class="top-right links">
                             @auth
                             @else
-                                <a href="{{ route('register') }}" class="nav-link" hidden>سجل الان</a>
+                                <a href="{{ route('register') }}"  class="nav-link" hidden>سجل الان</a>
                             @endauth
 
                         </div>

@@ -21,15 +21,15 @@
             <tbody class="text-center">
 
             <?php
-            $students = \App\Student::where('group', Auth::user()->group)->get();
+            $students = \App\Student::where('group', 10101)->get();
             use App\Http\Controllers\Daily_followupController;
 
             ?>
             @foreach ($students as $student)
                 <tr>
                     <td><a href='{{route('daily_record' , $student->hqmcm_id )}} #record'>تسجيل</a></td>
-                    <td>{{Daily_followupController::Last_recitations($student->hqmcm_id)}}</td>
-                    <td>{{Daily_followupController::Last_attendance($student->hqmcm_id)}}</td>
+                    <td>{{\App\Http\Controllers\Daily_followupController::Last_recitations($student->hqmcm_id)}}</td>
+                    <td>{{\App\Http\Controllers\Daily_followupController::Last_attendance($student->hqmcm_id)}}</td>
                     <td>{{ $student->firstName . " " . $student->familyName }}</td>
                 </tr>
             @endforeach

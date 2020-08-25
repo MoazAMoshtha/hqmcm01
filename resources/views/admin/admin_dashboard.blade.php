@@ -126,7 +126,21 @@ if(isset($_GET['hqmcm_id'])){
                                 <input type="text" name="user_type" hidden value="{{$user->user_type}}">
                                 <input type="submit" value="حذف" class="btn-danger"></td>
                         </form>
-                        <td>{{$user->user_type}}</td>
+                        <td>@switch($user->user_type)
+                                @case('area_admin')
+                                    {{'مشرف منطقة'}}
+                                @break(true)
+                                @case('mosque_admin')
+                                    {{'مشرف مسجد'}}
+                                @break(true)
+                                @case('teacher')
+                                    {{'محفظ'}}
+                                @break(true)
+                                @case('student')
+                                    {{'طالب'}}
+                                @break(true)
+                            @endswitch
+                        </td>
                         <td>{{$user->firstName . " " . $user->secondName . " " . $user->familyName}}</td>
                         <th scope="row">{{$user->hqmcm_id}}</th>
 

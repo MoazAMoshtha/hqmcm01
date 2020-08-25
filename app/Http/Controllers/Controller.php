@@ -15,7 +15,11 @@ class Controller extends BaseController
 {
 
     public function __construct()
-    {
+    {  /*$this->middleware('guest');
+        $layout = 'app';
+        View::share('layout', $layout);
+*/
+
         $this->middleware('auth');
 
         $this->middleware(function ($request, $next) {

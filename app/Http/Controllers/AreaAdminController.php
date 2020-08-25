@@ -42,9 +42,11 @@ class AreaAdminController extends Controller
                 $hqmcm_id = $request->input('area') . str_pad(1, 2, '0', STR_PAD_LEFT);
             }else{
                 $hqmcm_id = 1 + Area_Admin::where('area', $request->input('area'))->orderBy('hqmcm_id', 'ASC')->get()->last()->hqmcm_id;
-               // if(Area_Admin::where('area' ,$request->input('area'))->exists()){
+
+                // if(Area_Admin::where('area' ,$request->input('area'))->exists()){
                     //return redirect('area_admin/function.area_admin_fun')->with('status', 'areaInsert Failure');
-              //  }
+                //}
+
             }
         }
 
@@ -62,7 +64,7 @@ class AreaAdminController extends Controller
 
     public function showAreaAdmins(Request $request)
     {
-        $area_admins = Area_Admin::where('area', Auth::user()->area)->get();
+            $area_admins = Area_Admin::all();
         return view('function.area_admins_fun', ['area_admins' => $area_admins]);
     }
 
@@ -97,12 +99,12 @@ class AreaAdminController extends Controller
         $area_admins = DB::table('area_admins')->get();
         foreach ($area_admins as $area_admin) {
             if ($area_admin->firstName == $firstName and $area_admin->firstName != $request->input('firstName')) {
-                return redirect('area_admin/function.area_admin_fun')->with('status', 'areaInsert Failure');
+                return redirect()->route('area_admin_fun')->with('status', 'areaInsert Failure');
             } elseif ($area_admin->hqmcm_id == $hqmcm_id and $area_admin->hqmcm_id != $request->input('hqmcm_id')) {
-                return redirect('area_admin/function.area_admin_fun')->with('status', 'hqmcm_id');
+                return redirect()->route('area_admin_fun')->with('status', 'hqmcm_id');
             }
         }
         Area_Admin::whereId($id)->update($request->except('_token'));
-        return redirect('area_admin/function.area_admin_fun')->with('status', 'areaUpdate success');
+        return redirect()->route('area_admin_fun')->with('status', 'areaUpdate success');
     }
 }

@@ -62,7 +62,11 @@ class MosqueAdminController extends Controller
 
     public function showMosqueAdmins(Request $request)
     {
-        $mosque_admins = Mosque_Admin::where('area', Auth::user()->area)->get();
+        if (Auth::user()->user_type == 'admin'){
+            $mosque_admins = Mosque_Admin::all();
+        }else{
+            $mosque_admins = Mosque_Admin::where('area', Auth::user()->area)->get();
+        }
         return view('function.mosque_admins_fun', ['mosque_admins' => $mosque_admins]);
     }
 

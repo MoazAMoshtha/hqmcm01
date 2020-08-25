@@ -40,20 +40,22 @@ class StudentController extends Controller
         if (User::where('email', '=', $request->input('email'))->exists()) {
             return redirect('student/function.students_fun')->with('status', 'areaInsert Failure');
         } else {
-
-        if (Student::all()->count() != 0) {
-            $last_area_admin_hqmcm_id = Student::where('group', $request->input('group'))->orderBy('hqmcm_id', 'desc')->first()->hqmcm_id;
-        } else {
-            $last_area_admin_hqmcm_id = substr(  $request->input('group') , -2) . str_pad(0, 2, '0', STR_PAD_LEFT);
-        }
-
-            $group = Auth::user()->group;
-            if (Student::all()->count() != 0){
-                $last_student_hqmcm_id = Student::where('group', $group)->orderBy('hqmcm_id', 'ASC')->get()->last()->hqmcm_id;
+            if (Auth::user()->user_type == 'admin'){
+                $group = $request->input('group');
             }else{
-                $last_student_hqmcm_id = Auth::user()->group . str_pad(0, 2, '0', STR_PAD_LEFT);;
+                $group = Auth::user()->group;
             }
 
+            if (Student::all()->count() != 0){
+                if (Student::where('group', $group)->count() == 0 ){
+                    $last_student_hqmcm_id = $group . str_pad(0, 2, '0', STR_PAD_LEFT);;
+
+                }else{
+                    $last_student_hqmcm_id = Student::where('group', $group)->orderBy('hqmcm_id', 'ASC')->get()->last()->hqmcm_id;
+                }
+            }else{
+                $last_student_hqmcm_id = $group . str_pad(0, 2, '0', STR_PAD_LEFT);;
+            }
 
 
         $hqmcm_id_student = $last_student_hqmcm_id + 1;
@@ -68,9 +70,9 @@ class StudentController extends Controller
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
             'phoneNumber' => $request->input('phoneNumber'),
-            'area' => Auth::user()->area,
-            'mosque' => Auth::user()->mosque,
-            'group' => Auth::user()->group,
+            'area' => $request->input('area'),
+            'mosque' => $request->input('mosque'),
+            'group' => $request->input('group'),
             'hqmcm_id' => $hqmcm_id_student,
             ]);
 
@@ -82,9 +84,9 @@ class StudentController extends Controller
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
             'phoneNumber' => $request->input('phoneNumber'),
-            'area' => Auth::user()->area,
-            'mosque' => Auth::user()->mosque,
-            'group' => Auth::user()->group,
+            'area' => $request->input('area'),
+            'mosque' => $request->input('mosque'),
+            'group' => $request->input('group'),
             'hqmcm_id' => $hqmcm_id_student,
             'user_type' => 'student'
         ]);
@@ -97,7 +99,15 @@ class StudentController extends Controller
 
     public function showStudents(Request $request)
     {
-        $students = Student::where('group', Auth::user()->group)->get();
+        if (Auth::user()->user_type == 'admin'){
+            $students = Student::all();
+        }elseif(Auth::user()->user_type == 'area_admin'){
+            $students = Student::where('area', Auth::user()->area)->get();
+        }elseif(Auth::user()->user_type == 'mosque_admin'){
+            $students = Student::where('mosque', Auth::user()->mosque)->get();
+        }else{
+            $students = Student::where('group', 10101)->get();
+        }
         return view('function.students_fun', ['students' => $students]);
     }
 

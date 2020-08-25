@@ -53,6 +53,7 @@ Route::post('edit-area/{id}','AreaController@edit')->name('area.edit');
 Route::prefix('mosque')->group(function (){
     Route::post('/SearchByArea','MosqueController@SearchByArea')->name('mosque.SearchByArea');
     Route::get('/function.mosque_fun', 'MosqueController@index')->name('mosque_fun');
+    Route::get('/get_mosque', 'MosqueController@get_mosque')->name('get_mosque');
     Route::get('/insertMosque','MosqueController@insertform')->name('mosque.insertMosque');
     Route::post('/createMosque','MosqueController@insert')->name('mosque.createMosque');
     Route::get('/createMosque','MosqueController@insert')->name('mosque.createMosque');
@@ -86,6 +87,7 @@ Route::post('edit/{id}','GroupController@edit')->name('group.edit');
 
 /*************area_admin routes*****************/
 Route::prefix('area_admin')->group(function (){
+
     Route::get('/function.area_admins_fun', 'AreaAdminController@index')->name('area_admin_fun');
     Route::get('/insertAreaAdmin','AreaAdminController@insertform')->name('area_admin.insertAreaAdmin');
     Route::post('/createAreaAdmin','AreaAdminController@insert')->name('area_admin.createAreaAdmin');
@@ -93,11 +95,12 @@ Route::prefix('area_admin')->group(function (){
     Route::get('/delete-records','AreaAdminController@index')->name('area_admin.deleteRecords');
     Route::get('/delete/{id}','AreaAdminController@destroy')->name('area_admin.delete');
     Route::get('/edit-records','AreaAdminController@index')->name('area_admin.editRecords');
-    Route::get('/edit/{id}','AreaAdminController@show')->name('area_admin.edit');
     Route::get('/teacherDeleteAll', 'AreaAdminController@deleteAll');
+    Route::get('/edit-area-admin/{id}','AreaAdminController@show')->name('area_admin.edit');
+    Route::post('edit-area-admin/{id}','AreaAdminController@edit')->name('area_admin.edit');
+
 });
 
-Route::post('edit/{id}','AreaAdminController@edit')->name('area_admin.edit');
 
 /************* mosque_admin routes *****************/
 Route::prefix('mosque_admin')->group(function (){

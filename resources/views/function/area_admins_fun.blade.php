@@ -30,10 +30,6 @@
                     <nav>
                         <div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
 
-                            <a class="nav-item nav-link " id="nav-hideAreaAdmin-tab" data-toggle="tab"
-                               href="#nav-hideAreaAdmin"
-                               role="tab" aria-controls="nav-hideAreaAdmin" aria-selected="true">ضم القائمة</a>
-
                             <a class="nav-item nav-link <?php echo $active ?>" id="nav-updateAreaAdmin-tab"
                                data-toggle="tab"
                                href="{{$m}}" role="tab" aria-controls="nav-updateAreaAdmin" aria-selected="true">تعديل
@@ -54,10 +50,6 @@
 
                     <div class="tab-content text-right" id="nav-tabContent">
 
-                        <!--ضم القائمة-->
-                        <div class="tab-pane fade" id="nav-hideAreaAdmin" role="tabpanel"
-                             aria-labelledby="nav-hideAreaAdmin-tab"></div>
-
                         <!--تعديل مشرف منطقة-->
                         <div class="tab-pane fade <?php echo $active . " " . $show?>" id="nav-updateAreaAdmin"
                              role="tabpanel"
@@ -66,7 +58,7 @@
                                 <div class="row justify-content-center">
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <form method="post" action="/edit/{{$area_admin[0]['id']}}">
+                                            <form method="post" action="edit-area-admin/{{$area_admin[0]['id']}}">
                                             @csrf
                                                   <!--الاسم الأول-->
                                                 <div class="form-group row justify-content-lg-center">
@@ -248,37 +240,11 @@
                                                     </div>
                                                 </div>
 
-                                                <!--المسجد-->
-                                                <div class="form-group row justify-content-lg-center">
-                                                    <div class="col-lg-4">
-                                                    </div>
-                                                    <label for="area"
-                                                           class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المسجد') }}</label>
-
-                                                    <div class="col-md-7 float-left">
-                                                        <select class="form-control text-right c" id="area" name="area">
-                                                            <option value="" selected>...</option>
-                                                            <?php $areas = \App\Area::all()?>
-                                                            @foreach($areas as $area)
-                                                                <option
-                                                                    value="{{$area->hqmcm_id }}">{{ $area->name }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @error('area')
-                                                        <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                     </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
                                                 <!--تسجيل-->
                                                 <div class="form-group row justify-content-center">
-                                                    <div class="col-md-6 offset-md-4">
-                                                        <button type="submit" class="btn btn-primary">
-                                                            {{ __('تسجيل') }}
+                                                        <button type="submit" class="btn btn-primary ">
+                                                            {{ __('حفظ') }}
                                                         </button>
-                                                    </div>
                                                 </div>
 
                                             </form>
@@ -289,16 +255,17 @@
                         </div>
 
                         <!--اضافة مشرف منطقة-->
-                        <div class="tab-pane fade" id="nav-addAreaAdmin" role="tabpanel"
-                             aria-labelledby="nav-addAreaAdmin-tab">
+                        <div class="tab-pane fade" id="nav-addAreaAdmin" role="tabpanel" aria-labelledby="nav-addAreaAdmin-tab">
                             <div class="container">
                                 <div class="row justify-content-center">
                                     <div class="col-md-8">
-                                        <div class="card-body">
-                                            <form method="post" action="{{route('area_admin.createAreaAdmin')}}">
+                                            <form method="POST" action="{{route('register')}}">
+                                                <input name="user_type" value="area_admin" hidden>
+                                                <input name="mosque" value="0" hidden>
+                                                <input name="group" value="0" hidden>
                                             @csrf
 
-                                            <!--الاسم الأول-->
+                                                <!--الاسم الأول-->
                                                 <div class="form-group row justify-content-lg-center">
                                                     <div class="col-lg-4">
 
@@ -333,8 +300,7 @@
                                                     <div class=" col-md-7">
                                                         <input id="secondName" type="text"
                                                                class="text-right form-control @error('secondName') is-invalid @enderror"
-                                                               name="secondName" value="{{ old('secondName') }}"
-                                                               required
+                                                               name="secondName" value="{{ old('secondName') }}" required
                                                                autocomplete="secondName" autofocus>
 
                                                         @error('secondName')
@@ -357,8 +323,7 @@
                                                     <div class=" col-md-7">
                                                         <input id="familyName" type="text"
                                                                class="text-right form-control @error('familyName') is-invalid @enderror"
-                                                               name="familyName" value="{{ old('familyName') }}"
-                                                               required
+                                                               name="familyName" value="{{ old('familyName') }}" required
                                                                autocomplete="familyName" autofocus>
 
                                                         @error('familyName')
@@ -417,10 +382,10 @@
                                                 </div>
 
                                                 <!--كلمة السر-->
-                                                <input type="password" name="password" value="12345678" hidden>
+                                                <input name="password" type="password" hidden value="12345678">
 
                                                 <!--تأكيد كلمة السر-->
-                                                 <input type="password" name="password_confirmation" value="12345678" hidden>
+                                                <input name="password_confirmation" type="password" hidden value="12345678">
 
                                                 <!--رقم الجوال-->
                                                 <div class="form-group row justify-content-lg-center">
@@ -434,43 +399,41 @@
                                                     <div class="col-md-7">
                                                         <input placeholder="059/056" id="phoneNumber" type="text"
                                                                class="text-right form-control @error('phoneNumber') is-invalid @enderror"
-                                                               name="phoneNumber" value="{{ old('phoneNumber') }}"
-                                                               required
+                                                               name="phoneNumber" value="{{ old('phoneNumber') }}" required
                                                                autocomplete="phoneNumber">
 
                                                         @error('phoneNumber')
                                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                         <strong>{{ $message }}</strong>
+                                                    </span>
                                                         @enderror
                                                     </div>
                                                 </div>
 
                                                 <!--المنطقة-->
-                                                <div class="form-group row justify-content-lg-center">
-                                                    <div class="col-lg-4">
+                                                    <div class="form-group row justify-content-lg-center">
+                                                        <div class="col-lg-4">
 
-                                                    </div>
+                                                        </div>
 
-                                                    <label for="area"
-                                                           class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المنطقة') }}</label>
+                                                        <label for="area"
+                                                               class="col-lg-3 col-md-4 col-form-label text-right">{{ __('المنطقة') }}</label>
 
-                                                    <div class="col-md-7 float-left">
-                                                        <select class="form-control text-right c" id="area" name="area">
-                                                            <option value="" selected>...</option>
-                                                            <?php $areas = \App\Area::all()?>
-                                                            @foreach($areas as $area)
-                                                                <option value="{{$area->hqmcm_id}}" name="area">{{ $area->name}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @error('area')
-                                                        <span class="invalid-feedback" role="alert">
+                                                        <div class="col-md-7 float-left">
+                                                            <select class="form-control text-right c" id="area" name="area">
+                                                                <option value="" selected>...</option>
+                                                                <?php $areas = \App\Area::all()?>
+                                                                @foreach($areas as $area)
+                                                                    <option value="{{$area->hqmcm_id}}" name="area">{{ $area->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            @error('area')
+                                                            <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                      </span>
-                                                        @enderror
+                                                            @enderror
+                                                        </div>
                                                     </div>
-                                                </div>
-
 
                                                 <!--تسجيل-->
                                                 <div class="form-group row justify-content-center">
@@ -482,7 +445,7 @@
                                                 </div>
 
                                             </form>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -523,7 +486,7 @@
                                             <tbody>
                                             <tr>
                                                 <td><a href='delete/{{ $area_admin->id }}'>حذف</a><a
-                                                        href='edit/{{ $area_admin->id }}'>| تعديل</a></td>
+                                                        href='edit-area-admin/{{ $area_admin->id }}'>| تعديل</a></td>
                                                 <td><?php
                                                     if (isset($area_admin->area)){
                                                         echo \App\Area::where('hqmcm_id' , $area_admin->area )->first()->name;
@@ -540,7 +503,9 @@
                                 </table>
                             </div>
                         </div>
+
                     </div>
+
                 </div>
 
             </div>

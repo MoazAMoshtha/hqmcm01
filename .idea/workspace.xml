@@ -26,36 +26,42 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6c9c5b9-17a3-4af0-b554-d0212ec98760" name="Default Changelist" comment="---مطلوب---&#10;-admin page">
-      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/PostFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_15_143234_create_system_log_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/خبر1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/hqmcm01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hqmcm01.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="b6c9c5b9-17a3-4af0-b554-d0212ec98760" name="Default Changelist" comment="اخر تحديث 17-8-2020">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AreaAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AreaAdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Daily_followupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Daily_followupController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MosqueAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MosqueAdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mosque_Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mosque_Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MosqueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MosqueController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/admin_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/admin_dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/daily_followup.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/daily_followup.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/function/area_admins_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/area_admins_fun.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/function/area_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/area_fun.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/function/group_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/group_fun.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/function/mosque_admins_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/mosque_admins_fun.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/function/mosque_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/mosque_fun.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/function/students_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/students_fun.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/function/teachers_fun.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/function/teachers_fun.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/hqmcm_id.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/includes/admin-slideBar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/admin-slideBar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/area_admin.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/mosque_admin.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/student.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/teacher.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/operationStatus/area_add_status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/operationStatus/area_add_status.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +100,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="16ef962a-9cb9-46ce-a835-b216194f074f" />
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -221,7 +230,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -329,6 +338,17 @@
       <workItem from="1597488682724" duration="10613000" />
       <workItem from="1597638988178" duration="4835000" />
       <workItem from="1597661935818" duration="6023000" />
+      <workItem from="1597670391197" duration="252000" />
+      <workItem from="1597747950040" duration="7346000" />
+      <workItem from="1597834021920" duration="25000" />
+      <workItem from="1598015108380" duration="31880000" />
+      <workItem from="1598091620156" duration="223000" />
+      <workItem from="1598091868740" duration="63000" />
+      <workItem from="1598092109216" duration="1410000" />
+      <workItem from="1598097495202" duration="11667000" />
+      <workItem from="1598112983489" duration="3507000" />
+      <workItem from="1598194125070" duration="168000" />
+      <workItem from="1598256160745" duration="3787000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1595001925737</created>
@@ -486,7 +506,13 @@
       <option name="presentableId" value="LOCAL؜٠٠٠٢٣" />
       <updated>1597426911745</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL؜٠٠٠٢٤" summary="اخر تحديث 17-8-2020">
+      <created>1597670527671</created>
+      <option name="number" value="LOCAL؜٠٠٠٢٤" />
+      <option name="presentableId" value="LOCAL؜٠٠٠٢٤" />
+      <updated>1597670527671</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,7 +570,8 @@
     <MESSAGE value="---مطلوب---&#10;-حفظ التسجيل اليومي للطلاب" />
     <MESSAGE value="---مطلوب---&#10;-admin" />
     <MESSAGE value="---مطلوب---&#10;-admin page" />
-    <option name="LAST_COMMIT_MESSAGE" value="---مطلوب---&#10;-admin page" />
+    <MESSAGE value="اخر تحديث 17-8-2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="اخر تحديث 17-8-2020" />
   </component>
   <component name="WindowStateProjectService">
     <state x="270" y="19" key="#CLI_Interpreters" timestamp="1597641820718">
@@ -595,10 +622,15 @@
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1596146959368" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1597497333042" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1595347384961">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1598091862558">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595347384961" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1598091862558" />
+    <state x="543" y="286" key="Github.Dialog.Accounts.Choose" timestamp="1597670547748">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="543" y="286" key="Github.Dialog.Accounts.Choose/0.0.1366.728@0.0.1366.728" timestamp="1597670547748" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1597644571546">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -650,11 +682,11 @@
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595459549729" />
     <state x="368" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597054969521" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1597426919709">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1597670530938">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1596256671797" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1597426919709" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1597670530938" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1595701775988">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -680,11 +712,11 @@
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="1366" y="0" width="1095" height="715" maximized="true" key="dock-window-4/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595291918281" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1597009428340">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1598031085697">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1595507696267" />
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1597009428340" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1598031085697" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597426484551">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

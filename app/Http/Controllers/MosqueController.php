@@ -14,11 +14,16 @@ use Illuminate\View\View;
 class MosqueController extends Controller
 {
 
+    public function get_mosque(Request $request){
+        $area_mosques = Mosque::where('area' , $request->input('area'))->get();
+        return ['area_mosques' => $area_mosques];
+
+    }
 
     public function index()
     {
         $mosques = Mosque::all();
-        return view('function.mosque_fun', ['mosques' => $mosques] );
+       return view('function.mosque_fun', ['mosques' => $mosques] );
     }
 
     public function show($id)
@@ -40,7 +45,18 @@ class MosqueController extends Controller
         if ($validator->fails()) {
             return redirect('mosque/function.mosque_fun')->with('status', 'areaInsert Failure');
         }else {
-            Mosque::create($request->all());
+            if (Mosque::where('area' , $request->input('area'))->count() == 0){
+                $hqmcm_id = $request->input('area') . str_pad(1, 2, '0', STR_PAD_LEFT);
+            }else{
+                $hqmcm_id= 1 + Mosque::where('area' , $request->input('area'))->orderBy('hqmcm_id' , 'desc')->first()->hqmcm_id;
+            }
+            Mosque::create(['hqmcm_id' =>$hqmcm_id] + $request->all());
+            if (Area::where('hqmcm_id' , $request->input('area'))->count() == 0){
+                Area::where('hqmcm_id' , $request->input('area'))->update(['number_of_mosques'=> 1]);
+            }else{
+                $number_of_mosques = 1 + Area::where('hqmcm_id' , $request->input('area'))->first()->number_of_mosques;
+                Area::where('hqmcm_id' , $request->input('area'))->update(['number_of_mosques' => $number_of_mosques]);
+            }
             return redirect('mosque/function.mosque_fun')->with('status', 'areaInsert success');
         }
     }
@@ -48,8 +64,12 @@ class MosqueController extends Controller
 
     public function showMosques(Request $request)
     {
-        $name = Auth::user()->area;
-        $mosques = Mosque::where('area' , $name)->get();
+        if(Auth::user()->user_type == 'admin'){
+            $mosques = Mosque::all();
+        }else{
+            $name = Auth::user()->area;
+            $mosques = Mosque::where('area' , $name)->get();
+        }
         return view('function.mosque_fun', ['mosques' => $mosques]);
     }
 
